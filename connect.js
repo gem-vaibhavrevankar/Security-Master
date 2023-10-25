@@ -3,7 +3,7 @@ const cusip = document.getElementById('cusip');
 const isin = document.getElementById('isin');
 const sedol = document.getElementById('sedol');
 const bb_globalid = document.getElementById('bb_globalid');
-const security_type = document.getElementById('Security Type');
+const security_type = document.getElementById('Security_Type');
 const output = document.getElementById('output');
 const Currency = document.getElementById("Currency");
 const EXV_CODE = document.getElementById("EXV CODE");
@@ -24,22 +24,20 @@ const Market_Sector = document.getElementById('Marekt Sector')
 const btn = document.getElementById('btn');
 const btn2 = document.getElementById('btn2');
 
-console.log(name.value);
 
 
-//let str = name.value;
-function fun(){
-    output.innerHTML = bb_globalid.value;
-    message.innerHTML = "testing";
-    
-}
+fetch('http://127.0.0.1:5500/db.json',{
+    method : "POST",
+    body : {
+        datass : "name"
+    }
+}).
+then(res =>  res.json()).then(data => console.log(data))
 
-function fun2(){
-    alert("testing");
-    console.log('adtefasdf');
-    output.innerHTML = name.value;
-    message.innerHTML = "testing"
-}
+// fetch('https://jsonplaceholder.typicode.com/todos?completed=true'
+// ).then(res => {return res.json()}).then(data => console.log(data))
 
-btn2.addEventListener("click",fun2);
-btn.addEventListener("click",fun);
+
+
+
+
