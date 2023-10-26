@@ -1,95 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Masters Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #0074d9;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    article {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .centre {
+      display: block;
+      margin: 0 auto;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .centre:hover {
+      background-color: #555;
+    }
+
+    .output {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<h1>SECURITY MASTERS INPUT</h1>
 <body>
-    <a href="input.html">input_html</a>
-    <a href="extendedinput.html">extendedinput</a>
+  <h1>SECURITY MASTERS INPUT</h1>
+  <div class="button-container">
+    <a class="button" href="input.html">INPUT</a>
+  </div>
 
-    <br>
-    <br>
-
-
-
-<article class="font-century">
+  <article>
     <label for="Currency">Currency</label>
-    <input type="text" id="Currency">
-    
+    <input type="text" id="Currency" />
 
     <label for="Market Sector">Market Sector</label>
-    <input type="text" id="Market Sector">
+    <input type="text" id="Market Sector" />
 
-    <label for="EXC CODE">EXC CODE</label>
-    <input type="text" id="EXV CODE">
+    <label for="EXV CODE">Exchange Code</label>
+    <input type="text" id="EXV CODE" />
 
-    <label for="Securtiy type 2">Securtiy Type 2</label>
-    <input type="text" id="Securtiy type 2">
+    <label for="Securtiy type 2">Security Type 2</label>
+    <input type="text" id="Securtiy type 2" />
 
     <label for="Country issue">Country Issue</label>
-    <input type="text" id="Country issue">
+    <input type="text" id="Country issue" />
+  </article>
 
-</article>
+  <br />
 
-<br>
-
-<br>
-
-
-<article>
+  <article>
     <label for="Ticker">Ticker</label>
-    <input type="text" id="Ticker">
+    <input type="text" id="Ticker" />
 
-    <label for="Security discription">Security discription</label>
-    <input type="text" id="Security discription">
+    <label for="Security discription">Security Description</label>
+    <input type="text" id="Security discription" />
 
     <label for="ICRA rating">ICRA Rating</label>
-    <input type="text" id="ICRA rating">
+    <input type="text" id="ICRA rating" />
 
     <label for="MOODY rating">MOODY's Rating</label>
-    <input type="text" id="MOODY rating">
+    <input type="text" id="MOODY rating" />
 
     <label for="Active Switch">Active Switch</label>
-    <input type="text" id="Active Switch">
+    <input type="text" id="Active Switch" />
+  </article>
 
-</article>
+  <br />
 
-<br>
+  <article>
+    <label for="FUT-Category">Futures Category</label>
+    <input type="text" id="FUT-Category" />
 
-<br>
+    <label for="FUT-EXG_NAME">Futures Exchange Name</label>
+    <input type="text" id="FUT-EXG_NAME" />
 
-<article>
-    <label for="FUT-Category">FUT-Category</label>
-    <input type="text" id="FUT-Category">
+    <label for="FUT-Trading_Unit">Futures Trading Units</label>
+    <input type="text" id="FUT-Trading_Unit" />
 
-    <label for="FUT-EXG_NAME">FUT-EXG_NAME</label>
-    <input type="text" id="FUT-EXG_NAME">
+    <label for="FUT-TICK_SIZE">Futures Tick Size</label>
+    <input type="text" id="FUT-TICK_SIZE" />
 
-    <label for="FUT-Trading_Unit">FUT-Trading_Unit</label>
-    <input type="text" id="FUT-Trading_Unit">
+    <label for="FUT-TICK_Value">Futures Tick Value</label>
+    <input type="text" id="FUT-TICK_Value" />
+  </article>
 
-    <label for="FUT-TICK_SIZE">FUT-TICK_SIZE</label>
-    <input type="text" id="FUT-TICK_SIZE">
+  <br />
 
-    <label for="FUT-TICK_Value">FUT-TICK_Value</label>
-    <input type="text" id="FUT-TICK_Value">
-</article>
+  <div class="button-container">
+    <button class="centre" id="btn2">RETRIEVE</button>
+    <br>
+    <a class="button" href="visualize.html">MASTER USER</a>
+  </div>
 
-<br>
-<br> 
-
-<div class="button w-10 h-10 rounded-full"> 
-    <button class="font-century " id="btn2">RETRIEVE</button>
-</div>
-
-
-
-   
-<script src="connect.js"></script>
-    
-    
+  <script src="connect.js"></script>
 </body>
 </html>
