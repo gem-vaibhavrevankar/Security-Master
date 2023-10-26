@@ -30,6 +30,12 @@ const Market_Sector = document.getElementById('Marekt Sector')
 
     const btn = document.getElementById('btn');
     const btn2 = document.getElementById('btn2')
+    const btn3 = document.getElementById('data')
+
+    btn3.addEventListener("click", function(){
+        const searchurl = "visualize.html"
+        window.location.href = searchurl
+    })
 
    
     btn2.addEventListener("click",function searchone(){
