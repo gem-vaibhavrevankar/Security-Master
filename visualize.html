@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Security Data</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .button-container {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #0074d9;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 0 10px;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      #data-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 1000px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        margin: 10px 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Security Data</h1>
+    <div class="button-container">
+      <a class="button" href="extendedinput.html">Back</a>
+    </div>
+    <input type="text" id="search" placeholder="Search by name..." />
+
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Currency</th>
+          <th>Market Sector</th>
+          <th>Exchange Code</th>
+          <th>Security Type</th>
+          <th>Country of Issue</th>
+          <th>Security Type 2</th>
+          <th>Futures Category</th>
+          <th>Last Tradeable Date</th>
+          <th>Futures Exchange Name</th>
+          <th>Futures Contract Size</th>
+          <th>Futures Tick Size</th>
+          <th>Futures Tick Value</th>
+          <th>Futures Generic Month</th>
+          <th>Futures First Trade Date</th>
+          <th>Cash Settled</th>
+          <th>Futures Trading Units</th>
+          <th>Quote Units</th>
+          <th>Futures Month Year</th>
+          <th>Futures Contract Date</th>
+          <th>ID BB Global</th>
+          <th>ID BB Global Company</th>
+          <th>ID BB Global Name</th>
+          <th>Quoted Currency</th>
+          <th>Ticker</th>
+          <th>CUSIP</th>
+          <th>ISIN</th>
+          <th>SEDOL</th>
+          <th>ICRA Rating</th>
+          <th>Moody's Rating</th>
+          <th>Crisil Rating</th>
+          <th>Website</th>
+          <th>Active Switch</th>
+          <th>Security Description</th>
+          <!-- Add more table headings as needed -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body will be populated dynamically -->
+      </tbody>
+    </table>
+
+    <script>
+      // Step 1: Fetch data from the JSON API
+      fetch("https://securitymasterdataspie.onrender.com/securitydata") // Replace with your JSON API endpoint
+        .then((response) => response.json())
+        .then((securitydata) => {
+          // Step 2: Parse the JSON response
+
+          // Step 3: Create an HTML table dynamically
+          const table = document.getElementById("data-table");
+          const tbody = table.querySelector("tbody");
+
+          // Step 4: Populate the table with the data
+          securitydata.forEach((item) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${item.NAME}</td>
+              <td>${item.CRNCY}</td>
+              <td>${item.MARKET_SECTOR}</td>
+              <td>${item.EXC_CODE}</td>
+              <td>${item.SECURITY_TYPE}</td>
+                        <td>${item.CNTRY_ISSUE}</td>
+                        <td>${item.SECURITY_TYPE2}</td>
+                        <td>${item.FUTURES_CATEGORY}</td>
+                        <td>${item.LAST_TRADEABLE_DT}</td>
+                        <td>${item.FUR_EXCH_NAME_LONG}</td>
+                        <td>${item.FUT_CONT_SIZE}</td>
+                        <td>${item.FUT_TICK_SIZE}</td>
+                        <td>${item.FUT_TICK_VALUE}</td>
+                        <td>${item.FUT_GEN_MONTH}</td>
+                        <td>${item.FUT_FIRST_TRADE_DT}</td>
+                        <td>${item.CASH_SETTLED}</td>
+                        <td>${item.FUT_TRADING_UNITS}</td>
+                        <td>${item.QUOTE_UNITS}</td>
+                        <td>${item.FUT_MONTH_YEAR}</td>
+                        <td>${item.FUT_CONTRACT_DATE}</td>
+                        <td>${item.ID_BB_GLOBAL}</td>
+                        <td>${item.ID_BB_GLOBAL_COMPANY}</td>
+                        <td>${item.ID_BB_GLOBAL_NAME}</td>
+                        <td>${item.QUOTED_CURRENCY}</td>
+                        <td>${item.TICKER}</td>
+                        <td>${item.CUSIP}</td>
+                        <td>${item.ISIN}</td>
+                        <td>${item.SEDOL}</td>
+                        <td>${item.ICRA_RATING}</td>
+                        <td>${item.MOODY_RATING}</td>
+                        <td>${item.CRISIL_RATING}</td>
+                        <td>${item.WEBSITE}</td>
+                        <td>${item.ACTIVE_SWITCH}</td>
+                        <td>${item.SEC_DESCRIPTION}</td>
+              <!-- Add more table data cells as needed -->
+            `;
+            tbody.appendChild(row);
+          });
+
+          // Step 5: Add search functionality
+          document
+            .getElementById("search")
+            .addEventListener("input", function () {
+              const query = this.value.toLowerCase();
+              securitydata.forEach((item) => {
+                const row = tbody.querySelector(
+                  `td:first-child:contains(${query})`
+                );
+                if (row) {
+                  row.closest("tr").style.display = "table-row";
+                } else {
+                  row.closest("tr").style.display = "none";
+                }
+              });
+            });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    </script>
+
+    <script>
+      // Custom jQuery :contains() selector
+      jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
+        return function (elem) {
+          return jQuery(elem).text().toLowerCase().includes(text);
+        };
+      });
+    </script>
+  </body>
+</html>
