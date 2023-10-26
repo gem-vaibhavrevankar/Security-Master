@@ -20,22 +20,33 @@ const FUT_Trading_Unit = document.getElementById("FUT-Trading Unit");
 const FUT_TICK_SIZE = document.getElementById("FUT-TICK_SIZE");
 const FUT_TICK_Value = document.getElementById("FUT-TICK Value");
 const Market_Sector = document.getElementById('Marekt Sector')
-
-const btn = document.getElementById('btn');
-const btn2 = document.getElementById('btn2');
+//const Retrieve = document.getElementById('Retrieve');
 
 
 
-fetch('http://127.0.0.1:5500/db.json',{
-    method : "POST",
-    body : {
-        datass : "name"
-    }
-}).
-then(res =>  res.json()).then(data => console.log(data))
 
-// fetch('https://jsonplaceholder.typicode.com/todos?completed=true'
-// ).then(res => {return res.json()}).then(data => console.log(data))
+//search fucntion
+
+
+    const btn = document.getElementById('btn');
+    const btn2 = document.getElementById('btn2')
+
+   
+    btn2.addEventListener("click",function searchone(){
+        const searchurl = "searchfilter.html"
+        window.location.href = searchurl
+    })
+    
+    
+
+    
+
+
+
+
+
+
+
 
 
 
