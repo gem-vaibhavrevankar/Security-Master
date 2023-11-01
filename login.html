@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
         body {
             background: #fff;
         }
+
         .container {
             max-width: 400px;
             margin: 0 auto;
@@ -37,10 +39,12 @@
     <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
+                    aria-controls="login" aria-selected="true">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Signup</a>
+                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup"
+                    aria-selected="false">Signup</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -80,7 +84,7 @@
     <script>
         // Add your JavaScript logic here (similar to the previous example)
         // Remember to use a server-side solution in a production environment.
-        loginForm.addEventListener('submit', function(event) {
+        loginForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
             const username = loginUsername.value;
@@ -89,7 +93,7 @@
             // Perform authentication (usually on the server-side).
             if (username === 'akshita.rajain@geminisolutions.com' && password === 'password123') {
                 // loginMessage.innerText = 'Login successful. Redirecting...';
-                setTimeout(function() {
+                setTimeout(function () {
                     // Redirect to the desired page on successful login.
                     window.location.href = 'input.html';
                 }, 2000); // Redirect after a delay (simulated).
@@ -99,4 +103,5 @@
         });
     </script>
 </body>
+
 </html>

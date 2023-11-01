@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <style>
@@ -14,21 +15,22 @@
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
+  }
 
-.styled-table thead tr {
+  .styled-table thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: left;
-}
+  }
 
-.styled-table th{
-  font-family:  Helvetica;
-  min-width: 150px;
-  padding: 12px 15px;
-  text-align: center;
-}
-.styled-table td {
+  .styled-table th {
+    font-family: Helvetica;
+    min-width: 150px;
+    padding: 12px 15px;
+    text-align: center;
+  }
+
+  .styled-table td {
     padding: 12px 15px;
     text-align: center;
     position: relative;
@@ -43,25 +45,26 @@
 				background-color: black;
 				z-index: -1;
     }
-    &::after{
+
+    &::after {
       background-color: #009879;
     }
-    
-}
 
-.styled-table tbody tr {
+  }
+
+  .styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
-}
+  }
 
-.styled-table tbody tr:nth-of-type(even) {
+  .styled-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
-}
+  }
 
-.styled-table tbody tr:last-of-type {
+  .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
-}
+  }
 
-.styled-table tbody tr.active-row {
+  .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
 }
@@ -98,7 +101,6 @@ img{
    
   </div>
   
-
   
 
   <table id="data-table" class="styled-table">
@@ -167,35 +169,35 @@ img{
             <td>${item.MARKET_SECTOR}</td>
             <td>${item.EXC_CODE}</td>
             <td>${item.SECURITY_TYPE}</td>
-                      <td>${item.CNTRY_ISSUE}</td>
-                      <td>${item.SECURITY_TYPE2}</td>
-                      <td>${item.FUTURES_CATEGORY}</td>
-                      <td>${item.LAST_TRADEABLE_DT}</td>
-                      <td>${item.FUR_EXCH_NAME_LONG}</td>
-                      <td>${item.FUT_CONT_SIZE}</td>
-                      <td>${item.FUT_TICK_SIZE}</td>
-                      <td>${item.FUT_TICK_VALUE}</td>
-                      <td>${item.FUT_GEN_MONTH}</td>
-                      <td>${item.FUT_FIRST_TRADE_DT}</td>
-                      <td>${item.CASH_SETTLED}</td>
-                      <td>${item.FUT_TRADING_UNITS}</td>
-                      <td>${item.QUOTE_UNITS}</td>
-                      <td>${item.FUT_MONTH_YEAR}</td>
-                      <td>${item.FUT_CONTRACT_DATE}</td>
-                      <td>${item.ID_BB_GLOBAL}</td>
-                      <td>${item.ID_BB_GLOBAL_COMPANY}</td>
-                      <td>${item.ID_BB_GLOBAL_NAME}</td>
-                      <td>${item.QUOTED_CURRENCY}</td>
-                      <td>${item.TICKER}</td>
-                      <td>${item.CUSIP}</td>
-                      <td>${item.ISIN}</td>
-                      <td>${item.SEDOL}</td>
-                      <td>${item.ICRA_RATING}</td>
-                      <td>${item.MOODY_RATING}</td>
-                      <td>${item.CRISIL_RATING}</td>
-                      <td>${item.WEBSITE}</td>
-                      <td>${item.ACTIVE_SWITCH}</td>
-                      <td>${item.SEC_DESCRIPTION}</td>
+            <td>${item.CNTRY_ISSUE}</td>
+            <td>${item.SECURITY_TYPE2}</td>
+            <td>${item.FUTURES_CATEGORY}</td>
+            <td>${item.LAST_TRADEABLE_DT}</td>
+            <td>${item.FUR_EXCH_NAME_LONG}</td>
+            <td>${item.FUT_CONT_SIZE}</td>
+            <td>${item.FUT_TICK_SIZE}</td>
+            <td>${item.FUT_TICK_VALUE}</td>
+            <td>${item.FUT_GEN_MONTH}</td>
+            <td>${item.FUT_FIRST_TRADE_DT}</td>
+            <td>${item.CASH_SETTLED}</td>
+            <td>${item.FUT_TRADING_UNITS}</td>
+            <td>${item.QUOTE_UNITS}</td>
+            <td>${item.FUT_MONTH_YEAR}</td>
+            <td>${item.FUT_CONTRACT_DATE}</td>
+            <td>${item.ID_BB_GLOBAL}</td>
+            <td>${item.ID_BB_GLOBAL_COMPANY}</td>
+            <td>${item.ID_BB_GLOBAL_NAME}</td>
+            <td>${item.QUOTED_CURRENCY}</td>
+            <td>${item.TICKER}</td>
+            <td>${item.CUSIP}</td>
+            <td>${item.ISIN}</td>
+            <td>${item.SEDOL}</td>
+            <td>${item.ICRA_RATING}</td>
+            <td>${item.MOODY_RATING}</td>
+            <td>${item.CRISIL_RATING}</td>
+            <td>${item.WEBSITE}</td>
+            <td>${item.ACTIVE_SWITCH}</td>
+            <td>${item.SEC_DESCRIPTION}</td>
             <!-- Add more table data cells as needed -->
           `;
           tbody.appendChild(row);
@@ -232,4 +234,5 @@ img{
     });
   </script>
 </body>
+
 </html>

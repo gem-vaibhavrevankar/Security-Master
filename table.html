@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Security Data</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Noto+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="table.css">
+</head>
+
+<body>
+  <h1>Security Data</h1>
+  <div class="button-container">
+    <a class="button" href="extendedinput.html">Back</a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search...">
+  </div>
+
+
+  <div id="rows-dropdown-container">
+    <label for="rows-dropdown">Rows per page:</label>
+    <select id="rows-dropdown">
+      <option value="0">None</option>
+      <option value="10">10</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="All">All</option>
+    </select>
+  </div>
+
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Currency</th>
+        <th>Market Sector</th>
+        <th>Exchange Code</th>
+        <th>Security Type</th>
+        <th>Country of Issue</th>
+        <th>Security Type 2</th>
+        <th>Futures Category</th>
+        <th>Last Tradeable Date</th>
+        <th>Futures Exchange Name</th>
+        <th>Futures Contract Size</th>
+        <th>Futures Tick Size</th>
+        <th>Futures Tick Value</th>
+        <th>Futures Generic Month</th>
+        <th>Futures First Trade Date</th>
+        <th>Cash Settled</th>
+        <th>Futures Trading Units</th>
+        <th>Quote Units</th>
+        <th>Futures Month Year</th>
+        <th>Futures Contract Date</th>
+        <th>ID BB Global</th>
+        <th>ID BB Global Company</th>
+        <th>ID BB Global Name</th>
+        <th>Quoted Currency</th>
+        <th>Ticker</th>
+        <th>CUSIP</th>
+        <th>ISIN</th>
+        <th>SEDOL</th>
+        <th>ICRA Rating</th>
+        <th>Moody's Rating</th>
+        <th>Crisil Rating</th>
+        <th>Website</th>
+        <th>Active Switch</th>
+        <th>Security Description</th>
+        <!-- Add more table headings as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table body will be populated dynamically -->
+    </tbody>
+  </table>
+
+  <div id="pagination-container">
+    <button id="prev-page">◄</button>
+    <div id="page-number-container">
+      <!-- Page numbers will be added here dynamically -->
+    </div>
+    <button id="next-page">►</button>
+  </div>
+
+  <script src="table.js"></script>
+</body>
+
+</html>
