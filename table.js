@@ -32,7 +32,7 @@ function fetchDataAndPopulateTable() {
       const endIndex = startIndex + itemsPerPage;
 
       // Iterate through the data and populate the table with rows
-      for (let i = startIndex; i < endIndex && i < data.length - 504; i++) {
+      for (let i = startIndex; i < endIndex && i < data.length - 505; i++) {
         const item = data[i];
         const row = document.createElement("tr");
         row.innerHTML = `
