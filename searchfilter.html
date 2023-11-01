@@ -10,7 +10,7 @@
 <style>
   .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    /* margin: 25px 0; */
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -34,9 +34,16 @@
     padding: 12px 15px;
     text-align: center;
     position: relative;
-
-    &:hover &::before {
-      background-color: #f3f3f3;
+    &:hover
+    &:before{
+        content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: black;
+				z-index: -1;
     }
 
     &::after {
@@ -60,16 +67,41 @@
   .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-  }
+}
+
+h1{
+  color: #009879;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+
+img{
+  width: 120px;
+  padding-left: 530px;
+}
+/* .logo{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  } */
+
 </style>
 
 <body>
-  <h1>FIND</h1>
+  
   <div class="button-container">
-    <a class="button" href="extendedinput.html">Back</a>
+    <a class="button" href="extendedinput.html"></a>
   </div>
-
-
+  
+  <div style="text-align: center; align-items: center; display: flex;">
+    
+      <img src="Data.png" alt="Image Description">
+      <h1 class="logo">credentials Data</h1>
+    
+   
+  </div>
+  
+  
 
   <table id="data-table" class="styled-table">
     <thead>
