@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Security-master</title>
+    </head>
+    <style>
+        .type{
+            width: auto; 
+            height: 20px; 
+            color: white; 
+            font-size: 12px; 
+            font-family: Calistoga;
+            font-weight: 400;
+            word-wrap: break-word;
+            padding-top: 15px;
+        }
+        .box{
+            width: 180px;
+            height: 20px;
+            background: #D9D9D9;
+            border: 2px #00FFFF solid;
+        }
+        .flex-container{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+        img{
+            width:max-content;
+            height: max-content;
+            transform: rotate(180deg);
+            transform-origin: 0 0;
+        }
+        .left-box{
+            flex: 1;
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-family: Roboto Serif;
+            font-weight: 800;
+            word-wrap: break-word;
+            padding: 22.5% 0;  
+        }
+        .container{
+            flex:1;
+            width:fit-content;
+            align-items: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        .division-line{
+            width: 0px;
+            height: 100vh;
+            border: 2.96px white solid;
+        }
+    </style>
+    <body background="abstract-digital-grid-black-background.png">
+        <div class="flex-container">    
+            <div class="left-box">SECURITY<br/>MASTERS</div>
+        <div class="division-line"></div>
+        <div class="container">  
+            <form class="form">
+            <div class="type">NAME</div>
+            <input type="text" class="box" name="name">
+            <div class="type">CUSIP</div>
+            <input type="text" class="box" name="cusip">
+            <div class="type">SEDOL</div>
+            <input type="text" class="box" name="sedol">
+            <div class="type">ISIN</div>
+            <input type="text" class="box" name="isin">
+            <div class="type">BB_GLOBALID</div>
+            <input type="text" class="box" name="bb_globalid">
+            <div class="type">SECURITY TYPE</div>
+            <input type="text" class="box" name="security_type">
+            <!-- <input type="submit" value="Submit"> -->
+            </form>
+        </div>
+        </div>
+    </body>
+</html>
