@@ -14,7 +14,7 @@ rowsDropdown.addEventListener("change", () => {
 
 function fetchDataAndPopulateTable() {
   // Replace this URL with the actual URL of your JSON API
-  const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata/";
+  const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata?";
 
   // Fetch data from the API
   fetch(apiUrl)
@@ -74,6 +74,12 @@ function fetchDataAndPopulateTable() {
             `;
         tbody.appendChild(row);
       }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = table.tHead.rows[0].cells.length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -103,6 +109,7 @@ function filterTable(query) {
       row.style.display = "none";
     }
   });
+  document.getElementById("total-rows").textContent = displayedRows;
 }
 
 fetchDataAndPopulateTable();
