@@ -6,13 +6,14 @@
     <style>
         .type{
             width: auto; 
-            height: 20px; 
+            height: 14px; 
             color: white; 
             font-size: 12px; 
             font-family: Calistoga;
             font-weight: 400;
             word-wrap: break-word;
             padding-top: 15px;
+            margin-left: 40px;
         }
         .box{
             width: 180px;
@@ -24,114 +25,143 @@
             display: flex;
             width: 100%;
             flex-direction: row;
+            justify-content: center;
         }
-        /* img{
-            width:max-content;
-            height: max-content;
-            transform: rotate(180deg);
-            transform-origin: 0 0;
-        } */
-        .left-box{
-            flex: 1;
-            width: 50%;
-            height: auto;
-            text-align: center;
-            color: white;
-            font-size: 28px;
-            font-family: Roboto Serif;
-            font-weight: 800;
-            word-wrap: break-word;
-            padding: 22.5% 0;  
-        }
-        .container{
-            flex:1;
-            width:fit-content;
+        table{
             align-items: center;
-            height: 100vh;
-            display: flex;
             justify-content: center;
-        }
-        .division-line{
-            width: 0px;
-            height: 100vh;
-            border: 2.96px white solid;
-        }
-        .form-row{
-            display: flex;
-            justify-content: space-evenly;
-            margin-bottom: 10px;
-        }
-        .data-button{
-            justify-content: center;
+            margin-top: 23px;
         }
         .logo{
             color: #f1f7f6; 
             font-family: 'Times New Roman', Times, serif; 
             text-transform: uppercase; 
         }
+        .header{
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            margin-left: 40px;
+        }
     </style>
     <body background="abstract-digital-grid-black-background.png">
         <div class="valign-center" style="position:absolute; top:1vh; text-align: center; align-items: center; display: flex; height: 40%;  justify-content: flex-start">    
-            <img src="Data.png" width="60px" alt="error" style= "padding-left: 530px" />
-            <h1 class="logo">&ensp; SECURITY INPUT</h1>
+        
         </div>
-        <div class="flex-container">    
-        <div class="container">  
+        <div class="header">
+            <!-- <img src="Data.png" width="60px" alt="error" style= "padding-left: 530px" /> -->
+            <h1 class="logo"> SECURITY INPUT</h1>
+            <!-- <table>
+                <tr>    
+                    <td><img src="Data.png" width="60px" alt="error" style= "padding-left: 530px" /></td>
+                    <td><h1 class="logo"> SECURITY INPUT</h1></td>
+                    <td></td>
+                </tr>
+            </table> -->
+        </div>
+        <div class="flex-container">
             <form class="form">
-           <div class="form-row">
-            <div class="data-button">
-                <input type="submit" value="INPUT-HTML">
-                <input type="submit" value="EXTENDED-INPUT"><br><br>
-            </div>
-           </div>    
-            <div class = "form-row"> 
-                <div class="type"><INPUT-HTML></INPUT></div>
-                <div class="type">CURRENCY</div>
-                <input type="text" class="box" name="CURRENCY">
-                <div class="type">&nbsp;MARKET SECTOR</div>
-                <input type="text" class="box" name="MARKET SECTOR">
-                <div class="type">&nbsp;EXC CODE</div>
-                <input type="text" class="box" name="EXC CODE">
-                <div class="type">&nbsp;SECURITY TYPE 2</div>
-                <input type="text" class="box" name="SECURITY TYPE2">
-            </div>
-            <div class = "form-row">
-                <div class="type">COUNTRY ISSUE</div>
-                <input type="text" class="box" name="COUNTRY">
-                <div class="type">&nbsp;TICKER</div>
-                <input type="text" class="box" name="TICKER">
-                <div class="type">&nbsp;SECURITY_DES</div>
-                <input type="text" class="box" name="SECURITY_DES">
-                <div class="type">&nbsp;ICRA RATING</div>
-                <input type="text" class="box" name="ICRA RATING">               
-            </div>
-            <div class = "form-row">
-                <div class="type">MOODY'S RATING</div>
-                <input type="text" class="box" name="MOODY'S RATING">
-                <div class="type">&nbsp;ACTIVE SWITCH</div>
-                <input type="text" class="box" name="ACTIVE SWITCH">
-                <div class="type">&nbsp;FUT_CTG</div>
-                <input type="text" class="box" name="FUT_CTG">
-                <div class="type">&nbsp;FUT-EXG_NAME</div>
-                <input type="text" class="box" name="FUT-EXG_NAME">                
-            </div>
-            <div class = "form-row">
-                <div class="type">FUT-TRADING_UNIT</div>
-                <input type="text" class="box" name="FUT-TRADING_UNIT">
-                <div class="type">&nbsp;FUT-TICK_SIZE</div>
-                <input type="text" class="box" name="FUT-TICK_SIZE">
-                <div class="type">&nbsp;FUT TICK VALUE</div>
-                <input type="text" class="box" name="FUT-TICK_VALUE">
-            </div>
-            <div class = "form-row">
-                <div class="data-button">
-                    <input type="submit" value="Retreive">
-                    <input type="submit" value="Data">
-                </div>
-            </div>          
-          
+                <table class="center" >
+                    <tr>
+                        <td rowspan="1.5"><input type="submit" value="INPUT-HTML"></td>
+                        <td colspan="1.5"><input type="submit" value="EXTENDED-INPUT"></td>
+                    </tr>
+                    <tr>
+                        <td><div class="type">CURRENCY</div></td>
+                        <td><div class="type">MARKET SECTOR</div></td>
+                        <td><div class="type">EXC CODE</div></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="box" name="CURRENCY"></td>
+                        <td><input type="text" class="box" name="MARKET SECTOR"></td>
+                        <td><input type="text" class="box" name="EXC CODE"></td>
+                    </tr>
+                    <tr>
+                        <td><div class="type">SECURITY TYPE</div></td>
+                        <td><div class="type">COUNTRY ISSUE</div></td>
+                        <td><div class="type">TICKER</div></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="box" name="SECURITY TYPE2"></td>
+                        <td><input type="text" class="box" name="COUNTRY"></td>
+                        <td><input type="text" class="box" name="EXC CODE"></td>
+                    </tr>
+                    <tr>
+                        <td><div class="type">SECURITY DESCRIPTION</div></td>
+                        <td><div class="type">ICRA RATING</div></td>
+                        <td><div class="type">MOODY'S RATING</div></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="box" name="SECURITY DESCRIPTION"></td>
+                        <td><input type="text" class="box" name="ICRA RATING"></td>
+                        <td><input type="text" class="box" name="MOODY'S RATING"></td>
+                    </tr>
+                    <tr>
+                        <td><div class="type">ACTIVE SWITCH</div></td>
+                        <td><div class="type">FUTURE CATEGORY</div></td>
+                        <td><div class="type">FUTURE EXCHANGE NAME</div></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="box" name="ACTIVE SWITCH"></td>
+                        <td><input type="text" class="box" name="FUT_CTG"></td>
+                        <td><input type="text" class="box" name="FUT-EXG_NAME"></td>
+                    </tr>
+                    <tr>
+                        <td><div class="type">FUTURE TRADING UNIT</div></td>
+                        <td><div class="type">FUTURE TICKER SIZE</div></td>
+                        <td><div class="type">FUTURE TICKER VALUE</div></td>
+                    </tr>
+                        <td><input type="text" class="box" name="FUT-TRADING_UNIT"></td>
+                        <td><input type="text" class="box" name="FUT-TICK_SIZE"></td>
+                        <td><input type="text" class="box" name="FUT-TICK_VALUE"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Retreive"></td>
+                        <td><input type="submit" value="Data"></td>
+                    </tr>
+                </table>
             </form>
-        </div>
         </div>
     </body>
 </html>
+
+<!-- /* img{
+    width:max-content;
+    height: max-content;
+    transform: rotate(180deg);
+    transform-origin: 0 0;
+} */
+/* .left-box{
+    flex: 1;
+    width: 50%;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-family: Roboto Serif;
+    font-weight: 800;
+    word-wrap: break-word;
+    padding: 22.5% 0;  
+} */
+/* .container{
+    flex:1;
+    width:fit-content;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+} */
+/* .division-line{
+    width: 0px;
+    height: 100vh;
+    border: 2.96px white solid;
+} */
+/* .form-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+} */
+/* .data-button{
+    justify-content: center;
+} */ -->
