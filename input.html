@@ -7,30 +7,92 @@
     <title>Document</title>
 </head>
 
-<div style="text-align: center; align-items: center; display: flex;">
+<!-- <div style="text-align: center; align-items: center; display: flex;">
     
-    <img src="Data.png" alt="Image Description">
-    <h1 class="logo">Security Input</h1>
-  
+    <img src="Data.png" alt="Image Description" class="img1">  
  
-</div>
+</div> -->
 
 <style>
+      body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center; /* Center the image both horizontally and vertically. */
+    background-color: #f0f0f0; /* Fallback color. */
+}
+
+      /* img{
+            width:max-content;
+            height: max-content;
+            transform: rotate(180deg);
+            transform-origin: 0 0;
+        } */
+     .type{
+            width: auto; 
+            height: 20px; 
+            color: white; 
+            font-size: 12px; 
+            font-family: Calistoga;
+            font-weight: 400;
+            word-wrap: break-word;
+            padding-top: 15px;
+        }
+        .box{
+            width: 180px;
+            height: 20px;
+            background: #D9D9D9;
+            border: 2px #00FFFF solid;
+        }
+        .flex-container{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+        .left-box{
+            flex: 1;
+            display: inline-block;
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-family: Roboto Serif;
+            font-weight: 800;
+            word-wrap: break-word;
+            padding: 22.5% 0;  
+        }
+        .division-line{
+            width: 0px;
+            height: 100vh;
+            border: 2.96px white solid;
+        }
+
+        .container{
+            flex:1;
+            width:fit-content;
+            align-items: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        img{
+            width: 100px;          
+        }   
+        
 h1{
   color: #009879;
   font-family: 'Times New Roman', Times, serif;
   text-transform: uppercase;
 }
 
-img{
-    width: 120px;
-    padding-left: 530px;
-}
+
 
 
 </style>
 
-<body>
+<body background="abstract-digital-grid-black-background.png">
     
     <div style="text-align: center; text-transform: uppercase;">
         <a href="input.html" class="button">input_html</a>
@@ -39,25 +101,34 @@ img{
     
     <br>
     <br>
-    
-    <form class="styled-table">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
 
-        <label for="cusip">Cusip</label>
-        <input type="text" id="cusip" name="cusip">
+    <div class="flex-container">   
 
-        <label for="Sedol">Sedol</label>
-        <input type="text" id="Sedol" name="Sedol">
+        <div class="left-box">
+            <!-- <img src="Data.png"> -->
+            SECURITY<br/>MASTERS
+        </div>
+        
+    <div class="division-line"></div>
+    <div class="container">
+    <form class="form">
+        <div class="type">NAME</div>
+        <input type="text" id="name" name="name" class="box">
 
-        <label for="ISIN">ISIN</label>
-        <input type="text" id="ISIN" name="ISIN">
+        <div class="type">CUSIP</div>
+        <input type="text" id="cusip" name="cusip" class="box">
 
-        <label for="BB_GLOBALID">BB_GLOBALID</label>
-        <input type="text" id="BB_GLOBALID" name="BB_GLOBALID">
+        <div class="type">SEDOL</div>
+        <input type="text" id="Sedol" name="Sedol" class="box">
 
-        <label for="Security_Type">Security Type</label>
-        <input type="text" id="Security_Type" name="Security_Type" style="text-transform: uppercase;">
+        <div class="type">ISIN</div>
+        <input type="text" id="ISIN" name="ISIN" class="box">
+
+        <div class="type">BB_GLOBALID</div>
+        <input type="text" id="BB_GLOBALID" name="BB_GLOBALID" class="box">
+
+        <div class="type">SECURITY_TYPE</div>
+        <input type="text" id="Security_Type" name="Security_Type" style="text-transform: uppercase;" class="box">
 
         <br>
         <br>
@@ -74,6 +145,8 @@ img{
         
     
     </form>
+    </div>
+    </div>
 
 
     <script src="input.js"></script>
