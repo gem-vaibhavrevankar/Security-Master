@@ -201,3 +201,85 @@ input[type="text"] {
   max-height: 400px; /* Adjust the height as needed */
   overflow-y: scroll;
 }
+
+#delete-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#id-to-delete {
+  width: 120px;
+  height: 24px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#delete-button {
+  background-color: #e74c3c; /* Red color for delete button */
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#delete-button:hover {
+  background-color: #c0392b; /* Darker red color on hover */
+}
+
+#update-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.update-input {
+  width: 200px;
+  height: 30px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 5px 0;
+}
+
+.update-button {
+  background-color: #3498db; /* Blue color for the update button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-button:hover {
+  background-color: #2980b9; /* Darker blue color on hover */
+}
+
+  
+/* CSS for the "Total Rows" and "Total Columns" labels */
+td[colspan] {
+  text-align: center;
+  background-color: #f0f0f0; /* Light gray background color */
+  font-weight: bold;
+}
+
+span#total-rows,
+span#total-columns {
+  color: #007bff; /* Blue text color */
+  margin: 0 4px; /* Add some margin for spacing */
+}
+
+/* Style to separate the "Total Rows" and "Total Columns" */
+td[colspan]:before,
+td[colspan]:after {
+  content: "";
+  display: block;
+  width: 50%; /* Half of the td width */
+  border-bottom: 1px solid #007bff; /* Blue underline */
+  margin: 6px auto; /* Adjust vertical spacing */
+}

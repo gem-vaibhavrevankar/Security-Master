@@ -35,6 +35,12 @@
     <table id="data-table">
       <thead>
         <tr>
+          <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+          <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
           <th>Name</th>
           <th>Currency</th>
           <th>Market Sector</th>
@@ -75,15 +81,33 @@
       <tbody>
         <!-- Table body will be populated dynamically -->
       </tbody>
-      <tfoot>
+      <!-- <tfoot>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
           <td colspan="">Total Columns: <span id="total-columns">0</span></td>
         </tr>
-      </tfoot>
+      </tfoot> -->
+      <!-- Add Entry and Delete Entry buttons within the same container -->
       <button id="add-entry-button">Add Entry</button>
+      <!-- <button id="update-entry-button">Update Entry</button> -->
+      <!-- <div id="update-container">
+        <input type="text" id="id-to-update" placeholder="ID to Update" class="update-input">
+        <input type="text" id="new-data" placeholder="New Data" class="update-input">
+        <button id="update-button" class="delete-button">Update</button>
+      </div> -->
+      <div>
+        <label for="id-to-delete">Enter ID to Delete:</label>
+        <input type="text" id="id-to-delete" placeholder="ID">
+        <button id="delete-button">Delete</button>
+      </div>
     </table>
-
+    <div id="pagination-container">
+      <button id="prev-page">◄</button>
+      <div id="page-number-container">
+        <!-- Page numbers will be added here dynamically -->
+      </div>
+      <button id="next-page">►</button>
+    </div>
   </div>
 
 
@@ -99,9 +123,9 @@
           </div>
           <div class="form-group">
             <label for="add-currency">Currency:</label>
-            <input type="text" id="add-currency" name="currency" placeholder="Currency" required>
+            <input type="text" id="add-currency" name="currency" placeholder="Currency">
           </div>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="add-market-sector">Market Sector:</label>
             <input type="text" id="add-market-sector" name="market_sector" placeholder="Market Sector">
           </div>
@@ -114,7 +138,7 @@
             <input type="text" id="add-security-type" name="security_type" placeholder="Security Type">
           </div>
           <div class="form-group">
-            <label for "add-cntry-issue">Country of Issue:</label>
+            <label for="add-cntry-issue">Country of Issue:</label>
             <input type="text" id="add-cntry-issue" name="cntry_issue" placeholder="Country of Issue">
           </div>
           <div class="form-group">
@@ -177,7 +201,7 @@
           </div>
           <div class="form-group">
             <label for="add-id-bb-global">ID BB Global:</label>
-            <input type="text" id="add-id-bb-global" name="id_bb_global" placeholder="ID BB Global">
+            <input type="text" id="add-id-bb-global" name="id_bb_global" placeholder="ID BB Global" required>
           </div>
           <div class="form-group">
             <label for="add-id-bb-global-company">ID BB Global Company:</label>
@@ -215,7 +239,7 @@
               <label for="add-moody-rating">Moody Rating:</label>
               <input type="text" id="add-moody-rating" name="moody_rating" placeholder="Moody Rating">
             </div>
-            <div class "form-group">
+            <div class="form-group">
               <label for="add-crisil-rating">CRISIL Rating:</label>
               <input type="text" id="add-crisil-rating" name="crisil_rating" placeholder="CRISIL Rating">
             </div>
@@ -233,27 +257,172 @@
             </div>
             <div class="form-group">
               <button type="submit">Add Entry</button>
-            </div> -->
-            <div class="form-group">
-              <button type="submit">Add Entry</button>
             </div>
         </form>
       </div>
     </div>
   </div>
 
-
-
-  <div id="pagination-container">
-    <button id="prev-page">◄</button>
-    <div id="page-number-container">
-      <!-- Page numbers will be added here dynamically -->
+  <!-- <div id="update-entry-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-update-modal">&times;</span>
+      <h2>Update Entry</h2>
+      <div class="scrollable-form-container">
+        <form id="update-form">
+          <input type="hidden" id="update-entry-id" name="entry_id" value="">
+          <div class="form-group">
+            <label for="update-name">Name:</label>
+            <input type="text" id="update-name" name="name" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <label for="update-currency">Currency:</label>
+            <input type="text" id="update-currency" name="currency" placeholder="Currency" required>
+          </div>
+          <div class="form-group">
+            <label for="update-market-sector">Market Sector:</label>
+            <input type="text" id="update-market-sector" name="market_sector" placeholder="Market Sector">
+          </div>
+          <div class="form-group">
+            <label for="update-exc-code">Exchange Code:</label>
+            <input type="text" id="update-exc-code" name="exc_code" placeholder="Exchange Code">
+          </div>
+          <div class="form-group">
+            <label for="update-security-type">Security Type:</label>
+            <input type text id="update-security-type" name="security_type" placeholder="Security Type">
+          </div>
+          <div class="form-group">
+            <label for="update-cntry-issue">Country of Issue:</label>
+            <input type="text" id="update-cntry-issue" name="cntry_issue" placeholder="Country of Issue">
+          </div>
+          <div class="form-group">
+            <label for="update-security-type2">Security Type 2:</label>
+            <input type="text" id="update-security-type2" name="security_type2" placeholder="Security Type 2">
+          </div>
+          <div class="form-group">
+            <label for="update-futures-category">Futures Category:</label>
+            <input type="text" id="update-futures-category" name="futures_category" placeholder="Futures Category">
+          </div>
+          <div class="form-group">
+            <label for="update-last-tradeable-dt">Last Tradeable Date:</label>
+            <input type="text" id="update-last-tradeable-dt" name="last_tradeable_dt" placeholder="Last Tradeable Date">
+          </div>
+          <div class="form-group">
+            <label for="update-fur-exch-name-long">Futures Exchange Name Long:</label>
+            <input type="text" id="update-fur-exch-name-long" name="fur_exch_name_long" placeholder="Futures Exchange Name Long">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-cont-size">Futures Contract Size:</label>
+            <input type="text" id="update-fut-cont-size" name="fut_cont_size" placeholder="Futures Contract Size">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-tick-size">Futures Tick Size:</label>
+            <input type="text" id="update-fut-tick-size" name="fut_tick_size" placeholder="Futures Tick Size">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-tick-value">Futures Tick Value:</label>
+            <input type="text" id="update-fut-tick-value" name="fut_tick_value" placeholder="Futures Tick Value">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-gen-month">Futures Generation Month:</label>
+            <input type="text" id="update-fut-gen-month" name="fut_gen_month" placeholder="Futures Generation Month">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-first-trade-dt">Futures First Trade Date:</label>
+            <input type="text" id="update-fut-first-trade-dt" name="fut_first_trade_dt"
+              placeholder="Futures First Trade Date">
+          </div>
+          <div class="form-group">
+            <label for="update-cash-settled">Cash Settled:</label>
+            <input type="text" id="update-cash-settled" name="cash_settled" placeholder="Cash Settled">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-trading-units">Futures Trading Units:</label>
+            <input type="text" id="update-fut-trading-units" name="fut_trading_units"
+              placeholder="Futures Trading Units">
+          </div>
+          <div class="form-group">
+            <label for="update-quote-units">Quote Units:</label>
+            <input type="text" id="update-quote-units" name="quote_units" placeholder="Quote Units">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-month-year">Futures Month Year:</label>
+            <input type="text" id="update-fut-month-year" name="fut_month_year" placeholder="Futures Month Year">
+          </div>
+          <div class="form-group">
+            <label for="update-fut-contract-date">Futures Contract Date:</label>
+            <input type="text" id="update-fut-contract-date" name="fut_contract_date"
+              placeholder="Futures Contract Date">
+          </div>
+          <div class="form-group">
+            <label for="update-id-bb-global">ID BB Global:</label>
+            <input type="text" id="update-id-bb-global" name="id_bb_global" placeholder="ID BB Global">
+          </div>
+          <div class="form-group">
+            <label for="update-id-bb-global-company">ID BB Global Company:</label>
+            <input type="text" id="update-id-bb-global-company" name="id_bb_global_company"
+              placeholder="ID BB Global Company">
+          </div>
+          <div class="form-group">
+            <label for="update-id-bb-global-name">ID BB Global Name:</label>
+            <input type="text" id="update-id-bb-global-name" name="id_bb_global_name" placeholder="ID BB Global Name">
+          </div>
+          <div class="form-group">
+            <label for="update-quoted-currency">Quoted Currency:</label>
+            <input type="text" id="update-quoted-currency" name="quoted_currency" placeholder="Quoted Currency">
+          </div>
+          <div class="form-group">
+            <label for="update-ticker">Ticker:</label>
+            <input type="text" id="update-ticker" name="ticker" placeholder="Ticker">
+          </div>
+          <div class="form-group">
+            <label for="update-cusip">CUSIP:</label>
+            <input type="text" id="update-cusip" name="cusip" placeholder="CUSIP">
+          </div>
+          <div class="form-group">
+            <label for="update-isin">ISIN:</label>
+            <input type="text" id="update-isin" name="isin" placeholder="ISIN">
+          </div>
+          <div class="form-group">
+            <label for="update-sedol">SEDOL:</label>
+            <input type="text" id="update-sedol" name="sedol" placeholder="SEDOL">
+          </div>
+          <div class="form-group">
+            <label for="update-icra-rating">ICRA Rating:</label>
+            <input type="text" id="update-icra-rating" name="icra_rating" placeholder="ICRA Rating">
+          </div>
+          <div class="form-group">
+            <label for="update-moody-rating">Moody Rating:</label>
+            <input type="text" id="update-moody-rating" name="moody_rating" placeholder="Moody Rating">
+          </div>
+          <div class="form-group">
+            <label for="update-crisil-rating">CRISIL Rating:</label>
+            <input type="text" id="update-crisil-rating" name="crisil_rating" placeholder="CRISIL Rating">
+          </div>
+          <div class="form-group">
+            <label for="update-website">Website:</label>
+            <input type="text" id="update-website" name="website" placeholder="Website">
+          </div>
+          <div class="form-group">
+            <label for="update-active-switch">Active Switch:</label>
+            <input type="text" id="update-active-switch" name="active_switch" placeholder="Active Switch">
+          </div>
+          <div class="form-group">
+            <label for="update-sec-description">Security Description:</label>
+            <input type="text" id="update-sec-description" name="sec_description" placeholder="Security Description">
+          </div>
+          <div class="form-group">
+            <button type="submit">Update Entry</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <button id="next-page">►</button>
-  </div>
+  </div> -->
+
 
   <script src="table.js"></script>
   <script src="post.js"></script>
+  <script src="delete.js"></script>
+  <script src="put.js"></script>
 </body>
 
 </html>
