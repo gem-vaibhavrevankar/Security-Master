@@ -41,7 +41,7 @@ updateForm.addEventListener("submit", (e) => {
 
   fetch(apiUrl)
     .then((response) => response.json())
-    .then((existingData) => {
+    .then(async (existingData) => {
       // Get data from the form fields
       const updatedName = document.getElementById("update-name").value;
       const updatedCurrency = document.getElementById("update-currency").value;
@@ -79,7 +79,7 @@ updateForm.addEventListener("submit", (e) => {
       const updatedSecurityDescription = document.getElementById("update-sec-description").value;
       // Add similar lines for other fields...
 
-      const idBbGlobalExists = fetchDataAndCheckIdBbGlobal(updatedIdBBGlobal);
+      const idBbGlobalExists = await fetchDataAndCheckIdBbGlobal(updatedIdBBGlobal);
 
       if (idBbGlobalExists && updatedIdBBGlobal !== existingData.ID_BB_GLOBAL) {
         // Handle the case where the ID_BB_GLOBAL already exists
