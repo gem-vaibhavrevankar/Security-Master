@@ -2,6 +2,13 @@ let currentPage = 1;
 let itemsPerPage = 0; // Number of items to display per page
 let totalRows = 0; // Store the total number of rows
 
+// JavaScript to add the "total-label" class
+const totalRowsTd = document.getElementById("total-rows");
+const totalColumnsTd = document.getElementById("total-columns");
+totalRowsTd.classList.add("total-label");
+totalColumnsTd.classList.add("total-label");
+
+
 const rowsDropdown = document.getElementById("rows-dropdown");
 rowsDropdown.addEventListener("change", () => {
   if (rowsDropdown.value === "All") {
@@ -14,7 +21,7 @@ rowsDropdown.addEventListener("change", () => {
 
 function fetchDataAndPopulateTable() {
   // Replace this URL with the actual URL of your JSON API
-  const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata/";
+  const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata/?";
 
   // Fetch data from the API
   fetch(apiUrl)
@@ -32,7 +39,7 @@ function fetchDataAndPopulateTable() {
       const endIndex = startIndex + itemsPerPage;
 
       // Iterate through the data and populate the table with rows
-      for (let i = startIndex; i < endIndex && i < data.length - 505; i++) {
+      for (let i = startIndex; i < endIndex && i < data.length; i++) {
         const item = data[i];
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -74,6 +81,12 @@ function fetchDataAndPopulateTable() {
             `;
         tbody.appendChild(row);
       }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -103,6 +116,7 @@ function filterTable(query) {
       row.style.display = "none";
     }
   });
+  document.getElementById("total-rows").textContent = displayedRows;
 }
 
 fetchDataAndPopulateTable();
@@ -129,8 +143,8 @@ nextPageButton.addEventListener("click", () => {
 });
 
 // Custom jQuery :contains() selector
-jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
-  return function (elem) {
-    return jQuery(elem).text().toLowerCase().includes(text);
-  };
-});
+// jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
+//   return function (elem) {
+//     return jQuery(elem).text().toLowerCase().includes(text);
+//   };
+// });

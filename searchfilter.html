@@ -101,7 +101,17 @@ img{
    
   </div>
   
-  
+  <div class="search-container" textalign="flex">
+    <form action="">
+      <input type="text" id="search" placeholder="Search...">
+      <label for="sort">Sort</label>
+      <input type="text" name="sort" id="sort">
+      <button type="submit">sort</button>
+
+    </form>
+   
+    
+  </div>
 
   <table id="data-table" class="styled-table">
     <thead>
@@ -149,8 +159,26 @@ img{
   </table>
 
   <script>
-    const url = localStorage.getItem('url');
+    const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form_data = new FormData(form);
+
+  for (item of form_data) {
+    let str = item[0] + item[1];
+    localStorage.setItem(item[0], item[1]);
+  }
+  location.reload();
+});
+
+
+    let url = localStorage.getItem('url');
+    const sorti = localStorage.getItem('sort');
     // Step 1: Fetch data from the JSON API
+    url += "&_sort=" + sorti;
+
+    console.log(url);
+    
     fetch(url) // Replace with your JSON API endpoint
       .then((response) => response.json())
       .then((securitydata) => {
@@ -203,22 +231,40 @@ img{
           tbody.appendChild(row);
         });
 
-        // Step 5: Add search functionality
-        document
-          .getElementById("search")
-          .addEventListener("input", function () {
-            const query = this.value.toLowerCase();
-            securitydata.forEach((item) => {
-              const row = tbody.querySelector(
-                `td:first-child:contains(${query})`
-              );
-              if (row) {
-                row.closest("tr").style.display = "table-row";
-              } else {
-                row.closest("tr").style.display = "none";
-              }
-            });
-          });
+        
+       
+
+        function filterTable(query) {
+  const rows = document.querySelectorAll("#data-table tbody tr");
+  let displayedRows = 0;
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    let rowMatchesQuery = false;
+
+    cells.forEach((cell) => {
+      if (cell.textContent.toLowerCase().includes(query)) {
+        rowMatchesQuery = true;
+      }
+    });
+
+    if (rowMatchesQuery) {
+      row.style.display = "table-row";
+      displayedRows++;
+    } else {
+      row.style.display = "none";
+    }
+  });
+  document.getElementById("total-rows").textContent = displayedRows;
+}
+
+fetchDataAndPopulateTable();
+
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  filterTable(query);
+});
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
