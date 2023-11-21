@@ -9,7 +9,7 @@ deleteButton.addEventListener("click", () => {
     return;
   }
 
-  const apiUrl = `https://securitymasterdataspie.onrender.com/securitydata/${idToDelete}`; // Replace with your API URL, including the ID of the data to delete
+  const apiUrl = `https://securitymasterdataspie.onrender.com/IdData/${idToDelete}`; // Replace with your API URL, including the ID of the data to delete
 
   // Make a DELETE request to your server to delete the data
   fetch(apiUrl, {
