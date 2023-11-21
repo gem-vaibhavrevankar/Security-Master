@@ -21,7 +21,7 @@ rowsDropdown.addEventListener("change", () => {
 
 function fetchDataAndPopulateTable() {
   // Replace this URL with the actual URL of your JSON API
-  const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata/?";
+  const apiUrl = "https://securitymasterdataspie.onrender.com/IdData/?";
 
   // Fetch data from the API
   fetch(apiUrl)
@@ -43,6 +43,7 @@ function fetchDataAndPopulateTable() {
         const item = data[i];
         const row = document.createElement("tr");
         row.innerHTML = `
+            <td>${item.id}</td>
             <td>${item.NAME}</td>
             <td>${item.CRNCY}</td>
             <td>${item.MARKET_SECTOR}</td>
