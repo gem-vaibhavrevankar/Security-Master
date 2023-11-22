@@ -22,6 +22,14 @@ function sortTable(columnIndex) {
 
     if (dataType === "numeric") {
       return parseFloat(aValue) - parseFloat(bValue);
+    } else if (dataType === "date") {
+      // Custom date sorting for "dd/mm/yy" format
+      const parseDate = (dateString) => {
+        const [day, month, year] = dateString.split("/");
+        return new Date(`20${year}`, month - 1, day); // Assuming years are in 20xx format
+      };
+
+      return parseDate(aValue) - parseDate(bValue);
     } else {
       return aValue.localeCompare(bValue);
     }
