@@ -1,4 +1,4 @@
-const apiUrl = "https://securitymasterdataspie.onrender.com/securitydata/?";
+const apiUrl = "https://securitymasterdataspie.onrender.com/IdData/?";
 const addEntryButton = document.getElementById("add-entry-button");
 const addEntryModal = document.getElementById("add-entry-modal");
 const closeModalButton = document.getElementById("close-modal");

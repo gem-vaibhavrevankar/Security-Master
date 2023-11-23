@@ -57,6 +57,40 @@
   color: #009879;
 }
 
+/* Sorting styles for table headers */
+.styled-table th {
+  cursor: pointer;
+  position: relative;
+}
+
+.styled-table th:hover::after {
+  content: "\2191\2193"; /* Unicode for up and down arrows */
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.styled-table th.sorted-asc::after {
+  content: "\2191"; /* Unicode for up arrow */
+}
+
+.styled-table th.sorted-desc::after {
+  content: "\2193"; /* Unicode for down arrow */
+}
+
+/* Add the following styles for the odd row background color */
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #f0f0f0;
+}
+
+/* Add the following styles for the active row */
+.styled-table tbody tr.active-row td {
+  font-weight: bold;
+  color: #009879;
+}
+
+
 h1 {
   color: #009879;
   font-family: "Times New Roman", Times, serif;

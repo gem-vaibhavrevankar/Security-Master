@@ -46,6 +46,7 @@
       </thead>
       <thead>
         <tr>
+          <th data-type="numeric">ID</th>
           <th>Name</th>
           <th>Currency</th>
           <th>Market Sector</th>
@@ -54,16 +55,16 @@
           <th>Country of Issue</th>
           <th>Security Type 2</th>
           <th>Futures Category</th>
-          <th>Last Tradeable Date</th>
+          <th data-type="date">Last Tradeable Date</th>
           <th>Futures Exchange Name</th>
-          <th>Futures Contract Size</th>
-          <th>Futures Tick Size</th>
-          <th>Futures Tick Value</th>
+          <th data-type="numeric">Futures Contract Size</th>
+          <th data-type="numeric">Futures Tick Size</th>
+          <th data-type="numeric">Futures Tick Value</th>
           <th>Futures Generic Month</th>
           <th>Futures First Trade Date</th>
           <th>Cash Settled</th>
-          <th>Futures Trading Units</th>
-          <th>Quote Units</th>
+          <th data-type="numeric">Futures Trading Units</th>
+          <th data-type="numeric">Quote Units</th>
           <th>Futures Month Year</th>
           <th>Futures Contract Date</th>
           <th>ID BB Global</th>
@@ -71,9 +72,9 @@
           <th>ID BB Global Name</th>
           <th>Quoted Currency</th>
           <th>Ticker</th>
-          <th>CUSIP</th>
+          <th data-type="numeric">CUSIP</th>
           <th>ISIN</th>
-          <th>SEDOL</th>
+          <th data-type="numeric">SEDOL</th>
           <th>ICRA Rating</th>
           <th>Moody's Rating</th>
           <th>Crisil Rating</th>
@@ -421,13 +422,14 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> 
 
   
   <script src="table.js"></script>
   <script src="post.js"></script>
   <script src="delete.js"></script>
   <script src="put.js"></script>
+  <script src="sort.js"></script>
 </body>
 
 </html>
