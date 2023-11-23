@@ -45,7 +45,7 @@
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #f0f0f0;
 }
 
 .styled-table tbody tr:last-of-type {
@@ -81,7 +81,7 @@
 
 /* Add the following styles for the odd row background color */
 .styled-table tbody tr:nth-of-type(odd) {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 /* Add the following styles for the active row */
