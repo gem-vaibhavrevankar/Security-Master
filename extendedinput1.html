@@ -1,10 +1,71 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Security-master</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
     </head>
+    <div style="text-align: center; align-items: center; display: flex;">
+        
+        <img src="Data-removebg-preview.png" alt="Image Description">
+        <h1 class="logo">Security Input</h1>
+      
+     
+    </div>
     <style>
-        .type{
+h1{
+  color: #009879;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+
+img{
+    width: 120px;
+    padding-left: 410px;
+}
+
+button {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow:  rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: #00FFFF solid;;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+a:link, a:visited {
+  width: 117px;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  font-size: small;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: green;
+  color: white;
+}
+.type{
             width: auto; 
             height: 14px; 
             color: white; 
@@ -30,7 +91,7 @@
         table{
             align-items: center;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         .logo{
             color: #f1f7f6; 
@@ -44,14 +105,25 @@
         input{
             margin-left: 120px;
         }
+        .form {            
+             display: inline-block;             
+             text-align: left;  
+             margin-left: 85px;       
+        }
     </style>
     <body background="abstract-digital-grid-black-background.png">
         <div class="valign-center" style="position:absolute; top:1vh; text-align: center; align-items: center; display: flex; height: 40%;  justify-content: flex-start">    
         
         </div>
-        <div class="header">
+        <div style="text-align: center; text-transform: uppercase;">
+            <a href="input.html">input_html</a>
+            <a href="extendedinput.html">extendedinput</a>
+        </div>
+        <br>
+        <!-- <div class="header"> -->
             <!-- <img src="Data.png" width="60px" alt="error" style= "padding-left: 530px" /> -->
-            <h1 class="logo"> SECURITY INPUT</h1>
+            <!-- <h1 class="logo"> SECURITY INPUT</h1> -->
+           
             <!-- <table>
                 <tr>    
                     <td><img src="Data.png" width="60px" alt="error" style= "padding-left: 530px" /></td>
@@ -59,70 +131,77 @@
                     <td></td>
                 </tr>
             </table> -->
-        </div>
-        <div class="flex-container">
+        <!-- </div> -->
+        <div class="inline-block">
             <form class="form">
                 <table class="center" >
                     <tr>
-                        <td rowspan="1.5"><input type="submit" value="INPUT-HTML"></td>
-                        <td colspan="1.5"><input type="submit" value="EXTENDED-INPUT"></td>
+                        <td><div class="type"><label for="Currency">CURRENCY</label></div></td>
+                        <td><div class="type"><label for="Market_Sector">MARKET SECTOR</label></div></td>
+                        <td><div class="type"><label for="EXC_CODE">EXC CODE</label></div></td>
                     </tr>
                     <tr>
-                        <td><div class="type">CURRENCY</div></td>
-                        <td><div class="type">MARKET SECTOR</div></td>
-                        <td><div class="type">EXC CODE</div></td>
+                        <td><input type="text" class="box" name="Currency" id="currency"></td>
+                        <td><input type="text" class="box" name="Market_Sector" id="market sector"></td>
+                        <td><input type="text" class="box" name="EXC_CODE" id="exc code"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" class="box" name="CURRENCY"></td>
-                        <td><input type="text" class="box" name="MARKET SECTOR"></td>
-                        <td><input type="text" class="box" name="EXC CODE"></td>
+                        <td><div class="type"><label for="Securtiy_type_2">SECURITY TYPE</label></div></td>
+                        <td><div class="type"><label for="Country_issue">COUNTRY ISSUE</label></div></td>
+                        <td><div class="type"><label for="Ticker">TICKER</label></div></td>
                     </tr>
                     <tr>
-                        <td><div class="type">SECURITY TYPE</div></td>
-                        <td><div class="type">COUNTRY ISSUE</div></td>
-                        <td><div class="type">TICKER</div></td>
+                        <td><input type="text" class="box" name="Securtiy_type_2" id="security type2"></td>
+                        <td><input type="text" class="box" name="Country_issue" id="country"></td>
+                        <td><input type="text" class="box" name="Ticker" id="ticker"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" class="box" name="SECURITY TYPE2"></td>
-                        <td><input type="text" class="box" name="COUNTRY"></td>
-                        <td><input type="text" class="box" name="EXC CODE"></td>
+                        <td><div class="type"><label for="Security_discription">SECURITY DESCRIPTION</label></div></td>
+                        <td><div class="type"><label for="ICRA_rating">ICRA RATING</label></div></td>
+                        <td><div class="type"><label for="MOODY_rating">MOODY'S RATING</label></div></td>
                     </tr>
                     <tr>
-                        <td><div class="type">SECURITY DESCRIPTION</div></td>
-                        <td><div class="type">ICRA RATING</div></td>
-                        <td><div class="type">MOODY'S RATING</div></td>
+                        <td><input type="text" class="box" name="Security_discription" id="security description"></td>
+                        <td><input type="text" class="box" name="ICRA_rating" id="icra rating"></td>
+                        <td><input type="text" class="box" name="MOODY_rating" id="moody's rating"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" class="box" name="SECURITY DESCRIPTION"></td>
-                        <td><input type="text" class="box" name="ICRA RATING"></td>
-                        <td><input type="text" class="box" name="MOODY'S RATING"></td>
+                        <td><div class="type"><label for="Active_Switch">ACTIVE SWITCH</label></div></td>
+                        <td><div class="type"><label for="FUT-Category">FUTURE CATEGORY</label></div></td>
+                        <td><div class="type"><label for="FUT-EXG_NAME">FUTURE EXCHANGE NAME</label></div></td>
                     </tr>
                     <tr>
-                        <td><div class="type">ACTIVE SWITCH</div></td>
-                        <td><div class="type">FUTURE CATEGORY</div></td>
-                        <td><div class="type">FUTURE EXCHANGE NAME</div></td>
+                        <td><input type="text" class="box" name="Active_Switch" id="active switch"></td>
+                        <td><input type="text" class="box" name="FUT-Category" id="FUT-Category"></td>
+                        <td><input type="text" class="box" name="FUT-EXG_NAME" id="fut-exg_name"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" class="box" name="ACTIVE SWITCH"></td>
-                        <td><input type="text" class="box" name="FUT_CTG"></td>
-                        <td><input type="text" class="box" name="FUT-EXG_NAME"></td>
+                        <td><div class="type"><label for="FUT-Trading_Unit">FUTURE TRADING UNIT</label></div></td>
+                        <td><div class="type"><label for="FUT-TICK_SIZE">FUTURE TICKER SIZE</label></div></td>
+                        <td><div class="type"><label for="FUT-TICK_Value">FUTURE TICKER VALUE</label></div></td>
                     </tr>
-                    <tr>
-                        <td><div class="type">FUTURE TRADING UNIT</div></td>
-                        <td><div class="type">FUTURE TICKER SIZE</div></td>
-                        <td><div class="type">FUTURE TICKER VALUE</div></td>
+                        <td><input type="text" class="box" name="FUT-Trading_Unit" id="trading unit"></td>
+                        <td><input type="text" class="box" name="FUT-TICK_SIZE" id="fut-tick-size"></td>
+                        <td><input type="text" class="box" name="FUT-TICK_Value" id="fut-tick-value"></td>
                     </tr>
-                        <td><input type="text" class="box" name="FUT-TRADING_UNIT"></td>
-                        <td><input type="text" class="box" name="FUT-TICK_SIZE"></td>
-                        <td><input type="text" class="box" name="FUT-TICK_VALUE"></td>
-                    </tr>
-                    <tr>
+                    <!-- <tr>
                         <td><input type="submit" value="Retreive"></td>
                         <td><input type="button" id="data"  value="Data"></td>
-                    </tr>
+                    </tr> -->
                 </table>
+                <br>
+                <br>
+                <div style="text-align: center;">
+                    <button type="submit" >Retrive</button>
+                </div> 
+                
             </form>
+            <br>
         </div>
+        <div style="text-align: center; padding: 1px;">
+            <button id = "data" >Data</button>
+        </div>
+        <script src="connect.js"></script>
     </body>
 </html>
 
