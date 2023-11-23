@@ -337,3 +337,7 @@ td[colspan]:after {
   border-bottom: 1px solid #009879; /* Blue underline */
   margin: 6px auto; /* Adjust vertical spacing */
 }
+
+html {
+  zoom:.9
+}
