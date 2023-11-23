@@ -18,5 +18,5 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem(item[0], item[1]);
   }
 
-  window.location.href = "extendedinput.html";
+  window.location.href = "extendedinput1.html";
 });
