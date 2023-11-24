@@ -151,6 +151,32 @@ input[type="text"] {
   background-color: #05624f;
 }
 
+#page-number-container {
+  display: flex;
+  margin: 0 10px;
+}
+
+#page-number-container button {
+  background-color: #009879;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+#page-number-container button:hover {
+  background-color: #05624f;
+}
+
+#page-number-container button.current-page {
+  background-color: #05624f;
+}
+
+.current-page {
+  background-color: #05624f;
+}
+
 #search {
   width: 150px; /* Initial fixed width */
   padding: 5px;

@@ -28,16 +28,15 @@
   <div id="rows-dropdown-container">
     <label for="rows-dropdown">Rows per page:</label>
     <select id="rows-dropdown">
-      <option value="0">None</option>
+      <option value="All">All</option>
       <option value="10">10</option>
       <option value="50">50</option>
       <option value="100">100</option>
-      <option value="All">All</option>
     </select>
   </div>
 
   <div id="table-container">
-    <table id="data-table" class = "styled-table">
+    <table id="data-table" class="styled-table">
       <thead>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -87,6 +86,12 @@
       <tbody>
         <!-- Table body will be populated dynamically -->
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="">Current Page: <span id="current-page">0</span></td>
+          <td colspan="">Total Pages: <span id="total-pages">0</span></td>
+        </tr>
+      </tfoot>
       <!-- <tfoot>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -160,7 +165,8 @@
           </div>
           <div class="form-group">
             <label for="update-fur-exch-name-long">Futures Exchange Name Long:</label>
-            <input type="text" id="update-fur-exch-name-long" name="fur_exch_name_long" placeholder="Futures Exchange Name Long">
+            <input type="text" id="update-fur-exch-name-long" name="fur_exch_name_long"
+              placeholder="Futures Exchange Name Long">
           </div>
           <div class="form-group">
             <label for="update-fut-cont-size">Futures Contract Size:</label>
@@ -366,7 +372,8 @@
           </div>
           <div class="form-group">
             <label for="add-id-bb-global-company">ID BB Global Company:</label>
-            <input type="text" id="add-id-bb-global-company" name="id_bb_global_company" placeholder="ID BB Global Company">
+            <input type="text" id="add-id-bb-global-company" name="id_bb_global_company"
+              placeholder="ID BB Global Company">
           </div>
           <div class="form-group">
             <label for="add-id-bb-global-name">ID BB Global Name:</label>
@@ -385,8 +392,8 @@
             <input type="text" id="add-cusip" name="cusip" placeholder="CUSIP">
           </div>
           <div class="form-group">
-              <label for="add-isin">ISIN:</label>
-              <input type="text" id="add-isin" name="isin" placeholder="ISIN">
+            <label for="add-isin">ISIN:</label>
+            <input type="text" id="add-isin" name="isin" placeholder="ISIN">
           </div>
           <div class="form-group">
             <label for="add-sedol">SEDOL:</label>
@@ -422,9 +429,9 @@
         </form>
       </div>
     </div>
-  </div> 
+  </div>
 
-  
+
   <script src="table.js"></script>
   <script src="post.js"></script>
   <script src="delete.js"></script>
