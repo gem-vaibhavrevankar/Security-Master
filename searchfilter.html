@@ -18,7 +18,7 @@
   }
 
   .styled-table thead tr {
-    background-color: #009879;
+    background-color: #808080;
     color: #ffffff;
     text-align: left;
   }
@@ -47,7 +47,7 @@
     }
 
     &::after {
-      background-color: #009879;
+      background-color: #808080;
     }
 
   }
@@ -61,7 +61,7 @@
   }
 
   .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #808080;
   }
 
   .styled-table tbody tr.active-row {
@@ -70,7 +70,7 @@
 }
 
 h1{
-  color: #009879;
+  color: #808080;
   font-family: 'Times New Roman', Times, serif;
   text-transform: uppercase;
 }
@@ -96,17 +96,19 @@ img{
   <div style="text-align: center; align-items: center; display: flex;">
     
       <img src="Data.png" alt="Image Description">
-      <h1 class="logo">credentials Data</h1>
+      <h1 class="logo">Request Data</h1>
     
    
   </div>
   
   <div class="search-container" textalign="flex">
     <form action="">
-      <input type="text" id="search" placeholder="Search...">
-      <label for="sort">Sort</label>
+      <!-- <input type="text" id="search" placeholder="Search..."> -->
+      <label for="sort">Req ID</label>
       <input type="text" name="sort" id="sort">
-      <button type="submit">sort</button>
+      <button type="submit">Acess</button>
+      <br>
+      <br>
 
     </form>
    
@@ -116,6 +118,7 @@ img{
   <table id="data-table" class="styled-table">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Currency</th>
         <th>Market Sector</th>
@@ -159,6 +162,82 @@ img{
   </table>
 
   <script>
+
+
+
+  async function fetchAndSendData() {
+  const jsonDataUrl = 'https://securitymasterdataspie.onrender.com/pendingreq?id='+sorti;
+  const postDataUrl = 'https://securitymasterdataspie.onrender.com/IdData?';
+  console.log(jsonDataUrl);
+
+  try {
+    // Fetch the JSON data
+    const jsonDataResponse = await fetch(jsonDataUrl);
+  
+    const jsonData = await jsonDataResponse.json();
+    delete jsonData[0].id;
+    
+
+    // Create the POST request body
+    const postDataString = JSON.stringify(jsonData[0]);
+    
+    
+
+
+
+    
+    console.log(postDataString);
+    // Make the POST request
+    const postDataResponse =  fetch(postDataUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: postDataString,
+    })
+
+    // Check the POST request status
+    if (postDataResponse.status === 201) {
+      console.log('Data sent successfully');
+      console.log(await postDataResponse.json());
+    } else {
+      console.error('Error sending data');
+      console.error(await postDataResponse.text());
+    }
+  } catch (error) {
+    console.error('Error fetching or sending data:', error);
+  }
+}
+
+
+ function delapi(){
+  const apiUrl = 'https://securitymasterdataspie.onrender.com/pendingreq/'+sorti;
+  console.log("delete wala chal rha hai");
+fetch(apiUrl, {
+  method: 'DELETE',
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Handle the response data
+    console.log('Data deleted successfully:', data);
+  })
+  .catch(error => {
+    // Handle errors
+    console.error('Error deleting data:', error);
+  });
+}
+ 
+
+
+
+
+let i = 0;
+
     const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -168,14 +247,35 @@ form.addEventListener("submit", (e) => {
     let str = item[0] + item[1];
     localStorage.setItem(item[0], item[1]);
   }
-  location.reload();
+  fetchAndSendData();
+  delapi();
+ 
 });
 
+form.addEventListener("submit" , (e) => {
+  e.preventDefault();
 
-    let url = localStorage.getItem('url');
-    const sorti = localStorage.getItem('sort');
-    // Step 1: Fetch data from the JSON API
-    url += "&_sort=" + sorti;
+  
+
+
+  
+ 
+  setTimeout(() => {
+    // After the function logic, reload the page
+    location.reload();
+  }, 5000);
+
+})
+
+
+
+
+
+    // let url = localStorage.getItem('url');
+     const sorti = localStorage.getItem('sort');
+    // // Step 1: Fetch data from the JSON API
+    // url += "&_sort=" + sorti;
+    const url = "https://securitymasterdataspie.onrender.com/pendingreq";
 
     console.log(url);
     
@@ -192,6 +292,7 @@ form.addEventListener("submit", (e) => {
         securitydata.forEach((item) => {
           const row = document.createElement("tr");
           row.innerHTML = `
+            <td>${item.id}</td>          
             <td>${item.NAME}</td>
             <td>${item.CRNCY}</td>
             <td>${item.MARKET_SECTOR}</td>
@@ -257,6 +358,41 @@ form.addEventListener("submit", (e) => {
   });
   document.getElementById("total-rows").textContent = displayedRows;
 }
+
+
+
+
+// const table0 = document.getElementById('data-table');
+
+// const rows = table0.getElementsByTagName('tr');
+// var apiurl = "https://securitymasterdataspie.onrender.com/pendingreq/?"
+
+// var url_ = "https://securitymasterdataspie.onrender.com/idData/44";
+//   fetch(url_).then( (response) => response.json()).then((data) => fetch(apiurl ,{
+//         method : "POST",
+//         body : data.json(),}).then(res => res.json()).then(data => console.log(data)));
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 fetchDataAndPopulateTable();
 

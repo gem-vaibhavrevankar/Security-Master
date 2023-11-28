@@ -12,7 +12,7 @@
 
 <body>
   <div class="button-container">
-    <a class="button" href="extendedinput.html">Back</a>
+    <a class="button" href="extendedinput1.html">Back</a>
   </div>
 
   <div style="text-align: center; align-items: center; display: flex;">
@@ -23,6 +23,13 @@
   <div class="search-container">
     <input type="text" id="search" placeholder="Search...">
   </div>
+
+  <div textalign = "right">
+    <button type="button" class="icon-button" id="btnpen">
+    <span class="material-icons">Req</span>
+    <span class="icon-button__badge" id="notibadge">10</span>
+    </button>
+   </div>
 
 
   <div id="rows-dropdown-container">
@@ -100,6 +107,13 @@
         <label for="id-to-delete">Enter ID to Delete:</label>
         <input type="text" id="id-to-delete" placeholder="ID">
         <button id="delete-button">Delete</button>
+           <!-- <div textalign = "right">
+            <button type="button" class="icon-button" id="btnpen">
+            <span class="material-icons"></span>
+            <span class="icon-button__badge" id="notibadge">10</span>
+            </button>
+           </div> -->
+
       </div>
     </table>
     <div id="pagination-container">
@@ -430,6 +444,9 @@
   <script src="delete.js"></script>
   <script src="put.js"></script>
   <script src="sort.js"></script>
+  <script type="module" src="request.js"></script>
+  <script src="connect.js"></script>
+
 </body>
 
 </html>
