@@ -4,12 +4,12 @@
 
 // const btn = document.getElementById('btn');
 // const btn2 = document.getElementById('btn2')
-const btn3 = document.getElementById("data");
+// const btn3 = document.getElementById("data");
 
-btn3.addEventListener("click", function () {
-  const searchurl = "table.html";
-  window.location.href = searchurl;
-});
+// btn3.addEventListener("click", function () {
+//   const searchurl = "table.html";
+//   window.location.href = searchurl;
+// });
 
 // btn2.addEventListener("click",function searchone(){
 //     const searchurl = "searchfilter.html"
