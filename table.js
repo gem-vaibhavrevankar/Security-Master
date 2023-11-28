@@ -17,7 +17,7 @@ const rowsDropdown = document.getElementById("rows-dropdown");
 const pageNumbersContainer = document.getElementById("page-number-container"); 
 
 rowsDropdown.addEventListener("change", () => {
-  currentPage = 1;
+  currentPage = rowsDropdown.value === "0" ? 0 : 1;
   if (rowsDropdown.value === "All") {
     itemsPerPage = totalRows;
   } else {
@@ -29,7 +29,7 @@ rowsDropdown.addEventListener("change", () => {
 
 
 function calculateTotalPages() {
-  totalPages = Math.ceil(totalRows / itemsPerPage);
+  totalPages = itemsPerPage !== 0 ? Math.ceil(totalRows / itemsPerPage) : 0;;
 }
 
 function fetchDataAndPopulateTable() {
@@ -113,11 +113,6 @@ function fetchDataAndPopulateTable() {
   // Your data fetching and population code here
   // Be sure to populate the table rows based on the current page and itemsPerPage
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  fetchDataAndPopulateTable();
-  // Additional setup or initialization code can be added here
-});
 
 function renderPageNumbers() {
   pageNumbersContainer.innerHTML = "";
