@@ -17,7 +17,7 @@ const rowsDropdown = document.getElementById("rows-dropdown");
 const pageNumbersContainer = document.getElementById("page-number-container"); 
 
 rowsDropdown.addEventListener("change", () => {
-  currentPage = rowsDropdown.value === "0" ? 0 : 1;
+  currentPage = 1;
   if (rowsDropdown.value === "All") {
     itemsPerPage = totalRows;
   } else {
@@ -190,10 +190,3 @@ nextPageButton.addEventListener("click", () => {
   currentPage++;
   fetchDataAndPopulateTable();
 });
-
-// Custom jQuery :contains() selector
-// jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
-//   return function (elem) {
-//     return jQuery(elem).text().toLowerCase().includes(text);
-//   };
-// });
