@@ -4,12 +4,12 @@
 
 // const btn = document.getElementById('btn');
 // const btn2 = document.getElementById('btn2')
-const btn3 = document.getElementById("data");
+// const btn3 = document.getElementById("data");
 
-btn3.addEventListener("click", function () {
-  const searchurl = "table.html";
-  window.location.href = searchurl;
-});
+// btn3.addEventListener("click", function () {
+//   const searchurl = "table.html";
+//   window.location.href = searchurl;
+// });
 
 // btn2.addEventListener("click",function searchone(){
 //     const searchurl = "searchfilter.html"
@@ -25,7 +25,9 @@ form.addEventListener("submit", (e) => {
     let str = item[0] + item[1];
     localStorage.setItem(item[0], item[1]);
   }
-  window.location.href = "searchfilter.html";
+  
+  window.location.href = "table.html";
+
 });
 
 const name = localStorage.getItem("name");
@@ -51,7 +53,7 @@ const FUT_TICK_SIZE = localStorage.getItem("FUT-TICK_SIZE");
 const FUT_TICK_Value = localStorage.getItem("FUT-TICK_Value");
 const Market_Sector = localStorage.getItem("Market_Sector");
 
-let url = "https://securitymasterdataspie.onrender.com/securitydata?";
+let url = "https://securitymasterdataspie.onrender.com/IdData?";
 // url+='EXC_CODE='+exc;
 // console.log(url);
 
@@ -182,6 +184,8 @@ if (FUT_TICK_Value == "") {
 }
 
 localStorage.setItem("url", url);
+
+
 
 console.log(url);
 

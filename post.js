@@ -1,4 +1,4 @@
-const apiUrl = "https://securitymasterdataspie.onrender.com/IdData/?";
+const apiUrl = "https://securitymasterdataspie.onrender.com/pendingreq/?";
 const addEntryButton = document.getElementById("add-entry-button");
 const addEntryModal = document.getElementById("add-entry-modal");
 const closeModalButton = document.getElementById("close-modal");
@@ -154,4 +154,6 @@ addForm.addEventListener("submit", (e) => {
     });
 });
 
+
 // Make sure to replace "https://securitymasterdataspie.onrender.com/securitydata/" with the actual URL of your server's API endpoint for adding data.
+

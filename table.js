@@ -25,6 +25,7 @@ rowsDropdown.addEventListener("change", () => {
   }
   calculateTotalPages();
   fetchDataAndPopulateTable();
+ 
 });
 
 
@@ -34,12 +35,15 @@ function calculateTotalPages() {
 
 function fetchDataAndPopulateTable() {
   // Replace this URL with the actual URL of your JSON API
-  const apiUrl = "https://securitymasterdataspie.onrender.com/IdData/?";
+  // const apiUrl = "https://securitymasterdataspie.onrender.com/IdData/?";
+  const apiUrl = localStorage.getItem('url');
+  console.log(apiUrl);
 
   // Fetch data from the API
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
+     
       totalRows = data.length;
 
       const table = document.getElementById("data-table");
@@ -183,8 +187,13 @@ prevPageButton.addEventListener("click", () => {
 });
 
 nextPageButton.addEventListener("click", () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    fetchDataAndPopulateTable();
-  }
+  currentPage++;
+  fetchDataAndPopulateTable();
 });
+
+// Custom jQuery :contains() selector
+// jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
+//   return function (elem) {
+//     return jQuery(elem).text().toLowerCase().includes(text);
+//   };
+// });
