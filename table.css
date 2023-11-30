@@ -45,7 +45,7 @@
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #f0f0f0;
 }
 
 .styled-table tbody tr:last-of-type {
@@ -81,7 +81,7 @@
 
 /* Add the following styles for the odd row background color */
 .styled-table tbody tr:nth-of-type(odd) {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 /* Add the following styles for the active row */
@@ -148,6 +148,32 @@ input[type="text"] {
 
 #prev-page:hover,
 #next-page:hover {
+  background-color: #05624f;
+}
+
+#page-number-container {
+  display: flex;
+  margin: 0 10px;
+}
+
+#page-number-container button {
+  background-color: #009879;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+#page-number-container button:hover {
+  background-color: #05624f;
+}
+
+#page-number-container button.current-page {
+  background-color: #05624f;
+}
+
+.current-page {
   background-color: #05624f;
 }
 
