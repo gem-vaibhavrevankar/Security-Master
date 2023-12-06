@@ -1,24 +1,37 @@
-let currentPage = 1;
+let currentPage = 0;
 let itemsPerPage = 0; // Number of items to display per page
 let totalRows = 0; // Store the total number of rows
+let totalPages = 0;
 
 // JavaScript to add the "total-label" class
 const totalRowsTd = document.getElementById("total-rows");
 const totalColumnsTd = document.getElementById("total-columns");
+const totalPagesTd = document.getElementById("total-pages");
+const currentPageTd = document.getElementById("current-page");
 totalRowsTd.classList.add("total-label");
 totalColumnsTd.classList.add("total-label");
-
+totalPagesTd.classList.add("total-label");
+currentPageTd.classList.add("total-label"); 
 
 const rowsDropdown = document.getElementById("rows-dropdown");
+const pageNumbersContainer = document.getElementById("page-number-container"); 
+
 rowsDropdown.addEventListener("change", () => {
+  currentPage = 1;
   if (rowsDropdown.value === "All") {
-    itemsPerPage = totalRows; // Display all rows
+    itemsPerPage = totalRows;
   } else {
     itemsPerPage = parseInt(rowsDropdown.value, 10);
   }
+  calculateTotalPages();
   fetchDataAndPopulateTable();
  
 });
+
+
+function calculateTotalPages() {
+  totalPages = itemsPerPage !== 0 ? Math.ceil(totalRows / itemsPerPage) : 0;;
+}
 
 function fetchDataAndPopulateTable() {
   // Replace this URL with the actual URL of your JSON API
@@ -32,6 +45,7 @@ function fetchDataAndPopulateTable() {
     .then((data) => {
      
       totalRows = data.length;
+
       const table = document.getElementById("data-table");
       const tbody = table.querySelector("tbody");
 
@@ -92,6 +106,10 @@ function fetchDataAndPopulateTable() {
 
       document.getElementById("total-rows").textContent = numberOfRows;
       document.getElementById("total-columns").textContent = numberOfColumns;
+      document.getElementById("total-pages").textContent = totalPages;
+      document.getElementById("current-page").textContent = currentPage;
+      
+      renderPageNumbers();
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -99,6 +117,32 @@ function fetchDataAndPopulateTable() {
   // Your data fetching and population code here
   // Be sure to populate the table rows based on the current page and itemsPerPage
 }
+
+function renderPageNumbers() {
+  pageNumbersContainer.innerHTML = "";
+
+  const startPage = Math.max(1, currentPage - 4);
+  const endPage = Math.min(totalPages, startPage + 9);
+
+  for (let i = startPage; i <= endPage; i++) {
+    const pageNumberButton = document.createElement("button");
+    pageNumberButton.textContent = i;
+    pageNumberButton.addEventListener("click", () => goToPage(i));
+    if (i === currentPage) {
+      pageNumberButton.classList.add("current-page");
+    }
+    pageNumbersContainer.appendChild(pageNumberButton);
+  }
+}
+
+function goToPage(page) {
+  if (page >= 1 && page <= totalPages) {
+    currentPage = page;
+    fetchDataAndPopulateTable();
+  }
+}
+
+fetchDataAndPopulateTable();
 
 function filterTable(query) {
   const rows = document.querySelectorAll("#data-table tbody tr");
@@ -146,50 +190,3 @@ nextPageButton.addEventListener("click", () => {
   currentPage++;
   fetchDataAndPopulateTable();
 });
-
-// Custom jQuery :contains() selector
-// jQuery.expr[":"].contains = jQuery.expr.createPseudo(function (text) {
-//   return function (elem) {
-//     return jQuery(elem).text().toLowerCase().includes(text);
-//   };
-// });
-
-
-// let dataLength;
-
-// const apiUrl = 'https://securitymasterdataspie.onrender.com/pendingreq/';
-
-// fetch(apiUrl)
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     // Assuming the data is an array
-//     dataLength = data.length;
-//     console.log(dataLength);
-//     console.log(`Length of data: ${dataLength}`);
-//     function updateBadge() {
-//       const badge = document.getElementById('notibadge');
-  
-//       // Update the badge content with the length of the data
-//       badge.textContent = dataLength;
-//       console.log(`Length of data: ${dataLength}`);
-//   }
-//   updateBadge();
-  
-//   })
-//   .catch(error => console.error('Error fetching data:', error));
-
-// const btnpen = document.getElementById("btnpen");
-// btnpen.addEventListener("click", function () {
-//   const searchurl = "searchfilter.html";
-//   window.location.href = searchurl;
-// });
-
-
-
-
-
