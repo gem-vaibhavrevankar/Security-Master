@@ -38,7 +38,8 @@ updateForm.addEventListener("submit", (e) => {
 
   // Retrieve the existing data to get previous values
   const apiUrl = `https://securitymasterdataspie.onrender.com/IdData/${entryId}`;
-
+  
+  alert(apiUrl);
   fetch(apiUrl)
     .then((response) => response.json())
     .then(async (existingData) => {
@@ -78,6 +79,7 @@ updateForm.addEventListener("submit", (e) => {
       const updatedActiveSwitch = document.getElementById("update-active-switch").value;
       const updatedSecurityDescription = document.getElementById("update-sec-description").value;
       // Add similar lines for other fields...
+      
 
       const idBbGlobalExists = await fetchDataAndCheckIdBbGlobal(updatedIdBBGlobal);
 
@@ -162,6 +164,7 @@ updateForm.addEventListener("submit", (e) => {
         SEC_DESCRIPTION: updatedSecurityDescription !== "" ? updatedSecurityDescription : previousSecurityDescription,
       }; 
 
+     
       // Make a PUT request to update the data
       fetch(apiUrl, {
         method: "PUT",
@@ -171,7 +174,7 @@ updateForm.addEventListener("submit", (e) => {
         body: JSON.stringify(updatedData),
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then((data) => { 
           // Handle the response from the server if needed
           console.log("Data updated successfully:", data);
 
