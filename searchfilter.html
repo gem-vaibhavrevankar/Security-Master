@@ -106,11 +106,14 @@ img{
       <!-- <input type="text" id="search" placeholder="Search..."> -->
       <label for="sort">Req ID</label>
       <input type="text" name="sort" id="sort">
-      <button type="submit">Acess</button>
+      <button type="submit">Allow</button>
+      <button type="button" id="del">Del</button>
       <br>
       <br>
 
     </form>
+
+    
    
     
   </div>
@@ -362,6 +365,8 @@ form.addEventListener("submit" , (e) => {
 
 
 
+
+
 // const table0 = document.getElementById('data-table');
 
 // const rows = table0.getElementsByTagName('tr');
@@ -373,6 +378,42 @@ form.addEventListener("submit" , (e) => {
 //         body : data.json(),}).then(res => res.json()).then(data => console.log(data)));
  
 
+const del = document.getElementById("del");
+const delval = document.getElementById("sort");
+
+del.addEventListener("click", () => {
+  const vl = delval.value;
+  const apiUrl = `https://securitymasterdataspie.onrender.com/pendingreq/${vl}`;
+   // Make a DELETE request to your server to delete the data
+   console.log(apiUrl);
+   fetch(apiUrl, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        // Handle a successful delete (HTTP status 200) here
+        alert(`Data with ID ${idToDelete} has been deleted.`);
+        idToDeleteInput.value = ""; // Clear the input field
+        // Optionally, you can refresh the table to show the updated data
+        fetchDataAndPopulateTable();
+      } else if (response.status === 404) {
+        // Handle the case where the data with the provided ID was not found (HTTP status 404)
+        alert(`Data with ID ${idToDelete} not found.`);
+      } else {
+        // Handle other error cases
+        alert(`Error deleting data with ID ${idToDelete}.`);
+      }
+    })
+    .catch((error) => {
+      console.error("Error deleting data:", error);
+    });
+
+    setTimeout(() => {
+    // After the function logic, reload the page
+    location.reload();
+  }, 2000);
+
+})
 
 
 
