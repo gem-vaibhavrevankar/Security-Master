@@ -1,5 +1,5 @@
-let currentPage = 0;
-let itemsPerPage = 0; // Number of items to display per page
+let currentPage = 1;
+let itemsPerPage = 10; // Number of items to display per page
 let totalRows = 0; // Store the total number of rows
 let totalPages = 0;
 
@@ -15,6 +15,7 @@ currentPageTd.classList.add("total-label");
 
 const rowsDropdown = document.getElementById("rows-dropdown");
 const pageNumbersContainer = document.getElementById("page-number-container"); 
+const refreshButton = document.getElementById("refresh-button");
 
 rowsDropdown.addEventListener("change", () => {
   currentPage = 1;
@@ -106,6 +107,10 @@ function fetchDataAndPopulateTable() {
 
       document.getElementById("total-rows").textContent = numberOfRows;
       document.getElementById("total-columns").textContent = numberOfColumns;
+      
+      // Recalculate totalPages after fetching data
+      calculateTotalPages();
+      
       document.getElementById("total-pages").textContent = totalPages;
       document.getElementById("current-page").textContent = currentPage;
       
@@ -190,3 +195,35 @@ nextPageButton.addEventListener("click", () => {
   currentPage++;
   fetchDataAndPopulateTable();
 });
+
+refreshButton.addEventListener("click", () => {
+  localStorage.setItem('url', 'https://securitymasterdataspie.onrender.com/IdData/?');
+  calculateTotalPages();
+  fetchDataAndPopulateTable();
+});
+
+const exportButton = document.getElementById("export-button");
+
+exportButton.addEventListener("click", () => {
+  exportTableToCSV();
+});
+
+function exportTableToCSV() {
+  const table = document.getElementById("data-table");
+  const rows = table.querySelectorAll("tbody tr");
+
+  let csvContent = "data:text/csv;charset=utf-8,";
+  csvContent += "Name,Currency,Market Sector,Exchange Code,Security Type,Country of Issue,Security Type 2,Futures Category,Last Tradeable Date,Futures Exchange Name,Futures Contract Size,Futures Tick Size,Futures Tick Value,Futures Generic Month,Futures First Trade Date,Cash Settled,Futures Trading Units,Quote Units,Futures Month Year,Futures Contract Date,ID BB Global,ID BB Global Company,ID BB Global Name,Quoted Currency,Ticker,CUSIP,ISIN,SEDOL,ICRA Rating,Moody's Rating,Crisil Rating,Website,Active Switch,Security Description";
+
+  rows.forEach((row) => {
+    const rowData = Array.from(row.children).map((cell) => cell.textContent);
+    csvContent += "\n" + rowData.join(",");
+  });
+
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "exported_data.csv");
+  document.body.appendChild(link);
+  link.click();
+}
