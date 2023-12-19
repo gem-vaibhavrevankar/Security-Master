@@ -60,7 +60,7 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
-            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+            <div class="tab-pane fade " id="signup" role="tabpanel" aria-labelledby="signup-tab">
                 <h2 class="my-4">Signup</h2>
                 <form id="signupForm">
                     <div class="form-group" style="text-align: center; display: inline-flex; margin-right: 10px;">
@@ -68,7 +68,7 @@
                         <input type="text" class="form-control" id="secondname" placeholder="Second Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        <input type="text" class="form-control" id="username" placeholder="Username" required >
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
@@ -95,6 +95,50 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+
+        // signupForm.addEventListener('submit' ,(e) => {
+        //     e.preventDefault();
+        //     alert('hey');
+        // })
+//         signupForm.addEventListener('submit', (e) => {
+// e.defaultPrevented(e);
+// const api = "https://securitymasterdataspie.onrender.com/users";
+// const username = document.getElementById("username");
+// const signuppassword = document.getElementById("signupPassword");
+// const firstname = document.getElementById("firstname");
+// const secondname = document.getElementById("secondname");
+// const ec = document.getElementById("ec");
+// const dc = document.getElementById("dc");
+// const designation = document.getElementById("designation");
+// const doj = document.getElementById("doj");
+// const loginusername = document.getElementById("loginusername");
+// const loginpassword = document.getElementById("loginpassword");
+
+
+// const DATA = {
+//     FIRST_NAME: firstname,
+//     SECOND_NAME: secondname,
+//     EMAIL: username,
+//     JOINING_DATE: doj,
+//     DESIGNATION: designation,
+//     EC_CHAIR: ec,
+//     DC_CHAIR: dc
+// }
+// alert('hey');
+// fetch(api,{
+//     method : "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(DATA)
+
+// }).then((res) => res.json()).then((data) => {
+//     console.log("data added successfully");
+//     sinupform.reset();
+// })
+// })
+
+
         // Add your JavaScript logic here (similar to the previous example)
         // Remember to use a server-side solution in a production environment.
         loginForm.addEventListener('submit', function (event) {
@@ -115,6 +159,7 @@
             }
         });
     </script>
+    <script src="login.js"></script>
 </body>
 
 </html>
