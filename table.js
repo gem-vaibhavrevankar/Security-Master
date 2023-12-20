@@ -64,6 +64,7 @@ function fetchDataAndPopulateTable() {
         row.innerHTML = `
             <td>${item.id}</td>
             <td>${item.NAME}</td>
+            <td>${item.ASSET_CLASS}</td>
             <td>${item.CRNCY}</td>
             <td>${item.MARKET_SECTOR}</td>
             <td>${item.EXC_CODE}</td>

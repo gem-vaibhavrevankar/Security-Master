@@ -17,21 +17,22 @@ const DATA = {
     JOINING_DATE: doj,
     DESIGNATION: designation,
     EC_CHAIR: ec,
-    DC_CHAIR: dc
+    DC_CHAIR: dc,
 }
 
 const sinupform = document.getElementById("signupForm")
 sinupform.addEventListener('submit', (e) => {
+    alert('hey')
 e.defaultPrevented(e);
-const api = "https://securitymasterdataspie.onrender.com/users";
+const api = "https://securitymasterdataspie.onrender.com/users/?";
 fetch(api,{
     method : "POST",
     headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(DATA)
+      body: JSON.stringify(DATA),
 
-}).then((res) => res.json()).then((data) => {
+}).then((response) => response.json()).then((data) => {
     console.log("data added successfully");
     // sinupform.reset();
 })
