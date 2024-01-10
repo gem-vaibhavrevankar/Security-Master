@@ -10,18 +10,12 @@ deleteButton.addEventListener("click", () => {
     return;
   }
 
-  const apiUrl = `https://securitymasterdataspie.onrender.com/IdData/${idToDelete}`; // Replace with your API URL, including the ID of the data to delete
-
-
-
-
-
-
+  const apiUrl = `https://securitymasterdataspie.onrender.com/Master_Data/${idToDelete}`; // Replace with your API URL, including the ID of the data to delete
 
    // Make a DELETE request to your server to delete the data
    async function fetchAndSendData() {
     // const jsonDataUrl = 'https://securitymasterdataspie.onrender.com/pendingreq?id='+sorti;
-    const apiUrl = `https://securitymasterdataspie.onrender.com/IdData?id=${idToDelete}`
+    const apiUrl = `https://securitymasterdataspie.onrender.com/Master_Data?ID=${idToDelete}`
     const postDataUrl = 'https://securitymasterdataspie.onrender.com/pendingreq?';
     console.log(apiUrl);
   
@@ -32,15 +26,11 @@ deleteButton.addEventListener("click", () => {
       const jsonData = await jsonDataResponse.json();
       delete jsonData[0].id;
       
-  
       // Create the POST request body
       const postDataString = JSON.stringify(jsonData[0]);
       
       console.log(postDataString);
   
-  
-  
-      
       console.log(postDataString,"hey");
       // Make the POST request
       const postDataResponse =  fetch(postDataUrl, {
@@ -65,25 +55,6 @@ deleteButton.addEventListener("click", () => {
       console.error('Error fetching or sending data:', error);
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // Make a DELETE request to your server to delete the data
   fetch(apiUrl, {
