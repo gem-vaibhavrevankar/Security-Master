@@ -37,7 +37,7 @@ updateForm.addEventListener("submit", (e) => {
   const entryId = document.getElementById("update-entry-id").value;
 
   // Retrieve the existing data to get previous values
-  const apiUrl = `https://securitymasterdataspie.onrender.com/IdData/${entryId}`;
+  const apiUrl = `https://securitymasterdataspie.onrender.com/Master_Data/${entryId}`;
   
   alert(apiUrl);
   fetch(apiUrl)

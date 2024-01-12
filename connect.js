@@ -53,7 +53,7 @@ const FUT_TICK_SIZE = localStorage.getItem("FUT-TICK_SIZE");
 const FUT_TICK_Value = localStorage.getItem("FUT-TICK_Value");
 const Market_Sector = localStorage.getItem("Market_Sector");
 
-let url = "https://securitymasterdataspie.onrender.com/IdData?";
+let url = "https://securitymasterdataspie.onrender.com/Master_Data";
 // url+='EXC_CODE='+exc;
 // console.log(url);
 
