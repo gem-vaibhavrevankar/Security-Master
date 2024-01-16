@@ -27,6 +27,10 @@ rowsDropdown.addEventListener("change", () => {
   }
   calculateTotalPages();
   fetchDataAndPopulateTable();
+  fetchDataAndPopulateTable2()
+  fetchDataAndPopulateTable3()
+  fetchDataAndPopulateTable4()
+  fetchDataAndPopulateTable5()
 });
 
 function calculateTotalPages() {
@@ -156,6 +160,532 @@ function fetchDataAndPopulateTable() {
   // Your data fetching and population code here
   // Be sure to populate the table rows based on the current page and itemsPerPage
 }
+
+// // Fixed Income API
+//   fetch('https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc').
+//   then( res => res.JSON()).
+//   then((data) => {
+
+//   })
+function fetchDataAndPopulateTable2() {
+  // Replace this URL with the actual URL of your JSON API
+  // const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc";
+  const apiUrl = localStorage.getItem('url');
+  console.log(apiUrl);
+
+  // Fetch data from the API
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+     
+      totalRows = data.length;
+
+      const table = document.getElementById("Fixed_Income");
+      const tbody = table.querySelector("tbody");
+
+      // Clear the table body
+      tbody.innerHTML = "";
+
+      // Clear the uniqueValuesDictionary
+      uniqueValuesDictionary = {};
+
+      // Calculate the start and end indexes for the current page
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      // Iterate through the data and populate the table with rows
+      for (let i = startIndex; i < endIndex && i < data.length; i++) {
+        const item = data[i];
+
+        // Iterate through columns to populate uniqueValuesDictionary
+        Object.keys(item).forEach((column) => {
+          // Check if the column is already in the dictionary
+          if (!uniqueValuesDictionary[column]) {
+            uniqueValuesDictionary[column] = new Set();
+          }
+
+          if(item[column] != "") {
+            // Add the value to the set to ensure uniqueness
+            uniqueValuesDictionary[column].add(item[column]);
+          }
+        });
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.ID}</td>
+            <td>${item.Name}</td>
+            <td data-column="Asset_Class">${item.Asset_Class}</td>
+            <td>${item.Bond_Type}</td>
+            <td>${item.Coupon_Rate}</td>
+            <td>${item.Maturity_Date}</td>
+            <td>${item['Face_Value ']}</td>
+            <td>${item.Yield_to_Maturity}</td>
+            <td>${item.Current_Price}</td>
+            <td>${item.Credit_Rating}</td>
+            <td>${item.Country_of_Exposure}</td>
+            <td>${item.Payment_Frequency}</td>
+            <td>${item.Security_ID}</td>
+            <td>${item.Exchange_Code}</td>
+            <td>${item.Security_Type_2}</td>
+            <td>${item.FIGI}</td>
+            <td>${item.Ticker}</td>
+            <td>${item.Market_Sector}</td>
+            <td>${item.FIGI_Composite}</td>
+            <td>${item.Share_Class}</td>
+            <td>${item.Security_Description}</td>
+            <td>${item.Security_Type}</td>
+            <td>${item.SERIES}</td>
+            <td>${item.COUPON_RATE}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.LTP}</td>
+            <td>${item['%CHNG']}</td>
+            <td>${item['VOLUME VALUE']}</td>
+            <td>${item.ISIN}</td>
+            <td>${item.CREDIT_RATING}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.TOTAL_NO_OF_BONDS}</td>
+            <td>${item.LISTING_DATE}</td>
+            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
+            <td>${item.ISSUE_DESCIPTION}</td>
+            <td>${item.SYMBOL}</td>
+            <td>${item.EXPIRY_DATE}</td>
+            <td>${item.OPTION_TYPE}</td>
+            <td>${item.STRIKE}</td>
+            <td>${item.SPREAD}</td>
+            <td>${item.CHNG}</td>
+            <td>${item.OPEN}</td>
+            <td>${item.HIGH}</td>
+            <td>${item.LOW}</td>
+            <td>${item.VOLUME}</td>
+            <td>${item.OPEN_INTEREST}</td>
+            <td>${item.NO_OF_TRADES}</td>
+            <td>${item.UNDERLYING_VALUE}</td>
+            <td>${item.Pair_FIGI}</td>
+            <td>${item[' Base_Asset_FIGI']}</td>
+            <td>${item[' Quote_Asset_FIGI']}</td>        
+            <!-- Add more cells for other data properties -->
+            `;
+        tbody.appendChild(row);
+      }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
+      
+      // Recalculate totalPages after fetching data
+      calculateTotalPages();
+      
+      document.getElementById("total-pages").textContent = totalPages;
+      document.getElementById("current-page").textContent = currentPage;
+      
+      renderPageNumbers();
+
+      applyFilters(uniqueValuesDictionary);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
+
+
+// Fixed Income API
+
+
+
+// Equities 
+
+function fetchDataAndPopulateTable3() {
+  // Replace this URL with the actual URL of your JSON API
+  const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_equities";
+  // const apiUrl = localStorage.getItem('url');
+  console.log(apiUrl);
+
+  // Fetch data from the API
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+     
+      totalRows = data.length;
+
+      const table = document.getElementById("Equities");
+      const tbody = table.querySelector("tbody");
+
+      // Clear the table body
+      tbody.innerHTML = "";
+
+      // Clear the uniqueValuesDictionary
+      uniqueValuesDictionary = {};
+
+      // Calculate the start and end indexes for the current page
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      // Iterate through the data and populate the table with rows
+      for (let i = startIndex; i < endIndex && i < data.length; i++) {
+        const item = data[i];
+
+        // Iterate through columns to populate uniqueValuesDictionary
+        Object.keys(item).forEach((column) => {
+          // Check if the column is already in the dictionary
+          if (!uniqueValuesDictionary[column]) {
+            uniqueValuesDictionary[column] = new Set();
+          }
+
+          if(item[column] != "") {
+            // Add the value to the set to ensure uniqueness
+            uniqueValuesDictionary[column].add(item[column]);
+          }
+        });
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.ID}</td>
+            <td>${item.Name}</td>
+            <td data-column="Asset_Class">${item.Asset_Class}</td>
+            <td>${item.Bond_Type}</td>
+            <td>${item.Coupon_Rate}</td>
+            <td>${item.Maturity_Date}</td>
+            <td>${item['Face_Value ']}</td>
+            <td>${item.Yield_to_Maturity}</td>
+            <td>${item.Current_Price}</td>
+            <td>${item.Credit_Rating}</td>
+            <td>${item.Country_of_Exposure}</td>
+            <td>${item.Payment_Frequency}</td>
+            <td>${item.Security_ID}</td>
+            <td>${item.Exchange_Code}</td>
+            <td>${item.Security_Type_2}</td>
+            <td>${item.FIGI}</td>
+            <td>${item.Ticker}</td>
+            <td>${item.Market_Sector}</td>
+            <td>${item.FIGI_Composite}</td>
+            <td>${item.Share_Class}</td>
+            <td>${item.Security_Description}</td>
+            <td>${item.Security_Type}</td>
+            <td>${item.SERIES}</td>
+            <td>${item.COUPON_RATE}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.LTP}</td>
+            <td>${item['%CHNG']}</td>
+            <td>${item['VOLUME VALUE']}</td>
+            <td>${item.ISIN}</td>
+            <td>${item.CREDIT_RATING}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.TOTAL_NO_OF_BONDS}</td>
+            <td>${item.LISTING_DATE}</td>
+            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
+            <td>${item.ISSUE_DESCIPTION}</td>
+            <td>${item.SYMBOL}</td>
+            <td>${item.EXPIRY_DATE}</td>
+            <td>${item.OPTION_TYPE}</td>
+            <td>${item.STRIKE}</td>
+            <td>${item.SPREAD}</td>
+            <td>${item.CHNG}</td>
+            <td>${item.OPEN}</td>
+            <td>${item.HIGH}</td>
+            <td>${item.LOW}</td>
+            <td>${item.VOLUME}</td>
+            <td>${item.OPEN_INTEREST}</td>
+            <td>${item.NO_OF_TRADES}</td>
+            <td>${item.UNDERLYING_VALUE}</td>
+            <td>${item.Pair_FIGI}</td>
+            <td>${item[' Base_Asset_FIGI']}</td>
+            <td>${item[' Quote_Asset_FIGI']}</td>        
+            <!-- Add more cells for other data properties -->
+            `;
+        tbody.appendChild(row);
+      }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
+      
+      // Recalculate totalPages after fetching data
+      calculateTotalPages();
+      
+      document.getElementById("total-pages").textContent = totalPages;
+      document.getElementById("current-page").textContent = currentPage;
+      
+      renderPageNumbers();
+
+      applyFilters(uniqueValuesDictionary);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
+
+
+// Equities
+
+
+// commodities
+function fetchDataAndPopulateTable4() {
+  // Replace this URL with the actual URL of your JSON API
+  const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_commodities";
+  // const apiUrl = localStorage.getItem('url');
+  console.log(apiUrl);
+
+  // Fetch data from the API
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+     
+      totalRows = data.length;
+
+      const table = document.getElementById("Commodities");
+      const tbody = table.querySelector("tbody");
+
+      // Clear the table body
+      tbody.innerHTML = "";
+
+      // Clear the uniqueValuesDictionary
+      uniqueValuesDictionary = {};
+
+      // Calculate the start and end indexes for the current page
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      // Iterate through the data and populate the table with rows
+      for (let i = startIndex; i < endIndex && i < data.length; i++) {
+        const item = data[i];
+
+        // Iterate through columns to populate uniqueValuesDictionary
+        Object.keys(item).forEach((column) => {
+          // Check if the column is already in the dictionary
+          if (!uniqueValuesDictionary[column]) {
+            uniqueValuesDictionary[column] = new Set();
+          }
+
+          if(item[column] != "") {
+            // Add the value to the set to ensure uniqueness
+            uniqueValuesDictionary[column].add(item[column]);
+          }
+        });
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.ID}</td>
+            <td>${item.Name}</td>
+            <td data-column="Asset_Class">${item.Asset_Class}</td>
+            <td>${item.Bond_Type}</td>
+            <td>${item.Coupon_Rate}</td>
+            <td>${item.Maturity_Date}</td>
+            <td>${item['Face_Value ']}</td>
+            <td>${item.Yield_to_Maturity}</td>
+            <td>${item.Current_Price}</td>
+            <td>${item.Credit_Rating}</td>
+            <td>${item.Country_of_Exposure}</td>
+            <td>${item.Payment_Frequency}</td>
+            <td>${item.Security_ID}</td>
+            <td>${item.Exchange_Code}</td>
+            <td>${item.Security_Type_2}</td>
+            <td>${item.FIGI}</td>
+            <td>${item.Ticker}</td>
+            <td>${item.Market_Sector}</td>
+            <td>${item.FIGI_Composite}</td>
+            <td>${item.Share_Class}</td>
+            <td>${item.Security_Description}</td>
+            <td>${item.Security_Type}</td>
+            <td>${item.SERIES}</td>
+            <td>${item.COUPON_RATE}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.LTP}</td>
+            <td>${item['%CHNG']}</td>
+            <td>${item['VOLUME VALUE']}</td>
+            <td>${item.ISIN}</td>
+            <td>${item.CREDIT_RATING}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.TOTAL_NO_OF_BONDS}</td>
+            <td>${item.LISTING_DATE}</td>
+            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
+            <td>${item.ISSUE_DESCIPTION}</td>
+            <td>${item.SYMBOL}</td>
+            <td>${item.EXPIRY_DATE}</td>
+            <td>${item.OPTION_TYPE}</td>
+            <td>${item.STRIKE}</td>
+            <td>${item.SPREAD}</td>
+            <td>${item.CHNG}</td>
+            <td>${item.OPEN}</td>
+            <td>${item.HIGH}</td>
+            <td>${item.LOW}</td>
+            <td>${item.VOLUME}</td>
+            <td>${item.OPEN_INTEREST}</td>
+            <td>${item.NO_OF_TRADES}</td>
+            <td>${item.UNDERLYING_VALUE}</td>
+            <td>${item.Pair_FIGI}</td>
+            <td>${item[' Base_Asset_FIGI']}</td>
+            <td>${item[' Quote_Asset_FIGI']}</td>        
+            <!-- Add more cells for other data properties -->
+            `;
+        tbody.appendChild(row);
+      }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
+      
+      // Recalculate totalPages after fetching data
+      calculateTotalPages();
+      
+      document.getElementById("total-pages").textContent = totalPages;
+      document.getElementById("current-page").textContent = currentPage;
+      
+      renderPageNumbers();
+
+      applyFilters(uniqueValuesDictionary);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
+//commodities
+
+//currency
+function fetchDataAndPopulateTable5() {
+  // Replace this URL with the actual URL of your JSON API
+  const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_cash";
+  // const apiUrl = localStorage.getItem('url');
+  console.log(apiUrl);
+
+  // Fetch data from the API
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+     
+      totalRows = data.length;
+
+      const table = document.getElementById("Real_State");
+      const tbody = table.querySelector("tbody");
+
+      // Clear the table body
+      tbody.innerHTML = "";
+
+      // Clear the uniqueValuesDictionary
+      uniqueValuesDictionary = {};
+
+      // Calculate the start and end indexes for the current page
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      // Iterate through the data and populate the table with rows
+      for (let i = startIndex; i < endIndex && i < data.length; i++) {
+        const item = data[i];
+
+        // Iterate through columns to populate uniqueValuesDictionary
+        Object.keys(item).forEach((column) => {
+          // Check if the column is already in the dictionary
+          if (!uniqueValuesDictionary[column]) {
+            uniqueValuesDictionary[column] = new Set();
+          }
+
+          if(item[column] != "") {
+            // Add the value to the set to ensure uniqueness
+            uniqueValuesDictionary[column].add(item[column]);
+          }
+        });
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.ID}</td>
+            <td>${item.Name}</td>
+            <td data-column="Asset_Class">${item.Asset_Class}</td>
+            <td>${item.Bond_Type}</td>
+            <td>${item.Coupon_Rate}</td>
+            <td>${item.Maturity_Date}</td>
+            <td>${item['Face_Value ']}</td>
+            <td>${item.Yield_to_Maturity}</td>
+            <td>${item.Current_Price}</td>
+            <td>${item.Credit_Rating}</td>
+            <td>${item.Country_of_Exposure}</td>
+            <td>${item.Payment_Frequency}</td>
+            <td>${item.Security_ID}</td>
+            <td>${item.Exchange_Code}</td>
+            <td>${item.Security_Type_2}</td>
+            <td>${item.FIGI}</td>
+            <td>${item.Ticker}</td>
+            <td>${item.Market_Sector}</td>
+            <td>${item.FIGI_Composite}</td>
+            <td>${item.Share_Class}</td>
+            <td>${item.Security_Description}</td>
+            <td>${item.Security_Type}</td>
+            <td>${item.SERIES}</td>
+            <td>${item.COUPON_RATE}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.LTP}</td>
+            <td>${item['%CHNG']}</td>
+            <td>${item['VOLUME VALUE']}</td>
+            <td>${item.ISIN}</td>
+            <td>${item.CREDIT_RATING}</td>
+            <td>${item.FACE_VALUE}</td>
+            <td>${item.TOTAL_NO_OF_BONDS}</td>
+            <td>${item.LISTING_DATE}</td>
+            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
+            <td>${item.ISSUE_DESCIPTION}</td>
+            <td>${item.SYMBOL}</td>
+            <td>${item.EXPIRY_DATE}</td>
+            <td>${item.OPTION_TYPE}</td>
+            <td>${item.STRIKE}</td>
+            <td>${item.SPREAD}</td>
+            <td>${item.CHNG}</td>
+            <td>${item.OPEN}</td>
+            <td>${item.HIGH}</td>
+            <td>${item.LOW}</td>
+            <td>${item.VOLUME}</td>
+            <td>${item.OPEN_INTEREST}</td>
+            <td>${item.NO_OF_TRADES}</td>
+            <td>${item.UNDERLYING_VALUE}</td>
+            <td>${item.Pair_FIGI}</td>
+            <td>${item[' Base_Asset_FIGI']}</td>
+            <td>${item[' Quote_Asset_FIGI']}</td>        
+            <!-- Add more cells for other data properties -->
+            `;
+        tbody.appendChild(row);
+      }
+
+      const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
+      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+
+      document.getElementById("total-rows").textContent = numberOfRows;
+      document.getElementById("total-columns").textContent = numberOfColumns;
+      
+      // Recalculate totalPages after fetching data
+      calculateTotalPages();
+      
+      document.getElementById("total-pages").textContent = totalPages;
+      document.getElementById("current-page").textContent = currentPage;
+      
+      renderPageNumbers();
+
+      applyFilters(uniqueValuesDictionary);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
+//currency
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function renderPageNumbers() {
   pageNumbersContainer.innerHTML = "";
@@ -314,4 +844,20 @@ function exportTableToCSV() {
   link.setAttribute("download", "exported_data.csv");
   document.body.appendChild(link);
   link.click();
+}
+
+
+function showTable() {
+  // Hide all tables
+  const tables = document.querySelectorAll('table');
+  tables.forEach(table => {
+    table.classList.add('hidden');
+  });
+
+  // Show the selected table
+  const selectedTableId = document.getElementById('Assetclass').value;
+  const selectedTable = document.getElementById(selectedTableId);
+  if (selectedTable) {
+    selectedTable.classList.remove('hidden');
+  }
 }

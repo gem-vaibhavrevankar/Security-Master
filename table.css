@@ -449,3 +449,7 @@ body {
 #refresh-button:hover {
   background-color: #c0392b; /* Darker red color on hover */
 }
+
+.hidden {
+  display: none;
+}

@@ -27,6 +27,18 @@
     <button id="refresh-button">Clear Filter</button>
   </div>
 
+  <div style=" text-align: center;">
+    <label for="Assetclass">Asset Class</label>
+    <select name="Assetclass" id="Assetclass" onchange="showTable()">
+      <option value="data-table">All</option>
+      <option value="Fixed_Income">Fixed Income</option>
+    <option value="Equities">Equities</option>
+    <option value="Commodities">Commodities</option>
+    <option value="Real_State">Currency</option>
+    </select>
+    
+  </div>
+
   <div id="Asset-drop" style="text-align: center;">
     <label for="Asset-dropdown">Asset Class</label>
     <select id="Asset-dropdown" class="table-filter">
@@ -37,6 +49,8 @@
   <div class="search-container">
     <input type="text" id="search" placeholder="Search...">
   </div>
+
+
 
   <div textalign="right">
     <button type="button" class="icon-button" id="btnpen">
@@ -49,6 +63,8 @@
     <!-- Add this button where you want to place it in your HTML -->
     <button id="export-button">Export</button>
   </div>
+
+  
 
 
   <div id="rows-dropdown-container">
@@ -63,7 +79,7 @@
   </div>
 
   <div id="table-container">
-    <table id="data-table" class="styled-table">
+    <table id="data-table" class="styled-table" class="hidden">
       <thead>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -135,6 +151,12 @@
           <td colspan="">Total Pages: <span id="total-pages">0</span></td>
         </tr>
       </tfoot>
+
+
+      
+
+
+      
       <!-- <tfoot>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -157,6 +179,364 @@
 
       </div>
     </table>
+
+    <!-- Fixed Income -->
+
+
+    <div id="table-container">
+      <table id="Fixed_Income" class="styled-table" class="hidden">
+        <thead>
+          <tr>
+            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th>Hey</th>
+            <th data-type="numeric" column-name="ID">ID</th>
+            <th column-name="Name">Name</th>
+            <th column-name="Asset_Class">Asset Class</th>
+            <th column-name="Bond_Type">Bond Type</th>
+            <th column-name="Coupon_Rate">Coupon Rate</th>
+            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
+            <th data-type="numeric" column-name="Face_Value">Face Value</th>
+            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
+            <th data-type="numeric" column-name="Current_Price">Current Price</th>
+            <th column-name="Credit_Rating">Credit Rating</th>
+            <th column-name="Country_of_Exposure">Country of Exposure</th>
+            <th column-name="Payment_Frequency">Payment Frequency</th>
+            <th data-type="numeric" column-name="Security_ID">Security ID</th>
+            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
+            <th column-name="Security_Type_2">Security Type 2</th>
+            <th data-type="numeric" column-name="FIGI">FIGI</th>
+            <th column-name="Ticker">Ticker</th>
+            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+
+
+            <!-- <th column-name="FIGI_Composite">FIGI Composite</th>
+            <th column-name="Share_Class">Share Class</th>
+            <th column-name="Security_Description">Security Description</th>
+            <th column-name="Security_Type">Security Type</th>
+            <th column-name="SERIES">SERIES</th>
+            <th column-name="COUPON_RATE">COUPON RATE</th>
+            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
+            <th data-type="numeric" column-name="LTP">LTP</th>
+            <th column-name="CHNG">PERCENT CHANGE</th>
+            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
+            <th column-name="ISIN">ISIN</th>
+            <th column-name="CREDIT_RATING">CREDIT RATING</th>
+            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
+            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
+            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
+            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
+            <th column-name="SYMBOL">SYMBOL</th>
+            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
+            <th column-name="OPTION_TYPE">OPTION TYPE</th>
+            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
+            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
+            <th column-name="CHNG">CHANGE</th>
+            <th data-type="numeric" column-name="OPEN">OPEN</th>
+            <th data-type="numeric" column-name="HIGH">HIGH</th>
+            <th data-type="numeric" column-name="LOW">LOW</th>
+            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
+             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
+            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
+            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
+            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
+            <th column-name="Pair_FIGI">Pair FIGI</th>
+            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
+            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> --> 
+            <!-- Add more table headings as needed -->
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table body will be populated dynamically -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="">Current Page: <span id="current-page">0</span></td>
+            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
+          </tr>
+        </tfoot>
+  
+  
+        
+  
+  
+        
+        <!-- <tfoot>
+          <tr>
+            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+          </tr>
+        </tfoot> -->
+        <!-- Add Entry and Delete Entry buttons within the same container -->
+        <!-- <button id="add-entry-button">Add Entry</button>
+        <button id="update-entry-button">Update Entry</button>
+        <div>
+          <label for="id-to-delete">Enter ID to Delete:</label>
+          <input type="text" id="id-to-delete" placeholder="ID">
+          <button id="delete-button">Delete</button> -->
+          <!-- <div textalign = "right">
+              <button type="button" class="icon-button" id="btnpen">
+              <span class="material-icons"></span>
+              <span class="icon-button__badge" id="notibadge">10</span>
+              </button>
+             </div> -->
+  
+        </div>
+      </table>
+
+
+
+
+
+    <!-- Fixed Income -->
+
+    <!-- Equities -->
+
+    <div id="table-container">
+      <table id="Equities" class="styled-table" class="hidden">
+        <thead>
+          <tr>
+            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th>Equities</th>
+            <th data-type="numeric" column-name="ID">ID</th>
+            <th column-name="Name">Name</th>
+            <th column-name="Asset_Class">Asset Class</th>
+            <!-- <th column-name="Bond_Type">Bond Type</th> -->
+            <!-- <th column-name="Coupon_Rate">Coupon Rate</th> -->
+            <!-- <th data-type="date" column-name="Maturity_Date">Maturity Date</th> -->
+            <!-- <th data-type="numeric" column-name="Face_Value">Face Value</th> -->
+            <!-- <th column-name="Yield_to_Maturity">Yield to Maturity</th> -->
+            <!-- <th data-type="numeric" column-name="Current_Price">Current Price</th> -->
+            <!-- <th column-name="Credit_Rating">Credit Rating</th> -->
+            <!-- <th column-name="Country_of_Exposure">Country of Exposure</th> -->
+            <!-- <th column-name="Payment_Frequency">Payment Frequency</th> -->
+            <!-- <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
+            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
+            <!-- <th column-name="Security_Type_2">Security Type 2</th> -->
+            <th data-type="numeric" column-name="FIGI">FIGI</th>
+            <th column-name="Ticker">Ticker</th>
+            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+            <th column-name="FIGI_Composite">FIGI Composite</th>
+            <th column-name="Share_Class">Share Class</th>
+            <!-- <th column-name="Security_Description">Security Description</th> -->
+            <!-- <th column-name="Security_Type">Security Type</th> -->
+            <!-- <th column-name="SERIES">SERIES</th> -->
+            <!-- <th column-name="COUPON_RATE">COUPON RATE</th>
+            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
+            <th data-type="numeric" column-name="LTP">LTP</th>
+            <th column-name="CHNG">PERCENT CHANGE</th>
+            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
+            <th column-name="ISIN">ISIN</th>
+            <th column-name="CREDIT_RATING">CREDIT RATING</th>
+            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
+            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
+            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
+            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
+            <th column-name="SYMBOL">SYMBOL</th>
+            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
+            <th column-name="OPTION_TYPE">OPTION TYPE</th>
+            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
+            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
+            <th column-name="CHNG">CHANGE</th>
+            <th data-type="numeric" column-name="OPEN">OPEN</th>
+            <th data-type="numeric" column-name="HIGH">HIGH</th>
+            <th data-type="numeric" column-name="LOW">LOW</th>
+            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
+             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
+            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
+            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
+            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>-->
+            <th column-name="Pair_FIGI">Pair FIGI</th>
+            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
+            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> 
+            <!-- Add more table headings as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table body will be populated dynamically -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="">Current Page: <span id="current-page">0</span></td>
+            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
+          </tr>
+        </tfoot>
+
+    <!-- Equities -->
+
+    <!-- Commodities -->
+    <div id="table-container">
+      <table id="Commodities" class="styled-table" class="hidden">
+        <thead>
+          <tr>
+            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th>Commodities</th>
+            <th data-type="numeric" column-name="ID">ID</th>
+            <th column-name="Name">Name</th>
+            <th column-name="Asset_Class">Asset Class</th>
+            <!-- <th column-name="Bond_Type">Bond Type</th>
+            <th column-name="Coupon_Rate">Coupon Rate</th>
+            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
+            <th data-type="numeric" column-name="Face_Value">Face Value</th>
+            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
+            <th data-type="numeric" column-name="Current_Price">Current Price</th>
+            <th column-name="Credit_Rating">Credit Rating</th>
+            <th column-name="Country_of_Exposure">Country of Exposure</th>
+            <th column-name="Payment_Frequency">Payment Frequency</th>
+            <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
+            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
+            <th column-name="Security_Type_2">Security Type 2</th>
+            <!-- <th data-type="numeric" column-name="FIGI">FIGI</th> -->
+            <th column-name="Ticker">Ticker</th>
+            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+            <th column-name="FIGI_Composite">FIGI Composite</th>
+            <th column-name="Share_Class">Share Class</th>
+            <th column-name="Security_Description">Security Description</th>
+            <th column-name="Security_Type">Security Type</th>
+            <!-- <th column-name="SERIES">SERIES</th>
+            <th column-name="COUPON_RATE">COUPON RATE</th>
+            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
+            <th data-type="numeric" column-name="LTP">LTP</th>
+            <th column-name="CHNG">PERCENT CHANGE</th>
+            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
+            <th column-name="ISIN">ISIN</th>
+            <th column-name="CREDIT_RATING">CREDIT RATING</th>
+            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
+            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
+            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
+            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
+            <th column-name="SYMBOL">SYMBOL</th>
+            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
+            <th column-name="OPTION_TYPE">OPTION TYPE</th>
+            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
+            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
+            <th column-name="CHNG">CHANGE</th>
+            <th data-type="numeric" column-name="OPEN">OPEN</th>
+            <th data-type="numeric" column-name="HIGH">HIGH</th>
+            <th data-type="numeric" column-name="LOW">LOW</th>
+            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
+             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
+            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
+            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
+            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
+            <th column-name="Pair_FIGI">Pair FIGI</th>
+            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
+            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th>  -->
+            <!-- Add more table headings as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table body will be populated dynamically -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="">Current Page: <span id="current-page">0</span></td>
+            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
+          </tr>
+        </tfoot>
+
+
+    <!-- Commodities -->
+    
+    <!-- Real State -->
+    <div id="table-container">
+      <table id="Real_State" class="styled-table" class="hidden">
+        <thead>
+          <tr>
+            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
+            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th data-type="numeric" column-name="ID">ID</th>
+            <th column-name="Name">Name</th>
+            <th column-name="Asset_Class">Asset Class</th>
+            <!-- <th column-name="Bond_Type">Bond Type</th>
+            <th column-name="Coupon_Rate">Coupon Rate</th>
+            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
+            <th data-type="numeric" column-name="Face_Value">Face Value</th>
+            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
+            <th data-type="numeric" column-name="Current_Price">Current Price</th>
+            <th column-name="Credit_Rating">Credit Rating</th>
+            <th column-name="Country_of_Exposure">Country of Exposure</th>
+            <th column-name="Payment_Frequency">Payment Frequency</th>
+            <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
+            <!-- <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
+            <th column-name="Security_Type_2">Security Type 2</th>
+            
+            <th column-name="Ticker">Ticker</th>
+            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+            <th column-name="FIGI_Composite">FIGI Composite</th>
+            <th column-name="Share_Class">Share Class</th>
+            <th column-name="Security_Description">Security Description</th>
+            <th column-name="Security_Type">Security Type</th> -->
+            <!-- <th column-name="SERIES">SERIES</th>
+            <th column-name="COUPON_RATE">COUPON RATE</th>
+            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
+            <th data-type="numeric" column-name="LTP">LTP</th>
+            <th column-name="CHNG">PERCENT CHANGE</th>
+            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
+            <th column-name="ISIN">ISIN</th>
+            <th column-name="CREDIT_RATING">CREDIT RATING</th>
+            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
+            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th> -->
+            <!-- <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
+            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th> -->
+            <th column-name="SYMBOL">SYMBOL</th>
+            <th data-type="numeric" column-name="FIGI">FIGI</th>
+            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
+            <th column-name="OPTION_TYPE">OPTION TYPE</th>
+            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
+            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
+            <th column-name="CHNG">CHANGE</th>
+            <th data-type="numeric" column-name="OPEN">OPEN</th>
+            <th data-type="numeric" column-name="HIGH">HIGH</th>
+            <th data-type="numeric" column-name="LOW">LOW</th>
+            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
+            <!-- <th data-type="numeric" column-name="VALUE">VALUE</th> -->
+            <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
+            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
+            <!-- <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
+            <th column-name="Pair_FIGI">Pair FIGI</th>
+            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
+            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> -->
+            <!-- Add more table headings as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table body will be populated dynamically -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="">Current Page: <span id="current-page">0</span></td>
+            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
+          </tr>
+        </tfoot>
+
+    
+    <!-- Real State -->
+    
+
+
+
     <div id="pagination-container">
       <button id="prev-page">◄</button>
       <div id="page-number-container">
@@ -165,6 +545,8 @@
       <button id="next-page">►</button>
     </div>
   </div>
+
+
 
 
   <div id="update-entry-modal" class="modal">
