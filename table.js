@@ -77,16 +77,19 @@ function fetchDataAndPopulateTable() {
         });
 
         const row = document.createElement("tr");
+        // let faceValue = item.Face_Value.substring(1, item.Face_Value.length - 1).replace(/,/g, '');
+        // let currentPrice = item.Current_Price.substring(1, item.Current_Price.length - 1).replace(/,/g, '');
+
         row.innerHTML = `
-            <td>${item.ID}</td>
+            <td>${item.id}</td>
             <td>${item.Name}</td>
             <td data-column="Asset_Class">${item.Asset_Class}</td>
             <td>${item.Bond_Type}</td>
             <td>${item.Coupon_Rate}</td>
             <td>${item.Maturity_Date}</td>
-            <td>${item['Face_Value ']}</td>
+            <td>${item.Face_Value.substring(1, item.Face_Value.length - 1).replace(/,/g, '')}</td>
             <td>${item.Yield_to_Maturity}</td>
-            <td>${item.Current_Price}</td>
+            <td>${item.Current_Price.substring(1, item.Current_Price.length - 1).replace(/,/g, '')}</td>
             <td>${item.Credit_Rating}</td>
             <td>${item.Country_of_Exposure}</td>
             <td>${item.Payment_Frequency}</td>
@@ -96,24 +99,14 @@ function fetchDataAndPopulateTable() {
             <td>${item.FIGI}</td>
             <td>${item.Ticker}</td>
             <td>${item.Market_Sector}</td>
-            <td>${item.FIGI_Composite}</td>
             <td>${item.Share_Class}</td>
             <td>${item.Security_Description}</td>
             <td>${item.Security_Type}</td>
             <td>${item.SERIES}</td>
-            <td>${item.COUPON_RATE}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.LTP}</td>
-            <td>${item['%CHNG']}</td>
-            <td>${item['VOLUME VALUE']}</td>
             <td>${item.ISIN}</td>
-            <td>${item.CREDIT_RATING}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.TOTAL_NO_OF_BONDS}</td>
             <td>${item.LISTING_DATE}</td>
             <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
             <td>${item.ISSUE_DESCIPTION}</td>
-            <td>${item.SYMBOL}</td>
             <td>${item.EXPIRY_DATE}</td>
             <td>${item.OPTION_TYPE}</td>
             <td>${item.STRIKE}</td>
@@ -122,13 +115,9 @@ function fetchDataAndPopulateTable() {
             <td>${item.OPEN}</td>
             <td>${item.HIGH}</td>
             <td>${item.LOW}</td>
-            <td>${item.VOLUME}</td>
             <td>${item.OPEN_INTEREST}</td>
             <td>${item.NO_OF_TRADES}</td>
-            <td>${item.UNDERLYING_VALUE}</td>
-            <td>${item.Pair_FIGI}</td>
-            <td>${item[' Base_Asset_FIGI']}</td>
-            <td>${item[' Quote_Asset_FIGI']}</td>        
+            <td>${item.UNDERLYING_VALUE}</td>   
             <!-- Add more cells for other data properties -->
             `;
         tbody.appendChild(row);
@@ -301,7 +290,7 @@ function exportTableToCSV() {
   const rows = table.querySelectorAll("tbody tr");
 
   let csvContent = "data:text/csv;charset=utf-8,";
-  csvContent += "Name,Currency,Market Sector,Exchange Code,Security Type,Country of Issue,Security Type 2,Futures Category,Last Tradeable Date,Futures Exchange Name,Futures Contract Size,Futures Tick Size,Futures Tick Value,Futures Generic Month,Futures First Trade Date,Cash Settled,Futures Trading Units,Quote Units,Futures Month Year,Futures Contract Date,ID BB Global,ID BB Global Company,ID BB Global Name,Quoted Currency,Ticker,CUSIP,ISIN,SEDOL,ICRA Rating,Moody's Rating,Crisil Rating,Website,Active Switch,Security Description";
+  csvContent += "ID,Name,Asset Class,Bond Type,Coupon Rate,Maturity Date,Face Value,Yield to Maturity,Current Price,Credit Rating,Country of Exposure,Payment Frequency,Security ID,Exchange Code,Security Type 2,FIGI,Ticker,Market Sector,Share Class,Security Description,Security Type,SERIES,ISIN,LISTING DATE,NEXT INTEREST PAYMENT DATE,ISSUE DESCIPTION,EXPIRY DATE,OPTION TYPE,STRIKE,SPREAD,CHANGE,OPEN,HIGH,LOW,OPEN INTEREST,NO OF TRADES,UNDERLYING VALUE";
 
   rows.forEach((row) => {
     const rowData = Array.from(row.children).map((cell) => cell.textContent);

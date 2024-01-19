@@ -34,16 +34,16 @@
     padding: 12px 15px;
     text-align: center;
     position: relative;
-    &:hover
-    &:before{
-        content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: -9999px;
-				bottom: -9999px;
-				background-color: black;
-				z-index: -1;
+
+    &:hover &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -9999px;
+      bottom: -9999px;
+      background-color: black;
+      z-index: -1;
     }
 
     &::after {
@@ -67,40 +67,40 @@
   .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-}
+  }
 
-h1{
-  color: #808080;
-  font-family: 'Times New Roman', Times, serif;
-  text-transform: uppercase;
-}
+  h1 {
+    color: #808080;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+  }
 
-img{
-  width: 120px;
-  padding-left: 530px;
-}
-/* .logo{
+  img {
+    width: 120px;
+    padding-left: 530px;
+  }
+
+  /* .logo{
   display: flex;
   text-align: center;
   align-items: center;
   } */
-
 </style>
 
 <body>
-  
+
   <div class="button-container">
     <a class="button" href="extendedinput.html"></a>
   </div>
-  
+
   <div style="text-align: center; align-items: center; display: flex;">
-    
-      <img src="Data.png" alt="Image Description">
-      <h1 class="logo">Request Data</h1>
-    
-   
+
+    <img src="Data.png" alt="Image Description">
+    <h1 class="logo">Request Data</h1>
+
+
   </div>
-  
+
   <div class="search-container" textalign="flex">
     <form action="">
       <!-- <input type="text" id="search" placeholder="Search..."> -->
@@ -113,49 +113,51 @@ img{
 
     </form>
 
-    
-   
-    
+
+
+
   </div>
 
   <table id="data-table" class="styled-table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Currency</th>
-        <th>Market Sector</th>
-        <th>Exchange Code</th>
-        <th>Security Type</th>
-        <th>Country of Issue</th>
-        <th>Security Type 2</th>
-        <th>Futures Category</th>
-        <th>Last Tradeable Date</th>
-        <th>Futures Exchange Name</th>
-        <th>Futures Contract Size</th>
-        <th>Futures Tick Size</th>
-        <th>Futures Tick Value</th>
-        <th>Futures Generic Month</th>
-        <th>Futures First Trade Date</th>
-        <th>Cash Settled</th>
-        <th>Futures Trading Units</th>
-        <th>Quote Units</th>
-        <th>Futures Month Year</th>
-        <th>Futures Contract Date</th>
-        <th>ID BB Global</th>
-        <th>ID BB Global Company</th>
-        <th>ID BB Global Name</th>
-        <th>Quoted Currency</th>
-        <th>Ticker</th>
-        <th>CUSIP</th>
-        <th>ISIN</th>
-        <th>SEDOL</th>
-        <th>ICRA Rating</th>
-        <th>Moody's Rating</th>
-        <th>Crisil Rating</th>
-        <th>Website</th>
-        <th>Active Switch</th>
-        <th>Security Description</th>
+        <th data-type="numeric" column-name="id">ID</th>
+        <th column-name="Name">Name</th>
+        <th column-name="Asset_Class">Asset Class</th>
+        <th column-name="Bond_Type">Bond Type</th>
+        <th column-name="Coupon_Rate">Coupon Rate</th>
+        <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
+        <th data-type="numeric" column-name="Face_Value">Face Value</th>
+        <th column-name="Yield_to_Maturity">Yield to Maturity</th>
+        <th data-type="numeric" column-name="Current_Price">Current Price</th>
+        <th column-name="Credit_Rating">Credit Rating</th>
+        <th column-name="Country_of_Exposure">Country of Exposure</th>
+        <th column-name="Payment_Frequency">Payment Frequency</th>
+        <th data-type="numeric" column-name="Security_ID">Security ID</th>
+        <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
+        <th column-name="Security_Type_2">Security Type 2</th>
+        <th data-type="numeric" column-name="FIGI">FIGI</th>
+        <th column-name="Ticker">Ticker</th>
+        <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+        <th column-name="Share_Class">Share Class</th>
+        <th column-name="Security_Description">Security Description</th>
+        <th column-name="Security_Type">Security Type</th>
+        <th column-name="SERIES">SERIES</th>
+        <th column-name="ISIN">ISIN</th>
+        <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
+        <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
+        <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
+        <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
+        <th column-name="OPTION_TYPE">OPTION TYPE</th>
+        <th data-type="numeric" column-name="STRIKE">STRIKE</th>
+        <th data-type="numeric" column-name="SPREAD">SPREAD</th>
+        <th column-name="CHNG">CHANGE</th>
+        <th data-type="numeric" column-name="OPEN">OPEN</th>
+        <th data-type="numeric" column-name="HIGH">HIGH</th>
+        <th data-type="numeric" column-name="LOW">LOW</th>
+        <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
+        <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
+        <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
         <!-- Add more table headings as needed -->
       </tr>
     </thead>
@@ -168,120 +170,120 @@ img{
 
 
 
-  async function fetchAndSendData() {
-  const jsonDataUrl = 'https://securitymasterdataspie.onrender.com/pendingreq?id='+sorti;
-  const postDataUrl = 'https://securitymasterdataspie.onrender.com/IdData?';
-  console.log(jsonDataUrl);
+    async function fetchAndSendData() {
+      const jsonDataUrl = 'https://securitymasterdataspie.onrender.com/pendingreq?id=' + sorti;
+      const postDataUrl = 'https://securitymasterdataspie.onrender.com/IdData?';
+      console.log(jsonDataUrl);
 
-  try {
-    // Fetch the JSON data
-    const jsonDataResponse = await fetch(jsonDataUrl);
-  
-    const jsonData = await jsonDataResponse.json();
-    delete jsonData[0].id;
-    
+      try {
+        // Fetch the JSON data
+        const jsonDataResponse = await fetch(jsonDataUrl);
 
-    // Create the POST request body
-    const postDataString = JSON.stringify(jsonData[0]);
-    
-    
+        const jsonData = await jsonDataResponse.json();
+        delete jsonData[0].id;
+
+
+        // Create the POST request body
+        const postDataString = JSON.stringify(jsonData[0]);
 
 
 
-    
-    console.log(postDataString);
-    // Make the POST request
-    const postDataResponse =  fetch(postDataUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: postDataString,
-    })
 
-    // Check the POST request status
-    if (postDataResponse.status === 201) {
-      console.log('Data sent successfully');
-      console.log(await postDataResponse.json());
-    } else {
-      console.error('Error sending data');
-      console.error(await postDataResponse.text());
+
+
+        console.log(postDataString);
+        // Make the POST request
+        const postDataResponse = fetch(postDataUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: postDataString,
+        })
+
+        // Check the POST request status
+        if (postDataResponse.status === 201) {
+          console.log('Data sent successfully');
+          console.log(await postDataResponse.json());
+        } else {
+          console.error('Error sending data');
+          console.error(await postDataResponse.text());
+        }
+      } catch (error) {
+        console.error('Error fetching or sending data:', error);
+      }
     }
-  } catch (error) {
-    console.error('Error fetching or sending data:', error);
-  }
-}
 
 
- function delapi(){
-  const apiUrl = 'https://securitymasterdataspie.onrender.com/pendingreq/'+sorti;
-  console.log("delete wala chal rha hai");
-fetch(apiUrl, {
-  method: 'DELETE',
-})
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    function delapi() {
+      const apiUrl = 'https://securitymasterdataspie.onrender.com/pendingreq/' + sorti;
+      console.log("delete wala chal rha hai");
+      fetch(apiUrl, {
+        method: 'DELETE',
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Handle the response data
+          console.log('Data deleted successfully:', data);
+        })
+        .catch(error => {
+          // Handle errors
+          console.error('Error deleting data:', error);
+        });
     }
-    return response.json();
-  })
-  .then(data => {
-    // Handle the response data
-    console.log('Data deleted successfully:', data);
-  })
-  .catch(error => {
-    // Handle errors
-    console.error('Error deleting data:', error);
-  });
-}
- 
 
 
 
 
-let i = 0;
+
+    let i = 0;
 
     const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const form_data = new FormData(form);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form_data = new FormData(form);
 
-  for (item of form_data) {
-    let str = item[0] + item[1];
-    localStorage.setItem(item[0], item[1]);
-  }
-  fetchAndSendData();
-  delapi();
- 
-});
+      for (item of form_data) {
+        let str = item[0] + item[1];
+        localStorage.setItem(item[0], item[1]);
+      }
+      fetchAndSendData();
+      delapi();
 
-form.addEventListener("submit" , (e) => {
-  e.preventDefault();
+    });
 
-  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
 
-  
- 
-  setTimeout(() => {
-    // After the function logic, reload the page
-    location.reload();
-  }, 5000);
 
-})
+
+
+
+      setTimeout(() => {
+        // After the function logic, reload the page
+        location.reload();
+      }, 5000);
+
+    })
 
 
 
 
 
     // let url = localStorage.getItem('url');
-     const sorti = localStorage.getItem('sort');
+    const sorti = localStorage.getItem('sort');
     // // Step 1: Fetch data from the JSON API
     // url += "&_sort=" + sorti;
     const url = "https://securitymasterdataspie.onrender.com/pendingreq";
 
     console.log(url);
-    
+
     fetch(url) // Replace with your JSON API endpoint
       .then((response) => response.json())
       .then((securitydata) => {
@@ -295,153 +297,155 @@ form.addEventListener("submit" , (e) => {
         securitydata.forEach((item) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-            <td>${item.id}</td>          
-            <td>${item.NAME}</td>
-            <td>${item.CRNCY}</td>
-            <td>${item.MARKET_SECTOR}</td>
-            <td>${item.EXC_CODE}</td>
-            <td>${item.SECURITY_TYPE}</td>
-            <td>${item.CNTRY_ISSUE}</td>
-            <td>${item.SECURITY_TYPE2}</td>
-            <td>${item.FUTURES_CATEGORY}</td>
-            <td>${item.LAST_TRADEABLE_DT}</td>
-            <td>${item.FUR_EXCH_NAME_LONG}</td>
-            <td>${item.FUT_CONT_SIZE}</td>
-            <td>${item.FUT_TICK_SIZE}</td>
-            <td>${item.FUT_TICK_VALUE}</td>
-            <td>${item.FUT_GEN_MONTH}</td>
-            <td>${item.FUT_FIRST_TRADE_DT}</td>
-            <td>${item.CASH_SETTLED}</td>
-            <td>${item.FUT_TRADING_UNITS}</td>
-            <td>${item.QUOTE_UNITS}</td>
-            <td>${item.FUT_MONTH_YEAR}</td>
-            <td>${item.FUT_CONTRACT_DATE}</td>
-            <td>${item.ID_BB_GLOBAL}</td>
-            <td>${item.ID_BB_GLOBAL_COMPANY}</td>
-            <td>${item.ID_BB_GLOBAL_NAME}</td>
-            <td>${item.QUOTED_CURRENCY}</td>
-            <td>${item.TICKER}</td>
-            <td>${item.CUSIP}</td>
+          <td>${item.id}</td>
+            <td>${item.Name}</td>
+            <td data-column="Asset_Class">${item.Asset_Class}</td>
+            <td>${item.Bond_Type}</td>
+            <td>${item.Coupon_Rate}</td>
+            <td>${item.Maturity_Date}</td>
+            <td>${item.Face_Value}</td>
+            <td>${item.Yield_to_Maturity}</td>
+            <td>${item.Current_Price}</td>
+            <td>${item.Credit_Rating}</td>
+            <td>${item.Country_of_Exposure}</td>
+            <td>${item.Payment_Frequency}</td>
+            <td>${item.Security_ID}</td>
+            <td>${item.Exchange_Code}</td>
+            <td>${item.Security_Type_2}</td>
+            <td>${item.FIGI}</td>
+            <td>${item.Ticker}</td>
+            <td>${item.Market_Sector}</td>
+            <td>${item.Share_Class}</td>
+            <td>${item.Security_Description}</td>
+            <td>${item.Security_Type}</td>
+            <td>${item.SERIES}</td>
             <td>${item.ISIN}</td>
-            <td>${item.SEDOL}</td>
-            <td>${item.ICRA_RATING}</td>
-            <td>${item.MOODY_RATING}</td>
-            <td>${item.CRISIL_RATING}</td>
-            <td>${item.WEBSITE}</td>
-            <td>${item.ACTIVE_SWITCH}</td>
-            <td>${item.SEC_DESCRIPTION}</td>
+            <td>${item.LISTING_DATE}</td>
+            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
+            <td>${item.ISSUE_DESCIPTION}</td>
+            <td>${item.EXPIRY_DATE}</td>
+            <td>${item.OPTION_TYPE}</td>
+            <td>${item.STRIKE}</td>
+            <td>${item.SPREAD}</td>
+            <td>${item.CHNG}</td>
+            <td>${item.OPEN}</td>
+            <td>${item.HIGH}</td>
+            <td>${item.LOW}</td>
+            <td>${item.OPEN_INTEREST}</td>
+            <td>${item.NO_OF_TRADES}</td>
+            <td>${item.UNDERLYING_VALUE}</td>   
             <!-- Add more table data cells as needed -->
           `;
           tbody.appendChild(row);
         });
 
-        
-       
+
+
 
         function filterTable(query) {
-  const rows = document.querySelectorAll("#data-table tbody tr");
-  let displayedRows = 0;
+          const rows = document.querySelectorAll("#data-table tbody tr");
+          let displayedRows = 0;
 
-  rows.forEach((row) => {
-    const cells = row.querySelectorAll("td");
-    let rowMatchesQuery = false;
+          rows.forEach((row) => {
+            const cells = row.querySelectorAll("td");
+            let rowMatchesQuery = false;
 
-    cells.forEach((cell) => {
-      if (cell.textContent.toLowerCase().includes(query)) {
-        rowMatchesQuery = true;
-      }
-    });
+            cells.forEach((cell) => {
+              if (cell.textContent.toLowerCase().includes(query)) {
+                rowMatchesQuery = true;
+              }
+            });
 
-    if (rowMatchesQuery) {
-      row.style.display = "table-row";
-      displayedRows++;
-    } else {
-      row.style.display = "none";
-    }
-  });
-  document.getElementById("total-rows").textContent = displayedRows;
-}
-
-
+            if (rowMatchesQuery) {
+              row.style.display = "table-row";
+              displayedRows++;
+            } else {
+              row.style.display = "none";
+            }
+          });
+          document.getElementById("total-rows").textContent = displayedRows;
+        }
 
 
 
 
-// const table0 = document.getElementById('data-table');
 
-// const rows = table0.getElementsByTagName('tr');
-// var apiurl = "https://securitymasterdataspie.onrender.com/pendingreq/?"
 
-// var url_ = "https://securitymasterdataspie.onrender.com/idData/44";
-//   fetch(url_).then( (response) => response.json()).then((data) => fetch(apiurl ,{
-//         method : "POST",
-//         body : data.json(),}).then(res => res.json()).then(data => console.log(data)));
- 
+        // const table0 = document.getElementById('data-table');
 
-const del = document.getElementById("del");
-const delval = document.getElementById("sort");
+        // const rows = table0.getElementsByTagName('tr');
+        // var apiurl = "https://securitymasterdataspie.onrender.com/pendingreq/?"
 
-del.addEventListener("click", () => {
-  const vl = delval.value;
-  const apiUrl = `https://securitymasterdataspie.onrender.com/pendingreq/${vl}`;
-   // Make a DELETE request to your server to delete the data
-   console.log(apiUrl);
-   fetch(apiUrl, {
-    method: "DELETE",
-  })
-    .then((response) => {
-      if (response.status === 200) {
-        // Handle a successful delete (HTTP status 200) here
-        alert(`Data with ID ${idToDelete} has been deleted.`);
-        idToDeleteInput.value = ""; // Clear the input field
-        // Optionally, you can refresh the table to show the updated data
+        // var url_ = "https://securitymasterdataspie.onrender.com/idData/44";
+        //   fetch(url_).then( (response) => response.json()).then((data) => fetch(apiurl ,{
+        //         method : "POST",
+        //         body : data.json(),}).then(res => res.json()).then(data => console.log(data)));
+
+
+        const del = document.getElementById("del");
+        const delval = document.getElementById("sort");
+
+        del.addEventListener("click", () => {
+          const vl = delval.value;
+          const apiUrl = `https://securitymasterdataspie.onrender.com/pendingreq/${vl}`;
+          // Make a DELETE request to your server to delete the data
+          console.log(apiUrl);
+          fetch(apiUrl, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                // Handle a successful delete (HTTP status 200) here
+                alert(`Data with ID ${idToDelete} has been deleted.`);
+                idToDeleteInput.value = ""; // Clear the input field
+                // Optionally, you can refresh the table to show the updated data
+                fetchDataAndPopulateTable();
+              } else if (response.status === 404) {
+                // Handle the case where the data with the provided ID was not found (HTTP status 404)
+                alert(`Data with ID ${idToDelete} not found.`);
+              } else {
+                // Handle other error cases
+                alert(`Error deleting data with ID ${idToDelete}.`);
+              }
+            })
+            .catch((error) => {
+              console.error("Error deleting data:", error);
+            });
+
+          setTimeout(() => {
+            // After the function logic, reload the page
+            location.reload();
+          }, 2000);
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         fetchDataAndPopulateTable();
-      } else if (response.status === 404) {
-        // Handle the case where the data with the provided ID was not found (HTTP status 404)
-        alert(`Data with ID ${idToDelete} not found.`);
-      } else {
-        // Handle other error cases
-        alert(`Error deleting data with ID ${idToDelete}.`);
-      }
-    })
-    .catch((error) => {
-      console.error("Error deleting data:", error);
-    });
 
-    setTimeout(() => {
-    // After the function logic, reload the page
-    location.reload();
-  }, 2000);
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fetchDataAndPopulateTable();
-
-const searchInput = document.getElementById("search");
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim().toLowerCase();
-  filterTable(query);
-});
+        const searchInput = document.getElementById("search");
+        searchInput.addEventListener("input", () => {
+          const query = searchInput.value.trim().toLowerCase();
+          filterTable(query);
+        });
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
