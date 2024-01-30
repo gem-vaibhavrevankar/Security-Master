@@ -39,12 +39,12 @@
     
   </div>
 
-  <div id="Asset-drop" style="text-align: center;">
+  <!-- <div id="Asset-drop" style="text-align: center;">
     <label for="Asset-dropdown">Asset Class</label>
     <select id="Asset-dropdown" class="table-filter">
       
     </select>
-  </div>
+  </div> -->
 
   <div class="search-container">
     <input type="text" id="search" placeholder="Search...">
@@ -78,8 +78,8 @@
     </select>
   </div>
 
-  <div id="table-container">
-    <table id="data-table" class="styled-table" class="hidden">
+  <div id="table-container" >
+    <table id="data-table" class="styled-table" class="hidden" >
       <thead>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -177,14 +177,15 @@
             </button>
            </div> -->
 
-      </div>
+      
     </table>
+    </div>
 
     <!-- Fixed Income -->
 
 
-    <div id="table-container">
-      <table id="Fixed_Income" class="styled-table" class="hidden">
+    <div id="table-container" >
+      <table id="Fixed_Income" class="styled-table" class="hidden" >
         <thead>
           <tr>
             <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -193,8 +194,8 @@
         </thead>
         <thead>
           <tr>
-            <th>Hey</th>
-            <th data-type="numeric" column-name="ID">ID</th>
+            <!-- <th>Hey</th> -->
+            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
             <th column-name="Name">Name</th>
             <th column-name="Asset_Class">Asset Class</th>
             <th column-name="Bond_Type">Bond Type</th>
@@ -211,7 +212,7 @@
             <th column-name="Security_Type_2">Security Type 2</th>
             <th data-type="numeric" column-name="FIGI">FIGI</th>
             <th column-name="Ticker">Ticker</th>
-            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+            <!-- <th data-type="numeric" column-name="Market_Sector">Market Sector</th> -->
 
 
             <!-- <th column-name="FIGI_Composite">FIGI Composite</th>
@@ -287,8 +288,10 @@
               </button>
              </div> -->
   
-        </div>
+        
       </table>
+    </div>
+    
 
 
 
@@ -297,9 +300,7 @@
     <!-- Fixed Income -->
 
     <!-- Equities -->
-
-    <div id="table-container">
-      <table id="Equities" class="styled-table" class="hidden">
+      <table id="Equities"  class="styled-table" class="hidden" >
         <thead>
           <tr>
             <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -308,10 +309,10 @@
         </thead>
         <thead>
           <tr>
-            <th>Equities</th>
-            <th data-type="numeric" column-name="ID">ID</th>
+            <!-- <th>Equities</th> -->
+            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
             <th column-name="Name">Name</th>
-            <th column-name="Asset_Class">Asset Class</th>
+            <!-- <th column-name="Asset_Class">Asset Class</th> -->
             <!-- <th column-name="Bond_Type">Bond Type</th> -->
             <!-- <th column-name="Coupon_Rate">Coupon Rate</th> -->
             <!-- <th data-type="date" column-name="Maturity_Date">Maturity Date</th> -->
@@ -322,15 +323,15 @@
             <!-- <th column-name="Country_of_Exposure">Country of Exposure</th> -->
             <!-- <th column-name="Payment_Frequency">Payment Frequency</th> -->
             <!-- <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
-            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
-            <!-- <th column-name="Security_Type_2">Security Type 2</th> -->
-            <th data-type="numeric" column-name="FIGI">FIGI</th>
+            <th  column-name="Exchange_Code">Exchange Code</th>
+            <th column-name="Security_Type_2">Security Type 2</th>
+            <th  column-name="FIGI">FIGI</th>
             <th column-name="Ticker">Ticker</th>
-            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
+            <th column-name="Market_Sector">Market Sector</th>
             <th column-name="FIGI_Composite">FIGI Composite</th>
             <th column-name="Share_Class">Share Class</th>
-            <!-- <th column-name="Security_Description">Security Description</th> -->
-            <!-- <th column-name="Security_Type">Security Type</th> -->
+            <th column-name="Security_Description">Security Description</th> 
+            <th column-name="Security_Type">Security Type</th>
             <!-- <th column-name="SERIES">SERIES</th> -->
             <!-- <th column-name="COUPON_RATE">COUPON RATE</th>
             <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
@@ -372,12 +373,13 @@
             <td colspan="">Total Pages: <span id="total-pages">0</span></td>
           </tr>
         </tfoot>
+        </table>
 
     <!-- Equities -->
 
     <!-- Commodities -->
     <div id="table-container">
-      <table id="Commodities" class="styled-table" class="hidden">
+      <table id="Commodities"  class="styled-table" class="hidden" >
         <thead>
           <tr>
             <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -386,10 +388,10 @@
         </thead>
         <thead>
           <tr>
-            <th>Commodities</th>
-            <th data-type="numeric" column-name="ID">ID</th>
+            <!-- <th>Commodities</th> -->
+            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
             <th column-name="Name">Name</th>
-            <th column-name="Asset_Class">Asset Class</th>
+            <!-- <th column-name="Asset_Class">Asset Class</th> -->
             <!-- <th column-name="Bond_Type">Bond Type</th>
             <th column-name="Coupon_Rate">Coupon Rate</th>
             <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
@@ -402,7 +404,7 @@
             <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
             <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
             <th column-name="Security_Type_2">Security Type 2</th>
-            <!-- <th data-type="numeric" column-name="FIGI">FIGI</th> -->
+            <th  column-name="FIGI">FIGI</th>
             <th column-name="Ticker">Ticker</th>
             <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
             <th column-name="FIGI_Composite">FIGI Composite</th>
@@ -450,13 +452,14 @@
             <td colspan="">Total Pages: <span id="total-pages">0</span></td>
           </tr>
         </tfoot>
+        </table>
 
 
     <!-- Commodities -->
     
     <!-- Real State -->
     <div id="table-container">
-      <table id="Real_State" class="styled-table" class="hidden">
+      <table id="Real_State" class="styled-table" class="hidden" >
         <thead>
           <tr>
             <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -530,8 +533,7 @@
             <td colspan="">Total Pages: <span id="total-pages">0</span></td>
           </tr>
         </tfoot>
-
-    
+        </table>
     <!-- Real State -->
     
 

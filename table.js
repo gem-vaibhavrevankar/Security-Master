@@ -20,8 +20,8 @@ currentPageTd.classList.add("total-label");
 
 rowsDropdown.addEventListener("change", () => {
   currentPage = 1;
-  if (rowsDropdown.value === "All") {
-    itemsPerPage = totalRows;
+  if (rowsDropdown.value === "") {
+    itemsPerPage = totalRows;All
   } else {
     itemsPerPage = parseInt(rowsDropdown.value, 10);
   }
@@ -161,12 +161,9 @@ function fetchDataAndPopulateTable() {
   // Be sure to populate the table rows based on the current page and itemsPerPage
 }
 
-// // Fixed Income API
-//   fetch('https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc').
-//   then( res => res.JSON()).
-//   then((data) => {
 
-//   })
+// // Fixed Income API
+
 function fetchDataAndPopulateTable2() {
   // Replace this URL with the actual URL of your JSON API
   // const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc";
@@ -212,7 +209,6 @@ function fetchDataAndPopulateTable2() {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${item.ID}</td>
             <td>${item.Name}</td>
             <td data-column="Asset_Class">${item.Asset_Class}</td>
             <td>${item.Bond_Type}</td>
@@ -229,40 +225,7 @@ function fetchDataAndPopulateTable2() {
             <td>${item.Security_Type_2}</td>
             <td>${item.FIGI}</td>
             <td>${item.Ticker}</td>
-            <td>${item.Market_Sector}</td>
-            <td>${item.FIGI_Composite}</td>
-            <td>${item.Share_Class}</td>
-            <td>${item.Security_Description}</td>
-            <td>${item.Security_Type}</td>
-            <td>${item.SERIES}</td>
-            <td>${item.COUPON_RATE}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.LTP}</td>
-            <td>${item['%CHNG']}</td>
-            <td>${item['VOLUME VALUE']}</td>
-            <td>${item.ISIN}</td>
-            <td>${item.CREDIT_RATING}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.TOTAL_NO_OF_BONDS}</td>
-            <td>${item.LISTING_DATE}</td>
-            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
-            <td>${item.ISSUE_DESCIPTION}</td>
-            <td>${item.SYMBOL}</td>
-            <td>${item.EXPIRY_DATE}</td>
-            <td>${item.OPTION_TYPE}</td>
-            <td>${item.STRIKE}</td>
-            <td>${item.SPREAD}</td>
-            <td>${item.CHNG}</td>
-            <td>${item.OPEN}</td>
-            <td>${item.HIGH}</td>
-            <td>${item.LOW}</td>
-            <td>${item.VOLUME}</td>
-            <td>${item.OPEN_INTEREST}</td>
-            <td>${item.NO_OF_TRADES}</td>
-            <td>${item.UNDERLYING_VALUE}</td>
-            <td>${item.Pair_FIGI}</td>
-            <td>${item[' Base_Asset_FIGI']}</td>
-            <td>${item[' Quote_Asset_FIGI']}</td>        
+                
             <!-- Add more cells for other data properties -->
             `;
         tbody.appendChild(row);
@@ -341,19 +304,9 @@ function fetchDataAndPopulateTable3() {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${item.ID}</td>
+        
             <td>${item.Name}</td>
-            <td data-column="Asset_Class">${item.Asset_Class}</td>
-            <td>${item.Bond_Type}</td>
-            <td>${item.Coupon_Rate}</td>
-            <td>${item.Maturity_Date}</td>
-            <td>${item['Face_Value ']}</td>
-            <td>${item.Yield_to_Maturity}</td>
-            <td>${item.Current_Price}</td>
-            <td>${item.Credit_Rating}</td>
-            <td>${item.Country_of_Exposure}</td>
-            <td>${item.Payment_Frequency}</td>
-            <td>${item.Security_ID}</td>
+           
             <td>${item.Exchange_Code}</td>
             <td>${item.Security_Type_2}</td>
             <td>${item.FIGI}</td>
@@ -363,32 +316,9 @@ function fetchDataAndPopulateTable3() {
             <td>${item.Share_Class}</td>
             <td>${item.Security_Description}</td>
             <td>${item.Security_Type}</td>
-            <td>${item.SERIES}</td>
-            <td>${item.COUPON_RATE}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.LTP}</td>
-            <td>${item['%CHNG']}</td>
-            <td>${item['VOLUME VALUE']}</td>
-            <td>${item.ISIN}</td>
-            <td>${item.CREDIT_RATING}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.TOTAL_NO_OF_BONDS}</td>
-            <td>${item.LISTING_DATE}</td>
-            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
-            <td>${item.ISSUE_DESCIPTION}</td>
-            <td>${item.SYMBOL}</td>
-            <td>${item.EXPIRY_DATE}</td>
-            <td>${item.OPTION_TYPE}</td>
-            <td>${item.STRIKE}</td>
-            <td>${item.SPREAD}</td>
-            <td>${item.CHNG}</td>
-            <td>${item.OPEN}</td>
-            <td>${item.HIGH}</td>
-            <td>${item.LOW}</td>
-            <td>${item.VOLUME}</td>
-            <td>${item.OPEN_INTEREST}</td>
-            <td>${item.NO_OF_TRADES}</td>
-            <td>${item.UNDERLYING_VALUE}</td>
+        
+           
+            
             <td>${item.Pair_FIGI}</td>
             <td>${item[' Base_Asset_FIGI']}</td>
             <td>${item[' Quote_Asset_FIGI']}</td>        
@@ -468,19 +398,10 @@ function fetchDataAndPopulateTable4() {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${item.ID}</td>
+          
             <td>${item.Name}</td>
-            <td data-column="Asset_Class">${item.Asset_Class}</td>
-            <td>${item.Bond_Type}</td>
-            <td>${item.Coupon_Rate}</td>
-            <td>${item.Maturity_Date}</td>
-            <td>${item['Face_Value ']}</td>
-            <td>${item.Yield_to_Maturity}</td>
-            <td>${item.Current_Price}</td>
-            <td>${item.Credit_Rating}</td>
-            <td>${item.Country_of_Exposure}</td>
-            <td>${item.Payment_Frequency}</td>
-            <td>${item.Security_ID}</td>
+          
+            
             <td>${item.Exchange_Code}</td>
             <td>${item.Security_Type_2}</td>
             <td>${item.FIGI}</td>
@@ -490,36 +411,7 @@ function fetchDataAndPopulateTable4() {
             <td>${item.Share_Class}</td>
             <td>${item.Security_Description}</td>
             <td>${item.Security_Type}</td>
-            <td>${item.SERIES}</td>
-            <td>${item.COUPON_RATE}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.LTP}</td>
-            <td>${item['%CHNG']}</td>
-            <td>${item['VOLUME VALUE']}</td>
-            <td>${item.ISIN}</td>
-            <td>${item.CREDIT_RATING}</td>
-            <td>${item.FACE_VALUE}</td>
-            <td>${item.TOTAL_NO_OF_BONDS}</td>
-            <td>${item.LISTING_DATE}</td>
-            <td>${item.NEXT_INTEREST_PAYMENT_DATE}</td>
-            <td>${item.ISSUE_DESCIPTION}</td>
-            <td>${item.SYMBOL}</td>
-            <td>${item.EXPIRY_DATE}</td>
-            <td>${item.OPTION_TYPE}</td>
-            <td>${item.STRIKE}</td>
-            <td>${item.SPREAD}</td>
-            <td>${item.CHNG}</td>
-            <td>${item.OPEN}</td>
-            <td>${item.HIGH}</td>
-            <td>${item.LOW}</td>
-            <td>${item.VOLUME}</td>
-            <td>${item.OPEN_INTEREST}</td>
-            <td>${item.NO_OF_TRADES}</td>
-            <td>${item.UNDERLYING_VALUE}</td>
-            <td>${item.Pair_FIGI}</td>
-            <td>${item[' Base_Asset_FIGI']}</td>
-            <td>${item[' Quote_Asset_FIGI']}</td>        
-            <!-- Add more cells for other data properties -->
+           
             `;
         tbody.appendChild(row);
       }
@@ -848,8 +740,10 @@ function exportTableToCSV() {
 
 
 function showTable() {
-  // Hide all tables
+
+  
   const tables = document.querySelectorAll('table');
+  // const tables = document.getElementById('table-container')
   tables.forEach(table => {
     table.classList.add('hidden');
   });
@@ -859,5 +753,9 @@ function showTable() {
   const selectedTable = document.getElementById(selectedTableId);
   if (selectedTable) {
     selectedTable.classList.remove('hidden');
-  }
+  } 
+   
+  
+  
+
 }
