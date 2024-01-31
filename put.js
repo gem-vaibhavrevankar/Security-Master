@@ -39,7 +39,6 @@ updateForm.addEventListener("submit", (e) => {
   // Retrieve the existing data to get previous values
   const apiUrl = `https://securitymasterdataspie.onrender.com/Master_Data/${entryId}`;
   
-  alert(apiUrl);
   fetch(apiUrl)
     .then((response) => response.json())
     .then(async (existingData) => {
