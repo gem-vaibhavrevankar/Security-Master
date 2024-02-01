@@ -53,14 +53,14 @@ const Face_Value = localStorage.getItem("Face_Value");
 const SERIES = localStorage.getItem("SERIES");
 //const Market_Sector = localStorage.getItem("Market_Sector");
 
-let url = "https://securitymasterdataspie.onrender.com/Master_Data";
+let url = "https://securitymasterdataspie.onrender.com/Master_Data?";
 // url+='EXC_CODE='+exc;
 // console.log(url);
 
 if (Name == "") {
   url = url;
 } else {
-  url += "Name=" + Name;
+  url += "&Name=" + Name;
 }
 
 if (Asset_Class == "") {
@@ -183,7 +183,7 @@ if (SERIES == "") {
 //   url += "&FUT_TICK_VALUE=" + FUT_TICK_Value;
 // }
 
-localStorage.setItem("hey", url);
+localStorage.setItem("url", url);
 
 
 
