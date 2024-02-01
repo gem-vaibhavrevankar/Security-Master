@@ -30,79 +30,79 @@ form.addEventListener("submit", (e) => {
 
 });
 
-const name = localStorage.getItem("name");
-const cusip = localStorage.getItem("cusip");
-const isin = localStorage.getItem("ISIN");
-const sedol = localStorage.getItem("Sedol");
-const bb_globalid = localStorage.getItem("BB_GLOBALID");
-const security_type = localStorage.getItem("Security_Type");
-const output = localStorage.getItem("output");
-const Currency = localStorage.getItem("Currency");
-const EXC_CODE = localStorage.getItem("EXC_CODE");
-const Securtiy_type_2 = localStorage.getItem("Security_type_2");
-const Country_issue = localStorage.getItem("Country_issue");
+const name = localStorage.getItem("Name");
+const Asset_Class = localStorage.getItem("Asset_Class");
+const FIGI = localStorage.getItem("FIGI");
+const ISIN = localStorage.getItem("ISIN");
 const Ticker = localStorage.getItem("Ticker");
-const Security_discription = localStorage.getItem("Security_discription");
-const ICRA_rating = localStorage.getItem("ICRA_rating");
-const MOODY_rating = localStorage.getItem("MOODY_rating");
-const Active_Switch = localStorage.getItem("Active_Switch");
-const FUT_Category = localStorage.getItem("FUT-Category");
-const FUT_EXG_NAME = localStorage.getItem("FUT-EXG_NAME");
-const FUT_Trading_Unit = localStorage.getItem("FUT-Trading_Unit");
-const FUT_TICK_SIZE = localStorage.getItem("FUT-TICK_SIZE");
-const FUT_TICK_Value = localStorage.getItem("FUT-TICK_Value");
+const Security_Type = localStorage.getItem("Security_Type");
+const Credit_Rating = localStorage.getItem("Credit_Rating");
+const Security_Type_2 = localStorage.getItem("Security_Type_2");
+const Exchange_Code = localStorage.getItem("Exchange_Code");
+const Securtiy_type_2 = localStorage.getItem("Security_type_2");
 const Market_Sector = localStorage.getItem("Market_Sector");
+//const Ticker = localStorage.getItem("Ticker");
+const Country_of_Exposure = localStorage.getItem("Country_of_Exposure");
+const Security_ID = localStorage.getItem("Security_ID");
+const LISTING_DATE = localStorage.getItem("LISTING_DATE");
+const Payment_Frequency = localStorage.getItem("Payment_Frequency");
+const Bond_Type = localStorage.getItem("Bond_Type");
+const Maturity_Date = localStorage.getItem("Maturity_Date");
+const OPEN_INTEREST = localStorage.getItem("OPEN_INTEREST");
+const Face_Value = localStorage.getItem("Face_Value");
+const SERIES = localStorage.getItem("SERIES");
+//const Market_Sector = localStorage.getItem("Market_Sector");
 
 let url = "https://securitymasterdataspie.onrender.com/Master_Data";
 // url+='EXC_CODE='+exc;
 // console.log(url);
 
-if (EXC_CODE == "") {
+if (Name == "") {
   url = url;
 } else {
-  url += "EXC_CODE=" + EXC_CODE;
+  url += "Name=" + Name;
 }
 
-if (name == "") {
+if (Asset_Class == "") {
   url = url;
 } else {
-  url += "&NAME=" + name;
+  url += "&Asset_Class=" + Asset_Class;
 }
 
-if (Currency == "") {
+if (FIGI == "") {
   url = url;
 } else {
-  url += "&CRNCY=" + Currency;
+  url += "&FIGI=" + FIGI;
 }
 
-if (cusip == "") {
+if (ISIN == "") {
   url = url;
 } else {
-  url += "&CUSIP=" + cusip;
+  url += "&ISIN=" + ISIN;
 }
 
-if (isin == "") {
+if (Ticker == "") {
   url = url;
 } else {
-  url += "&ISIN=" + isin;
+  url += "&Ticker=" + Ticker;
 }
 
-if (sedol == "") {
+if (Security_Type == "") {
   url = url;
 } else {
-  url += "&SEDOL=" + sedol;
+  url += "&Security_Type=" + Security_Type;
 }
 
-if (bb_globalid == "") {
+if (Credit_Rating == "") {
   url = url;
 } else {
-  url += "&ID_BB_GLOBAL=" + bb_globalid;
+  url += "&Credit_Rating=" + Credit_Rating;
 }
 
-if (security_type == "") {
+if (Security_Type_2 == "") {
   url = url;
 } else {
-  url += "&SECURITY_TYPE=" + security_type;
+  url += "&Security_Type_2=" + Security_Type_2;
 }
 
 //  if(Securtiy_type_2 == ""){
@@ -111,84 +111,84 @@ if (security_type == "") {
 //     url+='&SECURITY_TYPE2='+Securtiy_type_2;
 //  }
 
-if (Country_issue == "") {
+if (Exchange_Code == "") {
   url = url;
 } else {
-  url += "&CNTRY_ISSUE=" + Country_issue;
-}
-
-if (Ticker == "") {
-  url = url;
-} else {
-  url += "&TICKER=" + Ticker;
-}
-
-if (Security_discription == "") {
-  url = url;
-} else {
-  url += "&SEC_DESCRIPTION=" + Security_discription;
-}
-
-if (ICRA_rating == "") {
-  url = url;
-} else {
-  url += "&ICRA_RATING=" + ICRA_rating;
-}
-
-if (MOODY_rating == "") {
-  url = url;
-} else {
-  url += "&MOODY_RATING=" + MOODY_rating;
-}
-
-if (Active_Switch == "") {
-  url = url;
-} else {
-  url += "&ACTIVE_SWITCH=" + Active_Switch;
-}
-
-if (FUT_Category == "") {
-  url = url;
-} else {
-  url += "&FUTURES_CATEGORY=" + FUT_Category;
-}
-
-if (FUT_EXG_NAME == "") {
-  url = url;
-} else {
-  url += "&FUR_EXCH_NAME_LONG=" + FUT_EXG_NAME;
-}
-
-if (FUT_Trading_Unit == "") {
-  url = url;
-} else {
-  url += "&FUT_TRADING_UNITS=" + FUT_Trading_Unit;
-}
-
-if (FUT_TICK_SIZE == "") {
-  url = url;
-} else {
-  url += "&FUT_TICK_SIZE=" + FUT_TICK_SIZE;
+  url += "&Exchange_Code=" + Exchange_Code;
 }
 
 if (Market_Sector == "") {
   url = url;
 } else {
-  url += "&MARKET_SECTOR=" + Market_Sector;
+  url += "&Market_Sector=" + Market_Sector;
 }
 
-if (FUT_TICK_Value == "") {
+if (Country_of_Exposure == "") {
   url = url;
 } else {
-  url += "&FUT_TICK_VALUE=" + FUT_TICK_Value;
+  url += "&Country_of_Exposure=" + Country_of_Exposure;
 }
 
-localStorage.setItem("url", url);
+if (Security_ID == "") {
+  url = url;
+} else {
+  url += "&Security_ID=" + Security_ID;
+}
+
+if (LISTING_DATE == "") {
+  url = url;
+} else {
+  url += "&LISTING_DATE=" + LISTING_DATE;
+}
+
+if (Payment_Frequency == "") {
+  url = url;
+} else {
+  url += "&Payment_Frequency=" + Payment_Frequency;
+}
+
+if (Bond_Type == "") {
+  url = url;
+} else {
+  url += "&Bond_Type=" + Bond_Type;
+}
+
+if (Maturity_Date == "") {
+  url = url;
+} else {
+  url += "&Maturity_Date=" + Maturity_Date;
+}
+
+if (OPEN_INTEREST == "") {
+  url = url;
+} else {
+  url += "&OPEN_INTEREST=" + OPEN_INTEREST;
+}
+
+if (Face_Value == "") {
+  url = url;
+} else {
+  url += "&Face_Value=" + Face_Value;
+}
+
+if (SERIES == "") {
+  url = url;
+} else {
+  url += "&SERIES=" + SERIES;
+}
+
+// if (FUT_TICK_Value == "") {
+//   url = url;
+// } else {
+//   url += "&FUT_TICK_VALUE=" + FUT_TICK_Value;
+// }
+
+localStorage.setItem("URL1", url);
 
 
 
-console.log(url);
+console.log(URL1);
 
-fetch(url)
+fetch(URL1)
   .then((res) => res.json())
   .then((data) => console.log(data));
