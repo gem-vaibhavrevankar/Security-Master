@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Security Data</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,46 +11,25 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
-
 <body>
   <div class="button-container">
     <a class="button" href="extendedinput1.html">Back</a>
   </div>
-
   <div style="text-align: center; align-items: center; display: flex;">
     <img src="Data.png" alt="Image Description">
     <h1 class="logo">credentials Data</h1>
   </div>
-
   <div>
     <button id="refresh-button">Clear Filter</button>
   </div>
-
-  <div style=" text-align: center;">
-    <label for="Assetclass">Asset Class</label>
-    <select name="Assetclass" id="Assetclass" onchange="showTable()">
-      <option value="data-table">All</option>
-      <option value="Fixed_Income">Fixed Income</option>
-    <option value="Equities">Equities</option>
-    <option value="Commodities">Commodities</option>
-    <option value="Real_State">Currency</option>
-    </select>
-    
-  </div>
-
-  <!-- <div id="Asset-drop" style="text-align: center;">
+  <div id="Asset-drop" style="text-align: center;">
     <label for="Asset-dropdown">Asset Class</label>
     <select id="Asset-dropdown" class="table-filter">
-
     </select>
-  </div> -->
-
+  </div>
   <div class="search-container">
     <input type="text" id="search" placeholder="Search...">
   </div>
-
-
-
   <div textalign="right">
     <button type="button" class="icon-button" id="btnpen">
       <span class="material-icons">REQ</span>
@@ -63,10 +41,6 @@
     <!-- Add this button where you want to place it in your HTML -->
     <button id="export-button">Export</button>
   </div>
-
-  
-
-
   <div id="rows-dropdown-container">
     <label for="rows-dropdown">Rows per page:</label>
     <select id="rows-dropdown">
@@ -77,9 +51,8 @@
       <option value="All">All</option>
     </select>
   </div>
-
-  <div id="table-container" >
-    <table id="data-table" class="styled-table" class="hidden" >
+  <div id="table-container">
+    <table id="data-table" class="styled-table">
       <thead>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -137,12 +110,6 @@
           <td colspan="">Total Pages: <span id="total-pages">0</span></td>
         </tr>
       </tfoot>
-
-
-      
-
-
-      
       <!-- <tfoot>
         <tr>
           <td colspan="">Total Rows: <span id="total-rows">0</span></td>
@@ -162,369 +129,8 @@
             <span class="icon-button__badge" id="notibadge">10</span>
             </button>
            </div> -->
-
-      
+      </div>
     </table>
-    </div>
-
-    <!-- Fixed Income -->
-
-
-    <div id="table-container" >
-      <table id="Fixed_Income" class="styled-table" class="hidden" >
-        <thead>
-          <tr>
-            <td colspan="">Total Rows: <span id="total-rowsf">0</span></td>
-            <td colspan="">Total Columns: <span id="total-columnsf">0</span></td>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <!-- <th>Hey</th> -->
-            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
-            <th column-name="Name">Name</th>
-            <th column-name="Asset_Class">Asset Class</th>
-            <th column-name="Bond_Type">Bond Type</th>
-            <th column-name="Coupon_Rate">Coupon Rate</th>
-            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
-            <th data-type="numeric" column-name="Face_Value">Face Value</th>
-            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
-            <th data-type="numeric" column-name="Current_Price">Current Price</th>
-            <th column-name="Credit_Rating">Credit Rating</th>
-            <th column-name="Country_of_Exposure">Country of Exposure</th>
-            <th column-name="Payment_Frequency">Payment Frequency</th>
-            <th data-type="numeric" column-name="Security_ID">Security ID</th>
-            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
-            <th column-name="Security_Type_2">Security Type 2</th>
-            <th data-type="numeric" column-name="FIGI">FIGI</th>
-            <th column-name="Ticker">Ticker</th>
-            <!-- <th data-type="numeric" column-name="Market_Sector">Market Sector</th> -->
-
-
-            <!-- <th column-name="FIGI_Composite">FIGI Composite</th>
-            <th column-name="Share_Class">Share Class</th>
-            <th column-name="Security_Description">Security Description</th>
-            <th column-name="Security_Type">Security Type</th>
-            <th column-name="SERIES">SERIES</th>
-            <th column-name="COUPON_RATE">COUPON RATE</th>
-            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
-            <th data-type="numeric" column-name="LTP">LTP</th>
-            <th column-name="CHNG">PERCENT CHANGE</th>
-            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
-            <th column-name="ISIN">ISIN</th>
-            <th column-name="CREDIT_RATING">CREDIT RATING</th>
-            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
-            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
-            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
-            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
-            <th column-name="SYMBOL">SYMBOL</th>
-            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
-            <th column-name="OPTION_TYPE">OPTION TYPE</th>
-            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
-            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
-            <th column-name="CHNG">CHANGE</th>
-            <th data-type="numeric" column-name="OPEN">OPEN</th>
-            <th data-type="numeric" column-name="HIGH">HIGH</th>
-            <th data-type="numeric" column-name="LOW">LOW</th>
-            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
-             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
-            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
-            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
-            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
-            <th column-name="Pair_FIGI">Pair FIGI</th>
-            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
-            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> --> 
-            <!-- Add more table headings as needed -->
-
-
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table body will be populated dynamically -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="">Current Page: <span id="current-page">0</span></td>
-            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
-          </tr>
-        </tfoot>
-  
-  
-        
-  
-  
-        
-        <!-- <tfoot>
-          <tr>
-            <td colspan="">Total Rows: <span id="total-rows">0</span></td>
-            <td colspan="">Total Columns: <span id="total-columns">0</span></td>
-          </tr>
-        </tfoot> -->
-        <!-- Add Entry and Delete Entry buttons within the same container -->
-        <!-- <button id="add-entry-button">Add Entry</button>
-        <button id="update-entry-button">Update Entry</button>
-        <div>
-          <label for="id-to-delete">Enter ID to Delete:</label>
-          <input type="text" id="id-to-delete" placeholder="ID">
-          <button id="delete-button">Delete</button> -->
-          <!-- <div textalign = "right">
-              <button type="button" class="icon-button" id="btnpen">
-              <span class="material-icons"></span>
-              <span class="icon-button__badge" id="notibadge">10</span>
-              </button>
-             </div> -->
-  
-        
-      </table>
-    </div>
-    
-
-
-
-
-
-    <!-- Fixed Income -->
-
-    <!-- Equities -->
-      <table id="Equities"  class="styled-table" class="hidden" >
-        <thead>
-          <tr>
-            <td colspan="">Total Rows: <span id="total-rowse">0</span></td>
-            <td colspan="">Total Columns: <span id="total-columnse">0</span></td>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <!-- <th>Equities</th> -->
-            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
-            <th column-name="Name">Name</th>
-            <!-- <th column-name="Asset_Class">Asset Class</th> -->
-            <!-- <th column-name="Bond_Type">Bond Type</th> -->
-            <!-- <th column-name="Coupon_Rate">Coupon Rate</th> -->
-            <!-- <th data-type="date" column-name="Maturity_Date">Maturity Date</th> -->
-            <!-- <th data-type="numeric" column-name="Face_Value">Face Value</th> -->
-            <!-- <th column-name="Yield_to_Maturity">Yield to Maturity</th> -->
-            <!-- <th data-type="numeric" column-name="Current_Price">Current Price</th> -->
-            <!-- <th column-name="Credit_Rating">Credit Rating</th> -->
-            <!-- <th column-name="Country_of_Exposure">Country of Exposure</th> -->
-            <!-- <th column-name="Payment_Frequency">Payment Frequency</th> -->
-            <!-- <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
-            <th  column-name="Exchange_Code">Exchange Code</th>
-            <th column-name="Security_Type_2">Security Type 2</th>
-            <th  column-name="FIGI">FIGI</th>
-            <th column-name="Ticker">Ticker</th>
-            <th column-name="Market_Sector">Market Sector</th>
-            <th column-name="FIGI_Composite">FIGI Composite</th>
-            <th column-name="Share_Class">Share Class</th>
-            <th column-name="Security_Description">Security Description</th> 
-            <th column-name="Security_Type">Security Type</th>
-            <!-- <th column-name="SERIES">SERIES</th> -->
-            <!-- <th column-name="COUPON_RATE">COUPON RATE</th>
-            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
-            <th data-type="numeric" column-name="LTP">LTP</th>
-            <th column-name="CHNG">PERCENT CHANGE</th>
-            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
-            <th column-name="ISIN">ISIN</th>
-            <th column-name="CREDIT_RATING">CREDIT RATING</th>
-            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
-            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
-            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
-            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
-            <th column-name="SYMBOL">SYMBOL</th>
-            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
-            <th column-name="OPTION_TYPE">OPTION TYPE</th>
-            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
-            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
-            <th column-name="CHNG">CHANGE</th>
-            <th data-type="numeric" column-name="OPEN">OPEN</th>
-            <th data-type="numeric" column-name="HIGH">HIGH</th>
-            <th data-type="numeric" column-name="LOW">LOW</th>
-            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
-             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
-            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
-            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
-            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>-->
-            <th column-name="Pair_FIGI">Pair FIGI</th>
-            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
-            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> 
-            <!-- Add more table headings as needed -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table body will be populated dynamically -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="">Current Page: <span id="current-page">0</span></td>
-            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
-          </tr>
-        </tfoot>
-        </table>
-
-    <!-- Equities -->
-
-    <!-- Commodities -->
-    <div id="table-container">
-      <table id="Commodities"  class="styled-table" class="hidden" >
-        <thead>
-          <tr>
-            <td colspan="">Total Rows: <span id="total-rowsc">0</span></td>
-            <td colspan="">Total Columns: <span id="total-columnsc">0</span></td>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <!-- <th>Commodities</th> -->
-            <!-- <th data-type="numeric" column-name="ID">ID</th> -->
-            <th column-name="Name">Name</th>
-            <!-- <th column-name="Asset_Class">Asset Class</th> -->
-            <!-- <th column-name="Bond_Type">Bond Type</th>
-            <th column-name="Coupon_Rate">Coupon Rate</th>
-            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
-            <th data-type="numeric" column-name="Face_Value">Face Value</th>
-            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
-            <th data-type="numeric" column-name="Current_Price">Current Price</th>
-            <th column-name="Credit_Rating">Credit Rating</th>
-            <th column-name="Country_of_Exposure">Country of Exposure</th>
-            <th column-name="Payment_Frequency">Payment Frequency</th>
-            <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
-            <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
-            <th column-name="Security_Type_2">Security Type 2</th>
-            <th  column-name="FIGI">FIGI</th>
-            <th column-name="Ticker">Ticker</th>
-            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
-            <th column-name="FIGI_Composite">FIGI Composite</th>
-            <th column-name="Share_Class">Share Class</th>
-            <th column-name="Security_Description">Security Description</th>
-            <th column-name="Security_Type">Security Type</th>
-            <!-- <th column-name="SERIES">SERIES</th>
-            <th column-name="COUPON_RATE">COUPON RATE</th>
-            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
-            <th data-type="numeric" column-name="LTP">LTP</th>
-            <th column-name="CHNG">PERCENT CHANGE</th>
-            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
-            <th column-name="ISIN">ISIN</th>
-            <th column-name="CREDIT_RATING">CREDIT RATING</th>
-            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
-            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th>
-            <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
-            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th>
-            <th column-name="SYMBOL">SYMBOL</th>
-            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
-            <th column-name="OPTION_TYPE">OPTION TYPE</th>
-            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
-            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
-            <th column-name="CHNG">CHANGE</th>
-            <th data-type="numeric" column-name="OPEN">OPEN</th>
-            <th data-type="numeric" column-name="HIGH">HIGH</th>
-            <th data-type="numeric" column-name="LOW">LOW</th>
-            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
-             <th data-type="numeric" column-name="VALUE">VALUE</th> -->
-            <!-- <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
-            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
-            <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
-            <th column-name="Pair_FIGI">Pair FIGI</th>
-            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
-            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th>  -->
-            <!-- Add more table headings as needed -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table body will be populated dynamically -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="">Current Page: <span id="current-page">0</span></td>
-            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
-          </tr>
-        </tfoot>
-        </table>
-
-
-    <!-- Commodities -->
-    
-    <!-- Real State -->
-    <div id="table-container">
-      <table id="Real_State" class="styled-table" class="hidden" >
-        <thead>
-          <tr>
-            <td colspan="">Total Rows: <span id="total-rowsr">0</span></td>
-            <td colspan="">Total Columns: <span id="total-columnsr">0</span></td>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <th>Currency</th>
-            <th data-type="numeric" column-name="ID">ID</th>
-            <th column-name="Name">Name</th>
-            <th column-name="Asset_Class">Asset Class</th>
-            <!-- <th column-name="Bond_Type">Bond Type</th>
-            <th column-name="Coupon_Rate">Coupon Rate</th>
-            <th data-type="date" column-name="Maturity_Date">Maturity Date</th>
-            <th data-type="numeric" column-name="Face_Value">Face Value</th>
-            <th column-name="Yield_to_Maturity">Yield to Maturity</th>
-            <th data-type="numeric" column-name="Current_Price">Current Price</th>
-            <th column-name="Credit_Rating">Credit Rating</th>
-            <th column-name="Country_of_Exposure">Country of Exposure</th>
-            <th column-name="Payment_Frequency">Payment Frequency</th>
-            <th data-type="numeric" column-name="Security_ID">Security ID</th> -->
-            <!-- <th data-type="numeric" column-name="Exchange_Code">Exchange Code</th>
-            <th column-name="Security_Type_2">Security Type 2</th>
-            
-            <th column-name="Ticker">Ticker</th>
-            <th data-type="numeric" column-name="Market_Sector">Market Sector</th>
-            <th column-name="FIGI_Composite">FIGI Composite</th>
-            <th column-name="Share_Class">Share Class</th>
-            <th column-name="Security_Description">Security Description</th>
-            <th column-name="Security_Type">Security Type</th> -->
-            <!-- <th column-name="SERIES">SERIES</th>
-            <th column-name="COUPON_RATE">COUPON RATE</th>
-            <th data-type="numeric" column-name="FACE_VALUE">FACE VALUE</th>
-            <th data-type="numeric" column-name="LTP">LTP</th>
-            <th column-name="CHNG">PERCENT CHANGE</th>
-            <th data-type="numeric" column-name="VOLUME_VALUE">VOLUME VALUE</th>
-            <th column-name="ISIN">ISIN</th>
-            <th column-name="CREDIT_RATING">CREDIT RATING</th>
-            <th column-name="TOTAL NO OF BONDS">TOTAL NO OF BONDS</th>
-            <th data-type="date" column-name="LISTING DATE">LISTING DATE</th> -->
-            <!-- <th data-type="date" column-name="NEXT_INTEREST_PAYMENT_DATE">NEXT INTEREST PAYMENT DATE</th>
-            <th column-name="ISSUE_DESCIPTION">ISSUE DESCIPTION</th> -->
-            <th column-name="SYMBOL">SYMBOL</th>
-            <th data-type="numeric" column-name="FIGI">FIGI</th>
-            <th data-type="date" column-name="EXPIRY_DATE">EXPIRY DATE</th>
-            <th column-name="OPTION_TYPE">OPTION TYPE</th>
-            <th data-type="numeric" column-name="STRIKE">STRIKE</th>
-            <th data-type="numeric" column-name="SPREAD">SPREAD</th>
-            <th column-name="CHNG">CHANGE</th>
-            <th data-type="numeric" column-name="OPEN">OPEN</th>
-            <th data-type="numeric" column-name="HIGH">HIGH</th>
-            <th data-type="numeric" column-name="LOW">LOW</th>
-            <th data-type="numeric" column-name="VOLUME">VOLUME</th>
-            <!-- <th data-type="numeric" column-name="VALUE">VALUE</th> -->
-            <th data-type="numeric" column-name="OPEN_INTEREST">OPEN INTEREST</th>
-            <th data-type="numeric" column-name="NO_OF_TRADES">NO OF TRADES</th>
-            <!-- <th data-type="numeric" column-name="UNDERLYING_VALUE">UNDERLYING VALUE</th>
-            <th column-name="Pair_FIGI">Pair FIGI</th>
-            <th column-name="Base_Asset_FIGI">Base Asset FIGI</th>
-            <th column-name="Quote_Asset_FIGI">Quote Asset FIGI</th> -->
-            <!-- Add more table headings as needed -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table body will be populated dynamically -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="">Current Page: <span id="current-page">0</span></td>
-            <td colspan="">Total Pages: <span id="total-pages">0</span></td>
-          </tr>
-        </tfoot>
-        </table>
-    <!-- Real State -->
-    
-
-
-
     <div id="pagination-container">
       <button id="prev-page">◄</button>
       <div id="page-number-container">
@@ -533,13 +139,9 @@
       <button id="next-page">►</button>
     </div>
   </div>
-
-
-
-
   <div id="update-entry-modal" class="modal">
     <div class="modal-content">
-      <span class="close" id="close-update-modal">&times;</span> 
+      <span class="close" id="close-update-modal">&times;</span>
       <h2>Update Entry</h2>
       <p><span style="color: red;">*</span>represents mandatory fields</p>
       <div class="scrollable-form-container">
@@ -553,221 +155,183 @@
             <label for="update-name">Name:</label>
             <input type="text" id="update-name" name="name" placeholder="Name">
           </div>
-
           <!-- Asset Class -->
           <div class="form-group">
             <label for="update-asset-class">Asset Class:</label>
             <input type="text" id="update-asset-class" name="asset_class" placeholder="Asset Class">
           </div>
-
           <!-- Bond Type -->
           <div class="form-group">
             <label for="update-bond-type">Bond Type:</label>
             <input type="text" id="update-bond-type" name="bond_type" placeholder="Bond Type">
           </div>
-
           <!-- Coupon Rate -->
           <div class="form-group">
             <label for="update-coupon-rate">Coupon Rate:</label>
             <input type="text" id="update-coupon-rate" name="coupon_rate" placeholder="Coupon Rate">
           </div>
-
           <!-- Maturity Date -->
           <div class="form-group">
             <label for="update-maturity-date">Maturity Date:</label>
             <input type="text" id="update-maturity-date" name="maturity_date" placeholder="Maturity Date">
           </div>
-
           <!-- Face Value -->
           <div class="form-group">
             <label for="update-face-value">Face Value:</label>
             <input type="text" id="update-face-value" name="face_value" placeholder="Face Value">
           </div>
-
           <!-- Yield to Maturity -->
           <div class="form-group">
             <label for="update-yield-to-maturity">Yield to Maturity:</label>
             <input type="text" id="update-yield-to-maturity" name="yield_to_maturity" placeholder="Yield to Maturity">
           </div>
-
           <!-- Current Price -->
           <div class="form-group">
             <label for="update-current-price">Current Price:</label>
             <input type="text" id="update-current-price" name="current_price" placeholder="Current Price">
           </div>
-
           <!-- Credit Rating -->
           <div class="form-group">
             <label for="update-credit-rating">Credit Rating:</label>
             <input type="text" id="update-credit-rating" name="credit_rating" placeholder="Credit Rating">
           </div>
-
           <!-- Country of Exposure -->
           <div class="form-group">
             <label for="update-country-of-exposure">Country of Exposure:</label>
             <input type="text" id="update-country-of-exposure" name="country_of_exposure"
               placeholder="Country of Exposure">
           </div>
-
           <!-- Payment Frequency -->
           <div class="form-group">
             <label for="update-payment-frequency">Payment Frequency:</label>
             <input type="text" id="update-payment-frequency" name="payment_frequency" placeholder="Payment Frequency">
           </div>
-
           <!-- Security ID -->
           <div class="form-group">
             <label for="update-security-id">Security ID:</label>
             <input type="text" id="update-security-id" name="security_id" placeholder="Security ID">
           </div>
-
           <!-- Exchange Code -->
           <div class="form-group">
             <label for="update-exc-code">Exchange Code:</label>
             <input type="text" id="update-exc-code" name="exc_code" placeholder="Exchange Code">
           </div>
-
           <!-- Security Type 2 -->
           <div class="form-group">
             <label for="update-security-type2">Security Type 2:</label>
             <input type="text" id="update-security-type2" name="security_type2" placeholder="Security Type 2">
           </div>
-
           <!-- FIGI -->
           <div class="form-group">
             <label for="update-figi">FIGI:</label>
             <input type="text" id="update-figi" name="figi" placeholder="FIGI">
           </div>
-
           <!-- Ticker -->
           <div class="form-group">
             <label for="update-ticker">Ticker:</label>
             <input type="text" id="update-ticker" name="ticker" placeholder="Ticker">
           </div>
-
           <!-- Market Sector -->
           <div class="form-group">
             <label for="update-market-sector">Market Sector:</label>
             <input type="text" id="update-market-sector" name="market_sector" placeholder="Market Sector">
           </div>
-
           <!-- Share Class -->
           <div class="form-group">
             <label for="update-share-class">Share Class:</label>
             <input type="text" id="update-share-class" name="share_class" placeholder="Share Class">
           </div>
-
           <!-- Security Description -->
           <div class="form-group">
             <label for="update-sec-description">Security Description:</label>
             <input type="text" id="update-sec-description" name="sec_description" placeholder="Security Description">
           </div>
-
           <!-- Security Type -->
           <div class="form-group">
             <label for="update-security-type">Security Type:</label>
             <input type="text" id="update-security-type" name="security_type" placeholder="Security Type">
           </div>
-
           <!-- Series -->
           <div class="form-group">
             <label for="update-series">Series:</label>
             <input type="text" id="update-series" name="series" placeholder="Series">
           </div>
-
           <!-- ISIN -->
           <div class="form-group">
             <label for="update-isin">ISIN:</label>
             <input type="text" id="update-isin" name="isin" placeholder="ISIN">
           </div>
-
           <!-- Listing Date -->
           <div class="form-group">
             <label for="update-listing-date">Listing Date:</label>
             <input type="text" id="update-listing-date" name="listing_date" placeholder="Listing Date">
           </div>
-
           <!-- Next Interest Payment Date -->
           <div class="form-group">
             <label for="update-next-interest-payment-date">Next Interest Payment Date:</label>
             <input type="text" id="update-next-interest-payment-date" name="next_interest_payment_date" placeholder="Next Interest Payment Date">
           </div>
-
           <!-- Issue Description -->
           <div class="form-group">
             <label for="update-issue-description">Issue Description:</label>
             <input type="text" id="update-issue-description" name="issue_description" placeholder="Issue Description">
           </div>
-
           <!-- Expiry Date -->
           <div class="form-group">
             <label for="update-expiry-date">Expiry Date:</label>
             <input type="text" id="update-expiry-date" name="expiry_date" placeholder="Expiry Date">
           </div>
-
           <!-- Option Type -->
           <div class="form-group">
             <label for="update-option-type">Option Type:</label>
             <input type="text" id="update-option-type" name="option_type" placeholder="Option Type">
           </div>
-
           <!-- Strike -->
           <div class="form-group">
             <label for="update-strike">Strike:</label>
             <input type="text" id="update-strike" name="strike" placeholder="Strike">
           </div>
-
           <!-- Spread -->
           <div class="form-group">
             <label for="update-spread">Spread:</label>
             <input type="text" id="update-spread" name="spread" placeholder="Spread">
           </div>
-
           <!-- Change -->
           <div class="form-group">
             <label for="update-change">Change:</label>
             <input type="text" id="update-change" name="change" placeholder="Change">
           </div>
-
           <!-- Open -->
           <div class="form-group">
             <label for="update-open">Open:</label>
             <input type="text" id="update-open" name="open" placeholder="Open">
           </div>
-
           <!-- High -->
           <div class="form-group">
             <label for="update-high">High:</label>
             <input type="text" id="update-high" name="high" placeholder="High">
           </div>
-
           <!-- Low -->
           <div class="form-group">
             <label for="update-low">Low:</label>
             <input type="text" id="update-low" name="low" placeholder="Low">
           </div>
-
           <!-- Open Interest -->
           <div class="form-group">
             <label for="update-open-interest">Open Interest:</label>
             <input type="text" id="update-open-interest" name="open_interest" placeholder="Open Interest">
           </div>
-
           <!-- No of Trades -->
           <div class="form-group">
             <label for="update-no-of-trades">No of Trades:</label>
             <input type="text" id="update-no-of-trades" name="no_of_trades" placeholder="No of Trades">
           </div>
-
           <!-- Underlying Value -->
           <div class="form-group">
             <label for="update-underlying-value">Underlying Value:</label>
             <input type="text" id="update-underlying-value" name="underlying_value" placeholder="Underlying Value">
           </div>
-
-
           <!-- Add any additional attributes here -->
-
           <div class="form-group">
             <button type="submit">Update Entry</button>
           </div>
@@ -775,9 +339,6 @@
       </div>
     </div>
   </div>
-
-
-
   <div id="add-entry-modal" class="modal">
     <div class="modal-content">
         <span class="close" id="close-modal">&times;</span>
@@ -790,6 +351,8 @@
                     <input type="text" id="add-name" name="name" placeholder="Name" required>
                 </div>
                 <div class="form-group">
+                    <label for="add-asset-class">Asset Class:</label>
+                    <input type="text" id="add-asset-class" name="asset_class" placeholder="Asset Class">
                     <label for="add-asset-class"><span style="color: red;">*</span>Asset Class:</label>
                     <input type="text" id="add-asset-class" name="asset_class" placeholder="Asset Class" required>
                 </div>
@@ -930,7 +493,6 @@
                     <input type="text" id="add-underlying-value" name="underlying_value" placeholder="Underlying Value">
                 </div>
                 <!-- Add the remaining attributes here -->
-
                 <div class="form-group">
                     <button type="submit">Add Entry</button>
                 </div>
@@ -938,9 +500,6 @@
         </div>
     </div>
 </div>
-
-
-
   <script src="table.js"></script>
   <script src="post.js"></script>
   <script src="delete.js"></script>
@@ -948,7 +507,5 @@
   <script src="sort.js"></script>
   <script type="module" src="request.js"></script>
   <script type="module" src="connect.js"></script>
-
 </body>
-
 </html>
