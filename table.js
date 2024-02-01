@@ -166,8 +166,8 @@ function fetchDataAndPopulateTable() {
 
 function fetchDataAndPopulateTable2() {
   // Replace this URL with the actual URL of your JSON API
-  // const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc";
-  const apiUrl = localStorage.getItem('url');
+  const apiUrl = "https://securitymasterdataspie.onrender.com/Asset_Class_fixed_inc";
+  // const apiUrl = localStorage.getItem('url');
   console.log(apiUrl);
 
   // Fetch data from the API
@@ -210,7 +210,6 @@ function fetchDataAndPopulateTable2() {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.Name}</td>
-            <td data-column="Asset_Class">${item.Asset_Class}</td>
             <td>${item.Bond_Type}</td>
             <td>${item.Coupon_Rate}</td>
             <td>${item.Maturity_Date}</td>
@@ -232,10 +231,10 @@ function fetchDataAndPopulateTable2() {
       }
 
       const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
-      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+      const numberOfColumns = document.querySelectorAll("#Fixed_Income thead:nth-of-type(2) th").length; // Get the number of columns in the thead
 
-      document.getElementById("total-rows").textContent = numberOfRows;
-      document.getElementById("total-columns").textContent = numberOfColumns;
+      document.getElementById("total-rowsf").textContent = numberOfRows;
+      document.getElementById("total-columnsf").textContent = numberOfColumns;
       
       // Recalculate totalPages after fetching data
       calculateTotalPages();
@@ -328,10 +327,10 @@ function fetchDataAndPopulateTable3() {
       }
 
       const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
-      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+      const numberOfColumns = document.querySelectorAll("#Equities thead:nth-of-type(2) th").length; // Get the number of columns in the thead
 
-      document.getElementById("total-rows").textContent = numberOfRows;
-      document.getElementById("total-columns").textContent = numberOfColumns;
+      document.getElementById("total-rowse").textContent = numberOfRows;
+      document.getElementById("total-columnse").textContent = numberOfColumns;
       
       // Recalculate totalPages after fetching data
       calculateTotalPages();
@@ -417,10 +416,10 @@ function fetchDataAndPopulateTable4() {
       }
 
       const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
-      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+      const numberOfColumns = document.querySelectorAll("#Commodities thead:nth-of-type(2) th").length; // Get the number of columns in the thead
 
-      document.getElementById("total-rows").textContent = numberOfRows;
-      document.getElementById("total-columns").textContent = numberOfColumns;
+      document.getElementById("total-rowsc").textContent = numberOfRows;
+      document.getElementById("total-columnsc").textContent = numberOfColumns;
       
       // Recalculate totalPages after fetching data
       calculateTotalPages();
@@ -541,10 +540,10 @@ function fetchDataAndPopulateTable5() {
       }
 
       const numberOfRows = table.tBodies[0].rows.length; // Get the number of rows in the tbody
-      const numberOfColumns = document.querySelectorAll("#data-table thead:nth-of-type(2) th").length; // Get the number of columns in the thead
+      const numberOfColumns = document.querySelectorAll("#Real_State thead:nth-of-type(2) th").length; // Get the number of columns in the thead
 
-      document.getElementById("total-rows").textContent = numberOfRows;
-      document.getElementById("total-columns").textContent = numberOfColumns;
+      document.getElementById("total-rowsr").textContent = numberOfRows;
+      document.getElementById("total-columnsr").textContent = numberOfColumns;
       
       // Recalculate totalPages after fetching data
       calculateTotalPages();
