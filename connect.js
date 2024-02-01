@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
 
 });
 
-const name = localStorage.getItem("Name");
+const Name = localStorage.getItem("Name");
 const Asset_Class = localStorage.getItem("Asset_Class");
 const FIGI = localStorage.getItem("FIGI");
 const ISIN = localStorage.getItem("ISIN");
@@ -183,7 +183,7 @@ if (SERIES == "") {
 //   url += "&FUT_TICK_VALUE=" + FUT_TICK_Value;
 // }
 
-localStorage.setItem("URL1", url);
+localStorage.setItem("hey", url);
 
 
 
